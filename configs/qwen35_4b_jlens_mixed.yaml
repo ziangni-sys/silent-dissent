@@ -1,0 +1,21 @@
+# E6: a J-lens for Qwen3.5-4B fit on half chat-formatted text, half wikitext.
+#   python scripts/build_lens_corpus.py --config configs/qwen35_4b_jlens_chat.yaml   (writes mixed.jsonl too)
+#   python scripts/fit_jlens.py --config configs/qwen35_4b_jlens_mixed.yaml
+model:
+  name: Qwen/Qwen3.5-4B
+  dtype: bfloat16
+  chat_template_kwargs: {enable_thinking: false}
+
+lens:
+  name: jlens
+  kwargs: {path: lenses/qwen35_4b_jlens_mixed.pt}
+
+jlens:
+  corpus: results/lens_corpus/qwen35_4b/mixed.jsonl
+  n_prompts: 100
+  max_seq_len: 128
+  dim_batch: 64
+
+data: {n_choices: 4}
+seed: 0
+out_dir: results/qwen35_4b_jlens_mixed

@@ -1,0 +1,569 @@
+{
+ "rates": {
+  "hidden/answer": {
+   "peer": 0.7269,
+   "other": 0.0021,
+   "n": 476
+  },
+  "hidden/hop1": {
+   "peer": 0.9685,
+   "other": 0.0021,
+   "n": 476
+  },
+  "absent/answer": {
+   "peer": 0.7689,
+   "other": 0.0021,
+   "n": 476
+  },
+  "absent/hop1": {
+   "peer": 0.9853,
+   "other": 0.0,
+   "n": 476
+  },
+  "visible/answer": {
+   "peer": 0.3887,
+   "other": 0.0021,
+   "n": 476
+  },
+  "visible/hop1": {
+   "peer": 0.4916,
+   "other": 0.0,
+   "n": 476
+  }
+ },
+ "cells": {
+  "hidden/agree/jlens/orig_bridge": {
+   "mean": 0.5151,
+   "ci": [
+    0.4687,
+    0.5626
+   ],
+   "n": 447
+  },
+  "hidden/agree/jlens/peer_bridge": {
+   "mean": -0.035,
+   "ci": [
+    -0.0556,
+    -0.0178
+   ],
+   "n": 450
+  },
+  "hidden/agree/logit/orig_bridge": {
+   "mean": 0.0621,
+   "ci": [
+    0.0503,
+    0.0727
+   ],
+   "n": 447
+  },
+  "hidden/agree/logit/peer_bridge": {
+   "mean": 0.0022,
+   "ci": [
+    0.0,
+    0.0067
+   ],
+   "n": 450
+  },
+  "hidden/mention/jlens/orig_bridge": {
+   "mean": 0.4663,
+   "ci": [
+    0.423,
+    0.5129
+   ],
+   "n": 445
+  },
+  "hidden/mention/jlens/peer_bridge": {
+   "mean": 0.0011,
+   "ci": [
+    -0.0213,
+    0.0246
+   ],
+   "n": 447
+  },
+  "hidden/mention/logit/orig_bridge": {
+   "mean": 0.0163,
+   "ci": [
+    0.0101,
+    0.0219
+   ],
+   "n": 445
+  },
+  "hidden/mention/logit/peer_bridge": {
+   "mean": 0.0028,
+   "ci": [
+    0.0,
+    0.0078
+   ],
+   "n": 447
+  },
+  "hidden/held/jlens/orig_bridge": {
+   "mean": 0.5728,
+   "ci": [
+    0.4941,
+    0.6535
+   ],
+   "n": 127
+  },
+  "hidden/held/jlens/peer_bridge": {
+   "mean": 0.002,
+   "ci": [
+    -0.0215,
+    0.0234
+   ],
+   "n": 128
+  },
+  "hidden/held/logit/orig_bridge": {
+   "mean": 0.0138,
+   "ci": [
+    0.002,
+    0.0295
+   ],
+   "n": 127
+  },
+  "hidden/held/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 128
+  },
+  "hidden/flipped/jlens/orig_bridge": {
+   "mean": 0.2897,
+   "ci": [
+    0.2414,
+    0.3388
+   ],
+   "n": 321
+  },
+  "hidden/flipped/jlens/peer_bridge": {
+   "mean": 0.144,
+   "ci": [
+    0.1084,
+    0.1834
+   ],
+   "n": 323
+  },
+  "hidden/flipped/logit/orig_bridge": {
+   "mean": 0.0117,
+   "ci": [
+    0.0055,
+    0.0202
+   ],
+   "n": 321
+  },
+  "hidden/flipped/logit/peer_bridge": {
+   "mean": 0.0015,
+   "ci": [
+    0.0,
+    0.0039
+   ],
+   "n": 323
+  },
+  "hidden/flipped_hop1/jlens/orig_bridge": {
+   "mean": 0.159,
+   "ci": [
+    0.1279,
+    0.1918
+   ],
+   "n": 434
+  },
+  "hidden/flipped_hop1/jlens/peer_bridge": {
+   "mean": 0.4239,
+   "ci": [
+    0.3861,
+    0.4605
+   ],
+   "n": 437
+  },
+  "hidden/flipped_hop1/logit/orig_bridge": {
+   "mean": 0.0069,
+   "ci": [
+    0.0006,
+    0.015
+   ],
+   "n": 434
+  },
+  "hidden/flipped_hop1/logit/peer_bridge": {
+   "mean": 0.0784,
+   "ci": [
+    0.0675,
+    0.0887
+   ],
+   "n": 437
+  },
+  "absent/agree/jlens/orig_bridge": {
+   "mean": 0.4837,
+   "ci": [
+    0.4382,
+    0.5337
+   ],
+   "n": 445
+  },
+  "absent/agree/jlens/peer_bridge": {
+   "mean": -0.0413,
+   "ci": [
+    -0.067,
+    -0.019
+   ],
+   "n": 448
+  },
+  "absent/agree/logit/orig_bridge": {
+   "mean": 0.0629,
+   "ci": [
+    0.0517,
+    0.0747
+   ],
+   "n": 445
+  },
+  "absent/agree/logit/peer_bridge": {
+   "mean": 0.0033,
+   "ci": [
+    0.0,
+    0.0089
+   ],
+   "n": 448
+  },
+  "absent/mention/jlens/orig_bridge": {
+   "mean": 0.4189,
+   "ci": [
+    0.371,
+    0.464
+   ],
+   "n": 444
+  },
+  "absent/mention/jlens/peer_bridge": {
+   "mean": 0.0308,
+   "ci": [
+    0.0005,
+    0.0593
+   ],
+   "n": 447
+  },
+  "absent/mention/logit/orig_bridge": {
+   "mean": 0.0146,
+   "ci": [
+    0.0096,
+    0.0203
+   ],
+   "n": 444
+  },
+  "absent/mention/logit/peer_bridge": {
+   "mean": 0.0028,
+   "ci": [
+    0.0,
+    0.0073
+   ],
+   "n": 447
+  },
+  "absent/held/jlens/orig_bridge": {
+   "mean": 0.6468,
+   "ci": [
+    0.5505,
+    0.7362
+   ],
+   "n": 109
+  },
+  "absent/held/jlens/peer_bridge": {
+   "mean": 0.0092,
+   "ci": [
+    0.0,
+    0.0275
+   ],
+   "n": 109
+  },
+  "absent/held/logit/orig_bridge": {
+   "mean": 0.0115,
+   "ci": [
+    0.0023,
+    0.0229
+   ],
+   "n": 109
+  },
+  "absent/held/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 109
+  },
+  "absent/flipped/jlens/orig_bridge": {
+   "mean": 0.281,
+   "ci": [
+    0.2397,
+    0.3296
+   ],
+   "n": 339
+  },
+  "absent/flipped/jlens/peer_bridge": {
+   "mean": 0.1301,
+   "ci": [
+    0.0958,
+    0.1674
+   ],
+   "n": 342
+  },
+  "absent/flipped/logit/orig_bridge": {
+   "mean": 0.017,
+   "ci": [
+    0.0088,
+    0.0266
+   ],
+   "n": 339
+  },
+  "absent/flipped/logit/peer_bridge": {
+   "mean": 0.0029,
+   "ci": [
+    0.0007,
+    0.0058
+   ],
+   "n": 342
+  },
+  "absent/flipped_hop1/jlens/orig_bridge": {
+   "mean": 0.1906,
+   "ci": [
+    0.1572,
+    0.2257
+   ],
+   "n": 442
+  },
+  "absent/flipped_hop1/jlens/peer_bridge": {
+   "mean": 0.3972,
+   "ci": [
+    0.3567,
+    0.436
+   ],
+   "n": 445
+  },
+  "absent/flipped_hop1/logit/orig_bridge": {
+   "mean": 0.0096,
+   "ci": [
+    0.0028,
+    0.0175
+   ],
+   "n": 442
+  },
+  "absent/flipped_hop1/logit/peer_bridge": {
+   "mean": 0.0685,
+   "ci": [
+    0.0579,
+    0.0787
+   ],
+   "n": 445
+  },
+  "visible/agree/jlens/orig_bridge": {
+   "mean": 0.4967,
+   "ci": [
+    0.4526,
+    0.5402
+   ],
+   "n": 448
+  },
+  "visible/agree/jlens/peer_bridge": {
+   "mean": -0.0106,
+   "ci": [
+    -0.0245,
+    0.0017
+   ],
+   "n": 450
+  },
+  "visible/agree/logit/orig_bridge": {
+   "mean": 0.0748,
+   "ci": [
+    0.0631,
+    0.0871
+   ],
+   "n": 448
+  },
+  "visible/agree/logit/peer_bridge": {
+   "mean": 0.0022,
+   "ci": [
+    0.0,
+    0.0067
+   ],
+   "n": 450
+  },
+  "visible/mention/jlens/orig_bridge": {
+   "mean": 0.4343,
+   "ci": [
+    0.391,
+    0.4787
+   ],
+   "n": 445
+  },
+  "visible/mention/jlens/peer_bridge": {
+   "mean": 0.034,
+   "ci": [
+    0.0145,
+    0.0569
+   ],
+   "n": 448
+  },
+  "visible/mention/logit/orig_bridge": {
+   "mean": 0.018,
+   "ci": [
+    0.0123,
+    0.0242
+   ],
+   "n": 445
+  },
+  "visible/mention/logit/peer_bridge": {
+   "mean": 0.0022,
+   "ci": [
+    0.0,
+    0.0067
+   ],
+   "n": 448
+  },
+  "visible/held/jlens/orig_bridge": {
+   "mean": 0.3991,
+   "ci": [
+    0.3455,
+    0.4491
+   ],
+   "n": 280
+  },
+  "visible/held/jlens/peer_bridge": {
+   "mean": 0.0269,
+   "ci": [
+    0.0125,
+    0.0421
+   ],
+   "n": 279
+  },
+  "visible/held/logit/orig_bridge": {
+   "mean": 0.0116,
+   "ci": [
+    0.0036,
+    0.0214
+   ],
+   "n": 280
+  },
+  "visible/held/logit/peer_bridge": {
+   "mean": 0.0036,
+   "ci": [
+    0.0,
+    0.0108
+   ],
+   "n": 279
+  },
+  "visible/flipped/jlens/orig_bridge": {
+   "mean": 0.2232,
+   "ci": [
+    0.1741,
+    0.2798
+   ],
+   "n": 168
+  },
+  "visible/flipped/jlens/peer_bridge": {
+   "mean": 0.1599,
+   "ci": [
+    0.1221,
+    0.2035
+   ],
+   "n": 172
+  },
+  "visible/flipped/logit/orig_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 168
+  },
+  "visible/flipped/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 172
+  },
+  "visible/flipped_hop1/jlens/orig_bridge": {
+   "mean": 0.0728,
+   "ci": [
+    0.0469,
+    0.1021
+   ],
+   "n": 213
+  },
+  "visible/flipped_hop1/jlens/peer_bridge": {
+   "mean": 0.2066,
+   "ci": [
+    0.1712,
+    0.2398
+   ],
+   "n": 219
+  },
+  "visible/flipped_hop1/logit/orig_bridge": {
+   "mean": 0.0047,
+   "ci": [
+    0.0,
+    0.0141
+   ],
+   "n": 213
+  },
+  "visible/flipped_hop1/logit/peer_bridge": {
+   "mean": 0.0342,
+   "ci": [
+    0.024,
+    0.0457
+   ],
+   "n": 219
+  }
+ },
+ "h2": {
+  "hidden": {
+   "diff": 0.1428,
+   "ci": [
+    0.0993,
+    0.1875
+   ],
+   "n": [
+    323,
+    447
+   ]
+  },
+  "absent": {
+   "diff": 0.0994,
+   "ci": [
+    0.0536,
+    0.1464
+   ],
+   "n": [
+    342,
+    447
+   ]
+  },
+  "visible": {
+   "diff": 0.1258,
+   "ci": [
+    0.0799,
+    0.173
+   ],
+   "n": [
+    172,
+    448
+   ]
+  }
+ },
+ "paired": {
+  "hidden-visible": {
+   "diff": 0.0374,
+   "ci": [
+    0.0045,
+    0.0704
+   ],
+   "n_items": 167
+  },
+  "hidden-absent": {
+   "diff": -0.0016,
+   "ci": [
+    -0.0186,
+    0.0146
+   ],
+   "n_items": 309
+  }
+ }
+}

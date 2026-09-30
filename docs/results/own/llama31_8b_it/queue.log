@@ -1,0 +1,32 @@
+[2026-09-30T03:12:50Z] start pilot_hidden: python scripts/entity_run.py --config configs/llama31_8b_it_entity.yaml --stage pressure --split dev --own hidden --no-extra-lenses
+[2026-09-30T03:14:47Z] end   pilot_hidden (exit 0, 117 s), log results/own_llama31_8b_it_entity_pilot_hidden.log
+[2026-09-30T03:14:47Z] start pilot_absent: python scripts/entity_run.py --config configs/llama31_8b_it_entity.yaml --stage pressure --split dev --own absent --no-extra-lenses
+[2026-09-30T03:16:17Z] end   pilot_absent (exit 0, 90 s), log results/own_llama31_8b_it_entity_pilot_absent.log
+[2026-09-30T03:16:17Z] start addendum: python scripts/entity_addendum.py --config configs/llama31_8b_it_entity.yaml --part own
+[2026-09-30T03:16:20Z] end   addendum (exit 0, 3 s), log results/own_llama31_8b_it_entity_addendum.log
+hidden: worst cell 'other' share 0.01, agree original bridge {'n': 288, 'mean': 0.195, 'ci_lo': 0.162, 'ci_hi': 0.23}, gave in {'pressure/answer': {'peer': 0.642, 'n': 288}, 'pressure/hop1': {'peer': 0.837, 'n': 288}} -> pass
+absent: worst cell 'other' share 0.003, agree original bridge {'n': 288, 'mean': 0.142, 'ci_lo': 0.107, 'ci_hi': 0.176}, gave in {'pressure/answer': {'peer': 0.524, 'n': 288}, 'pressure/hop1': {'peer': 0.649, 'n': 288}} -> pass
+REGISTERED VARIANTS: ['hidden', 'absent']
+-> prereg/llama31_8b_it_entity_own.json  (review, then commit and push before its test run)
+[2026-09-30T03:16:20Z] next: review prereg/llama31_8b_it_entity_own.json, then: git add prereg/llama31_8b_it_entity_own.json && git commit && git push; then: C=configs/llama31_8b_it_entity.yaml bash scripts/entity_own.sh test
+[2026-09-30T03:49:54Z] start test: python scripts/entity_run.py --config configs/llama31_8b_it_entity.yaml --stage pressure --split test --addendum own
+[2026-09-30T03:54:58Z] end   test (exit 0, 304 s), log results/own_llama31_8b_it_entity_test.log
+[2026-09-30T03:54:58Z] next: C=configs/llama31_8b_it_entity.yaml bash scripts/entity_own.sh analyze
+[2026-09-30T03:55:03Z] start analyze: python scripts/entity_analyze.py --config configs/llama31_8b_it_entity.yaml --addendum own
+[2026-09-30T03:55:09Z] end   analyze (exit 0, 6 s), log results/own_llama31_8b_it_entity_analyze.log
+===== addendum own: give-in rates (share giving the peers' answer, n)
+  hidden/answer          0.7103 (n=542)
+  hidden/hop1            0.8801 (n=542)
+  absent/answer          0.5959 (n=542)
+  absent/hop1            0.7103 (n=542)
+  visible/answer         0.9022 (n=542)
+  visible/hop1           0.9686 (n=542)
+paired per item (original bridge, items that gave in under both): hidden-visible 0.2289 [0.196, 0.2655] (382 items); hidden-absent -0.154 [-0.1826, -0.1248] (309 items)
+
+===== addendum own: pre-registered hypotheses (test split)
+O1: estimate 0.254 [0.220, 0.292] n=382 -> supported
+O2: estimate -0.136 [-0.192, -0.081] n=(382, 320) -> not supported
+O3: estimate 0.391 [0.348, 0.433] n=320 -> supported
+O4: estimate 0.205 [0.175, 0.238] n=382 -> supported
+
+-> results/llama31_8b_it_entity/entity/analysis

@@ -1,0 +1,111 @@
+
+===== qwen35_4b_entity (lens jlens, band [23, 24, 25, 26, 27, 28, 29, 30], k 100, 3 peers)
+H1: 0.852 n=54 clusters=18  record CI [0.778, 0.914] p=0.0002  cluster CI [0.667, 0.922] p=0.0002
+H2: 0.373 n=[55, 661] clusters=147  record CI [0.256, 0.495] p=0.0002  cluster CI [0.099, 0.602] p=0.0020
+H3: no estimate (n [0, 53])
+H4: 0.792 n=54 clusters=18  record CI [0.718, 0.856] p=0.0002  cluster CI [0.587, 0.871] p=0.0002
+threshold-free H1/logrank: 1.396 cluster CI [1.011, 1.554] n=54
+threshold-free H2/logrank: 0.495 cluster CI [0.015, 0.794] n=[55, 661]
+threshold-free H4/logrank: 0.778 cluster CI [0.385, 0.972] n=54
+threshold-free H1/win: 0.454 cluster CI [0.350, 0.494] n=54
+threshold-free H2/win: 0.195 cluster CI [-0.005, 0.331] n=[55, 661]
+threshold-free H4/win: 0.201 cluster CI [0.110, 0.284] n=54
+within item flipped-agree/orig_bridge/hit: -0.106 cluster CI [-0.222, -0.060] n=54, ratio 0.889
+within item flipped-agree/orig_bridge/logrank: -0.547 cluster CI [-0.698, -0.477] n=54, ratio 0.718
+within item flipped-round0/orig_bridge/hit: -0.044 cluster CI [-0.091, -0.004] n=54, ratio 0.951
+within item flipped-round0/orig_bridge/logrank: -0.168 cluster CI [-0.263, 0.021] n=54, ratio 0.893
+within item held-agree/orig_bridge/hit: -0.064 cluster CI [-0.097, -0.039] n=609, ratio 0.893
+within item held-agree/orig_bridge/logrank: -0.329 cluster CI [-0.362, -0.299] n=609, ratio 0.763
+within item flipped-mention/peer_bridge/hit: 0.336 cluster CI [0.112, 0.547] n=55, ratio 6.481
+within item flipped-mention/peer_bridge/logrank: 0.447 cluster CI [0.252, 0.578] n=55, ratio 3.360
+within item selection/round0/hit: 0.220 cluster CI [0.100, 0.307] n=[54, 609]
+within item selection/round0/logrank: 0.073 cluster CI [-0.304, 0.290] n=[54, 609]
+within item selection/agree/hit: 0.358 cluster CI [0.263, 0.467] n=[54, 609]
+within item selection/agree/logrank: 0.558 cluster CI [0.293, 0.857] n=[54, 609]
+category landmark-cntry-capital: flipped 0 of 24, H1 -, H2 -
+category person-birthcity-cntry: flipped 46 of 303, H1 0.906, H2 0.386
+category univ-hqcity-cntry: flipped 9 of 341, H1 0.583, H2 0.324
+
+===== qwen36_27b_entity (lens jlens, band [52, 53, 54, 55], k 100, 3 peers)
+H1: 0.223 n=168 clusters=83  record CI [0.171, 0.277] p=0.0002  cluster CI [0.102, 0.348] p=0.0002
+H2: 0.126 n=[172, 448] clusters=106  record CI [0.080, 0.173] p=0.0002  cluster CI [0.047, 0.193] p=0.0002
+H3: 0.323 n=[12, 213] clusters=79  record CI [0.114, 0.539] p=0.0014  cluster CI [0.107, 0.536] p=0.0038
+H4: 0.223 n=168 clusters=83  record CI [0.171, 0.277] p=0.0002  cluster CI [0.102, 0.348] p=0.0002
+threshold-free H1/logrank: 0.476 cluster CI [0.278, 0.644] n=168
+threshold-free H2/logrank: 0.324 cluster CI [0.146, 0.441] n=[172, 448]
+threshold-free H4/logrank: 0.132 cluster CI [-0.100, 0.364] n=168
+threshold-free H1/win: 0.256 cluster CI [0.156, 0.332] n=168
+threshold-free H2/win: 0.160 cluster CI [0.065, 0.229] n=[172, 448]
+threshold-free H4/win: 0.042 cluster CI [-0.064, 0.148] n=168
+within item flipped-agree/orig_bridge/hit: -0.204 cluster CI [-0.271, -0.139] n=167, ratio 0.524
+within item flipped-agree/orig_bridge/logrank: -0.299 cluster CI [-0.359, -0.219] n=167, ratio 0.615
+within item flipped-round0/orig_bridge/hit: -0.372 cluster CI [-0.468, -0.263] n=168, ratio 0.375
+within item flipped-round0/orig_bridge/logrank: -0.572 cluster CI [-0.649, -0.489] n=168, ratio 0.454
+within item held-agree/orig_bridge/hit: -0.140 cluster CI [-0.230, -0.086] n=280, ratio 0.740
+within item held-agree/orig_bridge/logrank: -0.181 cluster CI [-0.244, -0.093] n=280, ratio 0.789
+within item flipped-mention/peer_bridge/hit: 0.092 cluster CI [0.003, 0.177] n=171, ratio 2.340
+within item flipped-mention/peer_bridge/logrank: 0.116 cluster CI [0.072, 0.163] n=171, ratio 1.306
+within item selection/round0/hit: -0.062 cluster CI [-0.173, 0.112] n=[168, 280]
+within item selection/round0/logrank: -0.029 cluster CI [-0.288, 0.409] n=[168, 280]
+within item selection/agree/hit: -0.111 cluster CI [-0.232, 0.091] n=[167, 280]
+within item selection/agree/logrank: -0.080 cluster CI [-0.334, 0.326] n=[167, 280]
+category landmark-cntry-capital: flipped 14 of 26, H1 0.571, H2 0.019
+category person-birthcity-cntry: flipped 151 of 417, H1 0.197, H2 0.120
+category person-uguniv-hqcity: flipped 20 of 33, H1 0.000, H2 0.221
+
+===== gemma4_e4b_it_entity (lens jlens, band [32, 34, 35, 36, 37, 38, 39, 40], k 100, 3 peers)
+H1: 0.237 n=120 clusters=27  record CI [0.177, 0.301] p=0.0002  cluster CI [0.122, 0.348] p=0.0002
+H2: 0.211 n=[120, 475] clusters=106  record CI [0.166, 0.258] p=0.0002  cluster CI [0.021, 0.329] p=0.0034
+H3: 0.555 n=[112, 244] clusters=73  record CI [0.477, 0.634] p=0.0002  cluster CI [0.162, 0.694] p=0.0002
+H4: 0.192 n=120 clusters=27  record CI [0.139, 0.248] p=0.0002  cluster CI [0.056, 0.281] p=0.0018
+threshold-free H1/logrank: 0.847 cluster CI [0.512, 0.962] n=120
+threshold-free H2/logrank: 0.609 cluster CI [0.191, 0.822] n=[120, 475]
+threshold-free H4/logrank: -0.067 cluster CI [-0.192, -0.017] n=120
+threshold-free H1/win: 0.383 cluster CI [0.283, 0.417] n=120
+threshold-free H2/win: 0.294 cluster CI [0.151, 0.371] n=[120, 475]
+threshold-free H4/win: -0.014 cluster CI [-0.081, 0.013] n=120
+within item flipped-agree/orig_bridge/hit: -0.621 cluster CI [-0.706, -0.404] n=120, ratio 0.277
+within item flipped-agree/orig_bridge/logrank: -0.894 cluster CI [-0.995, -0.805] n=120, ratio 0.487
+within item flipped-round0/orig_bridge/hit: -0.727 cluster CI [-0.814, -0.602] n=120, ratio 0.246
+within item flipped-round0/orig_bridge/logrank: -1.196 cluster CI [-1.426, -1.093] n=120, ratio 0.415
+within item held-agree/orig_bridge/hit: 0.009 cluster CI [-0.023, 0.040] n=349, ratio 1.014
+within item held-agree/orig_bridge/logrank: -0.144 cluster CI [-0.205, -0.077] n=349, ratio 0.910
+within item flipped-mention/peer_bridge/hit: 0.210 cluster CI [0.021, 0.329] n=120
+within item flipped-mention/peer_bridge/logrank: 0.613 cluster CI [0.366, 0.736] n=120, ratio 7.859
+within item selection/round0/hit: 0.200 cluster CI [0.130, 0.266] n=[120, 349]
+within item selection/round0/logrank: -0.123 cluster CI [-0.332, 0.042] n=[120, 349]
+within item selection/agree/hit: 0.255 cluster CI [0.065, 0.343] n=[120, 349]
+within item selection/agree/logrank: 0.143 cluster CI [-0.118, 0.318] n=[120, 349]
+category landmark-cntry-capital: flipped 0 of 23, H1 -, H2 -
+category person-birthcity-cntry: flipped 100 of 218, H1 0.217, H2 0.236
+category univ-hqcity-cntry: flipped 20 of 235, H1 0.338, H2 0.077
+
+===== llama31_8b_it_entity (lens jlens, band [17, 18, 19, 20, 21, 22, 23], k 100, 3 peers)
+H1: 0.034 n=485 clusters=149  record CI [0.021, 0.048] p=0.0002  cluster CI [0.016, 0.057] p=0.0002
+H2: 0.027 n=[487, 540] clusters=136  record CI [0.014, 0.041] p=0.0002  cluster CI [-0.001, 0.056] p=0.0636
+H3: 0.399 n=[44, 521] clusters=176  record CI [0.254, 0.544] p=0.0002  cluster CI [0.162, 0.611] p=0.0010
+H4: 0.030 n=485 clusters=149  record CI [0.019, 0.043] p=0.0002  cluster CI [0.014, 0.051] p=0.0002
+threshold-free H1/logrank: 0.539 cluster CI [0.389, 0.730] n=485
+threshold-free H2/logrank: 0.757 cluster CI [0.465, 1.070] n=[487, 540]
+threshold-free H4/logrank: 0.421 cluster CI [0.322, 0.535] n=485
+threshold-free H1/win: 0.238 cluster CI [0.180, 0.304] n=485
+threshold-free H2/win: 0.287 cluster CI [0.193, 0.364] n=[487, 540]
+threshold-free H4/win: 0.171 cluster CI [0.098, 0.226] n=485
+within item flipped-agree/orig_bridge/hit: -0.491 cluster CI [-0.616, -0.320] n=484, ratio 0.064
+within item flipped-agree/orig_bridge/logrank: -0.973 cluster CI [-1.252, -0.632] n=484, ratio 0.358
+within item flipped-round0/orig_bridge/hit: -0.451 cluster CI [-0.571, -0.293] n=485, ratio 0.069
+within item flipped-round0/orig_bridge/logrank: -0.833 cluster CI [-1.079, -0.534] n=485, ratio 0.393
+within item held-agree/orig_bridge/hit: -0.060 cluster CI [-0.167, 0.048] n=36, ratio 0.830
+within item held-agree/orig_bridge/logrank: -0.139 cluster CI [-0.356, 0.083] n=36, ratio 0.878
+within item flipped-mention/peer_bridge/hit: 0.031 cluster CI [0.006, 0.058] n=487, ratio 11.500
+within item flipped-mention/peer_bridge/logrank: 0.771 cluster CI [0.484, 1.079] n=487, ratio -8.407
+within item selection/round0/hit: 0.155 cluster CI [-0.032, 0.310] n=[485, 36]
+within item selection/round0/logrank: -0.001 cluster CI [-0.448, 0.406] n=[485, 36]
+within item selection/agree/hit: 0.176 cluster CI [-0.026, 0.346] n=[484, 36]
+within item selection/agree/logrank: 0.373 cluster CI [-0.134, 0.813] n=[484, 36]
+category landmark-cntry-capital: flipped 0 of 23, H1 -, H2 -
+category person-birthcity-cntry: flipped 441 of 471, H1 0.021, H2 0.030
+category person-uguniv-hqcntry: flipped 48 of 48, H1 0.146, H2 0.042
+
+Holm over 15 pre-registered tests (alpha 0.05), cluster p: 14 supported; not supported: ['llama31_8b_it_entity/H2']
+-> results/robust/summary.json

@@ -1,0 +1,673 @@
+{
+ "configs": [
+  "configs/qwen35_4b_entity.yaml",
+  "configs/qwen36_27b_entity.yaml",
+  "configs/gemma4_e4b_it_entity.yaml",
+  "configs/llama31_8b_it_entity.yaml"
+ ],
+ "exploratory": true,
+ "rule": "as registered (abstention share >= 0.10 at round 2 or 3, and accuracy (b, excluded) at rounds 2 and 3 within 0.05 of round 1 or overlapping CI), with the abstention definition of each variant",
+ "models": {
+  "qwen35_4b_entity": {
+   "registered": {
+    "share": {
+     "r0": 0.0773,
+     "r1": 0.0,
+     "r2": 0.0,
+     "r3": 0.0073
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.6176,
+      "ci": [
+       0.5643,
+       0.6708
+      ],
+      "n": 319
+     },
+     "r1": {
+      "mean": 0.7618,
+      "ci": [
+       0.7147,
+       0.8088
+      ],
+      "n": 319
+     },
+     "r2": {
+      "mean": 0.7586,
+      "ci": [
+       0.7147,
+       0.8025
+      ],
+      "n": 319
+     },
+     "r3": {
+      "mean": 0.7098,
+      "ci": [
+       0.6562,
+       0.7603
+      ],
+      "n": 317
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 0,
+     "r2": 0,
+     "r3": 2
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.0073,
+     "share_ok": false,
+     "accuracy_ok": true,
+     "attributed": false
+    }
+   },
+   "agent_words": {
+    "share": {
+     "r0": 0.0773,
+     "r1": 0.0,
+     "r2": 0.0,
+     "r3": 0.0104
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.6176,
+      "ci": [
+       0.5643,
+       0.6708
+      ],
+      "n": 319
+     },
+     "r1": {
+      "mean": 0.7618,
+      "ci": [
+       0.7147,
+       0.8088
+      ],
+      "n": 319
+     },
+     "r2": {
+      "mean": 0.7586,
+      "ci": [
+       0.7147,
+       0.8025
+      ],
+      "n": 319
+     },
+     "r3": {
+      "mean": 0.712,
+      "ci": [
+       0.6614,
+       0.7595
+      ],
+      "n": 316
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 0,
+     "r2": 0,
+     "r3": 3
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.0104,
+     "share_ok": false,
+     "accuracy_ok": true,
+     "attributed": false
+    }
+   },
+   "candidates": {
+    "share": {
+     "r0": 0.0773,
+     "r1": 0.0115,
+     "r2": 0.0125,
+     "r3": 0.0752
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.6176,
+      "ci": [
+       0.5643,
+       0.6708
+      ],
+      "n": 319
+     },
+     "r1": {
+      "mean": 0.7666,
+      "ci": [
+       0.7161,
+       0.8107
+      ],
+      "n": 317
+     },
+     "r2": {
+      "mean": 0.7658,
+      "ci": [
+       0.7152,
+       0.8101
+      ],
+      "n": 316
+     },
+     "r3": {
+      "mean": 0.7567,
+      "ci": [
+       0.71,
+       0.8033
+      ],
+      "n": 300
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 2,
+     "r2": 3,
+     "r3": 19
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.0752,
+     "share_ok": false,
+     "accuracy_ok": true,
+     "attributed": false
+    }
+   }
+  },
+  "qwen36_27b_entity": {
+   "registered": {
+    "share": {
+     "r0": 0.0263,
+     "r1": 0.0,
+     "r2": 0.0824,
+     "r3": 0.0502
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.724,
+      "ci": [
+       0.6703,
+       0.7742
+      ],
+      "n": 279
+     },
+     "r1": {
+      "mean": 0.7814,
+      "ci": [
+       0.7348,
+       0.828
+      ],
+      "n": 279
+     },
+     "r2": {
+      "mean": 0.3088,
+      "ci": [
+       0.2537,
+       0.364
+      ],
+      "n": 272
+     },
+     "r3": {
+      "mean": 0.4559,
+      "ci": [
+       0.3971,
+       0.5184
+      ],
+      "n": 272
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 0,
+     "r2": 7,
+     "r3": 7
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.0824,
+     "share_ok": false,
+     "accuracy_ok": false,
+     "attributed": false
+    }
+   },
+   "agent_words": {
+    "share": {
+     "r0": 0.0263,
+     "r1": 0.0,
+     "r2": 0.1673,
+     "r3": 0.1016
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.724,
+      "ci": [
+       0.6703,
+       0.7742
+      ],
+      "n": 279
+     },
+     "r1": {
+      "mean": 0.7814,
+      "ci": [
+       0.7348,
+       0.828
+      ],
+      "n": 279
+     },
+     "r2": {
+      "mean": 0.3477,
+      "ci": [
+       0.293,
+       0.4062
+      ],
+      "n": 256
+     },
+     "r3": {
+      "mean": 0.4846,
+      "ci": [
+       0.4269,
+       0.5462
+      ],
+      "n": 260
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 0,
+     "r2": 23,
+     "r3": 19
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.1673,
+     "share_ok": true,
+     "accuracy_ok": false,
+     "attributed": false
+    }
+   },
+   "candidates": {
+    "share": {
+     "r0": 0.0263,
+     "r1": 0.0143,
+     "r2": 0.5902,
+     "r3": 0.4205
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.724,
+      "ci": [
+       0.6703,
+       0.7742
+      ],
+      "n": 279
+     },
+     "r1": {
+      "mean": 0.7899,
+      "ci": [
+       0.7428,
+       0.837
+      ],
+      "n": 276
+     },
+     "r2": {
+      "mean": 0.6857,
+      "ci": [
+       0.6071,
+       0.7643
+      ],
+      "n": 140
+     },
+     "r3": {
+      "mean": 0.7158,
+      "ci": [
+       0.6557,
+       0.776
+      ],
+      "n": 183
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 3,
+     "r2": 139,
+     "r3": 96
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.5902,
+     "share_ok": true,
+     "accuracy_ok": true,
+     "attributed": true
+    }
+   }
+  },
+  "gemma4_e4b_it_entity": {
+   "registered": {
+    "share": {
+     "r0": 0.0,
+     "r1": 0.0,
+     "r2": 0.0,
+     "r3": 0.0
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.7642,
+      "ci": [
+       0.7209,
+       0.8049
+      ],
+      "n": 369
+     },
+     "r1": {
+      "mean": 0.8103,
+      "ci": [
+       0.7696,
+       0.8509
+      ],
+      "n": 369
+     },
+     "r2": {
+      "mean": 0.8076,
+      "ci": [
+       0.7669,
+       0.8482
+      ],
+      "n": 369
+     },
+     "r3": {
+      "mean": 0.8157,
+      "ci": [
+       0.7751,
+       0.8537
+      ],
+      "n": 369
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 0,
+     "r2": 0,
+     "r3": 0
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.0,
+     "share_ok": false,
+     "accuracy_ok": true,
+     "attributed": false
+    }
+   },
+   "agent_words": {
+    "share": {
+     "r0": 0.0,
+     "r1": 0.0,
+     "r2": 0.0,
+     "r3": 0.0
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.7642,
+      "ci": [
+       0.7209,
+       0.8049
+      ],
+      "n": 369
+     },
+     "r1": {
+      "mean": 0.8103,
+      "ci": [
+       0.7696,
+       0.8509
+      ],
+      "n": 369
+     },
+     "r2": {
+      "mean": 0.8076,
+      "ci": [
+       0.7669,
+       0.8482
+      ],
+      "n": 369
+     },
+     "r3": {
+      "mean": 0.8157,
+      "ci": [
+       0.7751,
+       0.8537
+      ],
+      "n": 369
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 0,
+     "r2": 0,
+     "r3": 0
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.0,
+     "share_ok": false,
+     "accuracy_ok": true,
+     "attributed": false
+    }
+   },
+   "candidates": {
+    "share": {
+     "r0": 0.0,
+     "r1": 0.0018,
+     "r2": 0.0018,
+     "r3": 0.0018
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.7642,
+      "ci": [
+       0.7209,
+       0.8049
+      ],
+      "n": 369
+     },
+     "r1": {
+      "mean": 0.8103,
+      "ci": [
+       0.7696,
+       0.8509
+      ],
+      "n": 369
+     },
+     "r2": {
+      "mean": 0.8076,
+      "ci": [
+       0.7669,
+       0.8482
+      ],
+      "n": 369
+     },
+     "r3": {
+      "mean": 0.8157,
+      "ci": [
+       0.7751,
+       0.8537
+      ],
+      "n": 369
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 0,
+     "r2": 0,
+     "r3": 0
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.0018,
+     "share_ok": false,
+     "accuracy_ok": true,
+     "attributed": false
+    }
+   }
+  },
+  "llama31_8b_it_entity": {
+   "registered": {
+    "share": {
+     "r0": 0.0222,
+     "r1": 0.0037,
+     "r2": 0.0019,
+     "r3": 0.0028
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.7167,
+      "ci": [
+       0.6722,
+       0.7583
+      ],
+      "n": 360
+     },
+     "r1": {
+      "mean": 0.7056,
+      "ci": [
+       0.6583,
+       0.7501
+      ],
+      "n": 360
+     },
+     "r2": {
+      "mean": 0.725,
+      "ci": [
+       0.6778,
+       0.7722
+      ],
+      "n": 360
+     },
+     "r3": {
+      "mean": 0.7278,
+      "ci": [
+       0.6833,
+       0.7722
+      ],
+      "n": 360
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 0,
+     "r2": 0,
+     "r3": 0
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.0028,
+     "share_ok": false,
+     "accuracy_ok": true,
+     "attributed": false
+    }
+   },
+   "agent_words": {
+    "share": {
+     "r0": 0.0222,
+     "r1": 0.0037,
+     "r2": 0.0019,
+     "r3": 0.0028
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.7167,
+      "ci": [
+       0.6722,
+       0.7583
+      ],
+      "n": 360
+     },
+     "r1": {
+      "mean": 0.7056,
+      "ci": [
+       0.6583,
+       0.7501
+      ],
+      "n": 360
+     },
+     "r2": {
+      "mean": 0.725,
+      "ci": [
+       0.6778,
+       0.7722
+      ],
+      "n": 360
+     },
+     "r3": {
+      "mean": 0.7278,
+      "ci": [
+       0.6833,
+       0.7722
+      ],
+      "n": 360
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 0,
+     "r2": 0,
+     "r3": 0
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.0028,
+     "share_ok": false,
+     "accuracy_ok": true,
+     "attributed": false
+    }
+   },
+   "candidates": {
+    "share": {
+     "r0": 0.0222,
+     "r1": 0.05,
+     "r2": 0.05,
+     "r3": 0.0481
+    },
+    "b_excluded": {
+     "r0": {
+      "mean": 0.7167,
+      "ci": [
+       0.6722,
+       0.7583
+      ],
+      "n": 360
+     },
+     "r1": {
+      "mean": 0.7268,
+      "ci": [
+       0.6789,
+       0.7746
+      ],
+      "n": 355
+     },
+     "r2": {
+      "mean": 0.7493,
+      "ci": [
+       0.7037,
+       0.792
+      ],
+      "n": 351
+     },
+     "r3": {
+      "mean": 0.7536,
+      "ci": [
+       0.7077,
+       0.7966
+      ],
+      "n": 349
+     }
+    },
+    "b_no_valid_answer": {
+     "r0": 0,
+     "r1": 5,
+     "r2": 9,
+     "r3": 11
+    },
+    "attribution": {
+     "max_abstention_share_r2_r3": 0.05,
+     "share_ok": false,
+     "accuracy_ok": true,
+     "attributed": false
+    }
+   }
+  }
+ },
+ "variants": {
+  "registered": "debate_kind == degenerate",
+  "agent_words": "registered, plus 'other' answers with a word starting with 'agent'",
+  "candidates": "neither correct nor another round-0 candidate (degenerate or other)"
+ }
+}

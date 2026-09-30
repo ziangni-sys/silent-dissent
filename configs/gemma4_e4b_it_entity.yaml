@@ -1,0 +1,80 @@
+# Replication of the entity study on a second 2026 model family: Gemma-4-E4B-it (Google, March 2026).
+# Not gated on the Hub. Gemma4ForConditionalGeneration (text, vision, audio); the text decoder has
+# 42 layers of width 2560, per-layer input embeddings, KV sharing in the last 18 layers and a final
+# logit soft cap of 30 (applied by the lenses too, see silent_dissent/lenses.py).
+# The official Gemma 4 lens was fit on the base model (google/gemma-4-E4B), so the primary lens is a
+# 100-prompt wikitext refit on this instruction-tuned model (configs/gemma4_e4b_it_jlens_wiki100.yaml);
+# the official base-model lens is read as an extra lens. Rules: selection v1 (the Qwen3.5-4B prereg rule), since
+# v2 selects nothing on this model (select.notes). Queue:
+#   scripts/entity_prepare.sh (download, preflight, lens fit), then scripts/entity_replicate.sh dev / test.
+model:
+  name: google/gemma-4-E4B-it
+  dtype: bfloat16
+  chat_template_kwargs: {enable_thinking: false}
+
+lens:
+  name: jlens
+  kwargs: {path: lenses/gemma4_e4b_it_jlens_wiki100.pt}
+
+data: {n_choices: 4}
+seed: 0
+batch_size: 16
+out_dir: results/gemma4_e4b_it_entity
+entity_prereg: prereg/gemma4_e4b_it_entity.json
+
+entity:
+  sources:
+    - {name: twohopfact}
+    - {name: handmade}
+  max_per_category: null  # all 45,595 facts, as for the other models
+  dev_frac: 0.3
+  gen_tokens: 12
+  gen_batch_size: 64
+  formats: [plain, chat]   # E0 runs both; entity_select keeps plain if it passes
+  e0_n_peers: [3]
+  styles: [answer, hop1, hop2]
+  n_peers: [1, 3, 5]
+  primary_n_peers: 3
+  rounds: 1                # H1-H4 are round-1 hypotheses; later rounds are not run for this model
+  select:                  # v1 = the Qwen3.5-4B prereg rule, unchanged (v2 selects nothing here, see notes)
+    k: 100
+    band_threshold: 0.5
+    min_accuracy: 0.7
+    min_n: 30
+    exclude_last_layer: true
+    category_threshold: 0.5
+    min_category_n: 10
+    f2: adoption
+    min_adoption_gap: 0.3
+    min_persistence: 0.5
+    notes:                 # copied into the prereg
+      - "Selection v2 (decided on Qwen3.6-27B: categories and layers where the J-lens reads the bridge at least 0.25 above the logit lens) selected nothing on the Gemma dev split in either format: the bridge becomes readable at layers 30-31 in every lens at once (the refit J-lens, the official base-model J-lens and the logit lens), so the J-lens has no lead there. The original rule v1 (Qwen3.5-4B prereg: round-0 J-lens readout >= 0.5, categories readable in round 0, adoption F2 with the absolute gap) is applied here unchanged; this was decided on the dev split, before any Gemma test data. H1-H3 ask whether conformers keep the premise, which any lens that reads it can answer; H4 (J-lens above the logit lens) is expected to be null on this model."
+      - "Primary lens: a J-lens fit with this repo's code on 100 wikitext prompts on google/gemma-4-E4B-it, because the official Gemma 4 lens was fit on the base model (google/gemma-4-E4B). On Qwen3.5-4B and Llama-3.1-8B-Instruct such 100-prompt refits read like the official lenses (within ~0.01-0.05); on the Gemma dev split the refit and the official base-model lens also read alike. The official lens is read as the extra lens jlens_base (exploratory)."
+      - "Lens logits are soft-capped like the model's (c = 30); ranks are unchanged by the cap."
+      - "Pressure runs have round 1 only; later rounds are not run for this model."
+      - "All 45,595 TwoHopFact facts were checked; dev share 0.3, as for the other models."
+  timeline: {styles: [answer, hop1, hop2], n_peers: 3, layers: null, limit: 400}   # null = the prereg band
+  intervention:
+    style: answer
+    n_peers: 3
+    layers: null
+    band_layers: 3         # three evenly spaced layers of the prereg band
+    alphas: [0.0, 0.1, 0.2, 0.4, 0.8]
+    kinds_flipped: [orig_bridge, orig_answer, ctrl_bridge, random]
+    kinds_held: [peer_bridge, peer_answer, ctrl_bridge, random]
+    limit: 600
+  debate: {n_items: 400, known_share: 0.5, n_agents: 3, rounds: 3, temperature: 1.0}
+  addenda:
+    own:                   # round 1 with the agent's round-0 answer hidden / absent (declared 2026-09-30,
+                           # before any run; scripts/entity_addendum.py --part own)
+      variants: [hidden, absent]
+      styles: [answer, hop1]
+      baselines: [agree, mention]
+      n_peers: 3
+      pilot_limit: 300     # dev items per variant pilot
+      max_other: 0.10      # every pilot cell: share of answers that are neither side's
+      min_agree_n: 30      # the agree cell must still read the original bridge (n, CI lower bound > 0)
+      min_test_n: 10       # fewer test records in a hypothesis cell: no verdict
+  extra_lenses:            # the official lens, fit on the base model (exploratory)
+    - {name: jlens_base, repo: neuronpedia/jacobian-lens, revision: main,
+       filename: gemma-4-e4b/jlens/Salesforce-wikitext/gemma-4-E4B_jacobian_lens.pt}

@@ -1,0 +1,63 @@
+# Main run. Copy this file per model and change model.name / out_dir / prereg.
+model:
+  name: Qwen/Qwen2.5-7B-Instruct
+  dtype: bfloat16
+
+lens:
+  name: jlens          # logit | affine | jlens
+  kwargs: {path: lenses/qwen7b_jlens.pt}   # fit with scripts/fit_jlens.py first
+
+# Jacobian-lens fitting (scripts/fit_jlens.py). The paper uses 1000 x 128-token
+# wikitext sequences; quality saturates early and ~100-200 is usable.
+jlens:
+  corpus: wikitext     # or a local .txt (one doc per line) / .jsonl with "text"
+  n_prompts: 200
+  max_seq_len: 128
+  dim_batch: 16        # output dims per backward pass; raise if memory allows
+
+data:
+  n_choices: 4
+  require_letter_format: true  # drop items whose unrestricted top-1 token is not a letter
+  sources:
+    - {name: mmlu, split: test, limit: 4000}
+    - {name: arc, split: test, limit: 1172}
+  n_per_stratum: 1000  # initially-correct and initially-wrong items kept after round 0
+
+seed: 0
+batch_size: 8
+out_dir: results/qwen7b
+prereg: prereg/qwen7b.json
+
+# Pre-registration rule for the readout layer (applied to round-0 data only).
+layer_selection:
+  tau: 0.9             # earliest layer whose lens top-1 matches the output on >= 90% of items
+  delta: 1.0           # logit margin for the lenient silent-dissent definition
+
+pressure:
+  rounds: 3
+  grids:
+    main:              # the headline conformity grid
+      condition: [pressure]
+      n_peers: [1, 3, 5]
+      peer_style: [answer_only, with_reason]
+      target_mode: [wrong, correct]
+    controls:          # confound controls at a single setting
+      condition: [agree, split, mention_control, remove_original]
+      n_peers: [3]
+      peer_style: [answer_only]
+      target_mode: [wrong, correct]
+
+intervention:
+  layer: null          # null = prereg layer
+  source: {condition: pressure, n_peers: 3, peer_style: answer_only}
+  rounds: [3]          # which pressure rounds to re-run with injection
+  alphas: [0.0, 0.05, 0.1, 0.2, 0.4]
+  kinds: [original, majority, other, random]
+  contrastive: true
+  baseline_check: 300  # round-0 items re-run with injection to check for plain letter bias
+
+debate:
+  n_items: 500
+  n_agents: 3
+  rounds: 3
+  temperature: 1.0

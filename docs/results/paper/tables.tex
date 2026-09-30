@@ -1,0 +1,120 @@
+% Setup (test split)
+\begin{tabular}{lllllllll}
+\toprule
+model & rule & format & band / layers & k & categories & items & round-0 acc. & gave in: answer / hop1 / hop2 (3 peers) \\
+\midrule
+Qwen3.5-4B & v1 & plain & 23–30 / 32 & 100 & landmark$\to$capital; person$\to$birth city$\to$country; university$\to$city$\to$country & 718 & 0.93 & 8\% / 8\% / 0\% \\
+Qwen3.6-27B & v2 & plain & 52–55 / 64 & 100 & landmark$\to$capital; person$\to$birth city$\to$country; person$\to$university$\to$city & 514 & 0.93 & 39\% / 49\% / 6\% \\
+Gemma-4-E4B-it & v1 & plain & 32, 34–40 / 42 & 100 & landmark$\to$capital; person$\to$birth city$\to$country; university$\to$city$\to$country & 533 & 0.89 & 25\% / 52\% / 24\% \\
+Llama-3.1-8B-Instruct & v2 & chat & 17–23 / 32 & 100 & landmark$\to$capital; person$\to$birth city$\to$country; person$\to$university$\to$country & 570 & 0.95 & 90\% / 97\% / 8\% \\
+\bottomrule
+\end{tabular}
+
+% Pre-registered hypotheses (* = 95% CI excludes 0)
+\begin{tabular}{lllll}
+\toprule
+model & H1 retention & H2 implied premise & H3 hop2 vs hop1 & H4 J-lens $-$ logit \\
+\midrule
+Qwen3.5-4B & 0.852 [0.782, 0.917] * (n=54) & 0.373 [0.261, 0.491] * (n=55$\times$661) & untestable (n=0$\times$53) & 0.792 [0.722, 0.857] * (n=54) \\
+Qwen3.6-27B & 0.223 [0.174, 0.280] * (n=168) & 0.126 [0.080, 0.173] * (n=172$\times$448) & 0.323 [0.115, 0.533] * (n=12$\times$213) & 0.223 [0.174, 0.280] * (n=168) \\
+Gemma-4-E4B-it & 0.237 [0.175, 0.299] * (n=120) & 0.211 [0.163, 0.258] * (n=120$\times$475) & 0.555 [0.476, 0.631] * (n=112$\times$244) & 0.192 [0.137, 0.248] * (n=120) \\
+Llama-3.1-8B-Instruct & 0.034 [0.020, 0.048] * (n=485) & 0.027 [0.014, 0.041] * (n=487$\times$540) & 0.400 [0.260, 0.533] * (n=44$\times$521) & 0.030 [0.018, 0.043] * (n=485) \\
+\bottomrule
+\end{tabular}
+
+% Band-mean readouts (3 peers, round 1; round 0 alone)
+\begin{tabular}{llllllll}
+\toprule
+model & lens & orig: round 0 & orig: peers agreed & orig: held & orig: gave in & peer: gave in & peer: mention\_bridge \\
+\midrule
+Qwen3.5-4B & jlens & 0.69 [0.66, 0.72] & 0.63 [0.60, 0.66] & 0.54 [0.50, 0.57] & 0.85 [0.78, 0.92] & 0.40 [0.29, 0.51] & 0.18 [0.16, 0.19] \\
+Qwen3.5-4B & logit & 0.26 [0.24, 0.29] & 0.19 [0.18, 0.21] & 0.09 [0.08, 0.10] & 0.06 [0.04, 0.09] & 0.01 [0.00, 0.03] & 0.03 [0.02, 0.03] \\
+Qwen3.6-27B & jlens & 0.63 [0.59, 0.68] & 0.50 [0.45, 0.54] & 0.40 [0.35, 0.45] & 0.22 [0.17, 0.28] & 0.16 [0.12, 0.20] & 0.06 [0.04, 0.08] \\
+Qwen3.6-27B & logit & 0.07 [0.06, 0.09] & 0.07 [0.06, 0.09] & 0.01 [0.00, 0.02] & 0.00 [0.00, 0.00] & 0.00 [0.00, 0.00] & 0.01 [0.00, 0.01] \\
+Gemma-4-E4B-it & jlens & 0.82 [0.79, 0.85] & 0.67 [0.63, 0.70] & 0.61 [0.57, 0.66] & 0.24 [0.17, 0.30] & 0.21 [0.17, 0.26] & 0.01 [-0.01, 0.02] \\
+Gemma-4-E4B-it & logit & 0.78 [0.75, 0.81] & 0.57 [0.53, 0.60] & 0.54 [0.50, 0.58] & 0.05 [0.03, 0.07] & 0.06 [0.03, 0.08] & 0.00 [-0.01, 0.01] \\
+Gemma-4-E4B-it & jlens\_base & 0.80 [0.77, 0.83] & 0.55 [0.51, 0.58] & 0.55 [0.51, 0.59] & 0.11 [0.06, 0.15] & 0.02 [0.01, 0.04] & 0.00 [-0.01, 0.01] \\
+Llama-3.1-8B-Instruct & jlens & 0.48 [0.45, 0.52] & 0.52 [0.48, 0.55] & 0.29 [0.17, 0.41] & 0.03 [0.02, 0.05] & 0.03 [0.02, 0.04] & 0.07 [0.05, 0.09] \\
+Llama-3.1-8B-Instruct & logit & 0.12 [0.10, 0.14] & 0.07 [0.06, 0.09] & 0.04 [0.01, 0.08] & 0.00 [0.00, 0.01] & 0.02 [0.01, 0.03] & 0.01 [0.01, 0.02] \\
+Llama-3.1-8B-Instruct & jlens\_wiki100 & 0.47 [0.43, 0.50] & 0.47 [0.44, 0.51] & 0.24 [0.14, 0.36] & 0.02 [0.01, 0.04] & 0.02 [0.01, 0.03] & 0.06 [0.04, 0.08] \\
+\bottomrule
+\end{tabular}
+
+% Robustness on the test split (exploratory)
+\begin{tabular}{lllll}
+\toprule
+model & variant & H1 & H2 & H4 \\
+\midrule
+Qwen3.5-4B & band of rule v2 (23–28) & 0.818 [0.735, 0.895] (n=54) & 0.362 [0.251, 0.483] & 0.812 [0.728, 0.886] \\
+Qwen3.5-4B & k = 10 & 0.123 [0.081, 0.167] (n=54) & 0.043 [0.009, 0.082] & 0.120 [0.079, 0.167] \\
+Qwen3.5-4B & k = 50 & 0.643 [0.551, 0.732] (n=54) & 0.226 [0.141, 0.320] & 0.627 [0.539, 0.715] \\
+Qwen3.5-4B & k = 500 & 0.701 [0.595, 0.806] (n=54) & 0.373 [0.212, 0.528] & 0.546 [0.447, 0.653] \\
+Qwen3.5-4B & 1 peers & 0.784 [0.636, 0.932] (n=11) & 0.266 [0.079, 0.473] & 0.682 [0.545, 0.841] \\
+Qwen3.5-4B & 5 peers & 0.816 [0.734, 0.894] (n=53) & 0.392 [0.280, 0.507] & 0.755 [0.670, 0.837] \\
+Qwen3.6-27B & band of rule v1 (62) & 0.726 [0.655, 0.792] (n=168) & 0.335 [0.250, 0.419] & 0.059 [-0.012, 0.131] \\
+Qwen3.6-27B & k = 10 & 0.002 [0.000, 0.004] (n=168) & -0.001 [-0.002, 0.000] & 0.002 [0.000, 0.004] \\
+Qwen3.6-27B & k = 50 & 0.048 [0.028, 0.070] (n=168) & 0.023 [0.005, 0.041] & 0.048 [0.028, 0.070] \\
+Qwen3.6-27B & k = 500 & 0.414 [0.319, 0.513] (n=168) & 0.214 [0.111, 0.316] & 0.384 [0.290, 0.485] \\
+Qwen3.6-27B & 1 peers & -0.250 [-0.250, -0.250] (n=1) & – [–, –] & -0.250 [-0.250, -0.250] \\
+Qwen3.6-27B & 5 peers & 0.235 [0.187, 0.283] (n=211) & 0.113 [0.080, 0.151] & 0.228 [0.182, 0.274] \\
+Gemma-4-E4B-it & k = 10 & 0.000 [0.000, 0.000] (n=120) & 0.000 [-0.001, 0.001] & 0.000 [0.000, 0.000] \\
+Gemma-4-E4B-it & k = 50 & 0.054 [0.032, 0.078] (n=120) & 0.022 [0.005, 0.042] & 0.051 [0.028, 0.075] \\
+Gemma-4-E4B-it & k = 500 & 0.556 [0.484, 0.626] (n=120) & 0.423 [0.326, 0.512] & 0.071 [0.001, 0.147] \\
+Gemma-4-E4B-it & 1 peers & – [–, –] (n=0) & – [–, –] & – [–, –] \\
+Gemma-4-E4B-it & 5 peers & 0.306 [0.201, 0.428] (n=38) & 0.269 [0.165, 0.379] & 0.247 [0.148, 0.352] \\
+Gemma-4-E4B-it & lens jlens\_base & 0.105 [0.065, 0.150] (n=120) & 0.023 [0.006, 0.046] & 0.059 [0.025, 0.099] \\
+Llama-3.1-8B-Instruct & k = 10 & 0.002 [0.000, 0.004] (n=485) & -0.000 [-0.002, 0.001] & 0.001 [0.000, 0.002] \\
+Llama-3.1-8B-Instruct & k = 50 & 0.014 [0.006, 0.023] (n=485) & 0.005 [-0.002, 0.014] & 0.011 [0.005, 0.019] \\
+Llama-3.1-8B-Instruct & k = 500 & 0.214 [0.180, 0.249] (n=485) & 0.316 [0.269, 0.367] & 0.193 [0.162, 0.226] \\
+Llama-3.1-8B-Instruct & 1 peers & 0.082 [0.000, 0.179] (n=52) & 0.091 [0.022, 0.166] & 0.060 [-0.008, 0.143] \\
+Llama-3.1-8B-Instruct & 5 peers & 0.074 [0.055, 0.095] (n=479) & 0.068 [0.050, 0.086] & 0.063 [0.047, 0.081] \\
+Llama-3.1-8B-Instruct & lens jlens\_wiki100 & 0.024 [0.013, 0.037] (n=485) & 0.016 [0.005, 0.028] & 0.021 [0.010, 0.032] \\
+\bottomrule
+\end{tabular}
+
+% E4: agents that gave in, share answering the original (max over α > 0)
+\begin{tabular}{lllllll}
+\toprule
+model & $\alpha$ = 0 & original bridge & control bridge & random & original answer & layers \\
+\midrule
+Qwen3.5-4B & 0.04 & 0.41 & 0.08 & 0.23 & 0.98 & 23, 26, 29 \\
+Qwen3.6-27B & 0.03 & 0.19 & 0.09 & 0.11 & 0.89 & 52, 54, 55 \\
+Gemma-4-E4B-it & 0.00 & 0.04 & 0.04 & 0.11 & 0.98 & 32, 37, 40 \\
+Llama-3.1-8B-Instruct & 0.00 & 0.00 & 0.01 & 0.01 & 0.66 & 17, 20, 23 \\
+\bottomrule
+\end{tabular}
+
+% E5 free debate: group accuracy (plurality)
+\begin{tabular}{lllll}
+\toprule
+model & round & stated & latent (J-lens) & round 0 \\
+\midrule
+Qwen3.5-4B & 0 & 0.62 & 0.71 & 0.62 \\
+Qwen3.5-4B & 1 & 0.76 & 0.71 & 0.62 \\
+Qwen3.5-4B & 2 & 0.76 & 0.72 & 0.62 \\
+Qwen3.5-4B & 3 & 0.71 & 0.69 & 0.62 \\
+Qwen3.6-27B & 0 & 0.72 & 0.71 & 0.72 \\
+Qwen3.6-27B & 1 & 0.78 & 0.70 & 0.72 \\
+Qwen3.6-27B & 2 & 0.30 & 0.66 & 0.72 \\
+Qwen3.6-27B & 3 & 0.44 & 0.69 & 0.72 \\
+Gemma-4-E4B-it & 0 & 0.76 & 0.76 & 0.76 \\
+Gemma-4-E4B-it & 1 & 0.81 & 0.79 & 0.76 \\
+Gemma-4-E4B-it & 2 & 0.81 & 0.78 & 0.76 \\
+Gemma-4-E4B-it & 3 & 0.82 & 0.79 & 0.76 \\
+Llama-3.1-8B-Instruct & 0 & 0.72 & 0.68 & 0.72 \\
+Llama-3.1-8B-Instruct & 1 & 0.71 & 0.69 & 0.72 \\
+Llama-3.1-8B-Instruct & 2 & 0.72 & 0.70 & 0.72 \\
+Llama-3.1-8B-Instruct & 3 & 0.73 & 0.71 & 0.72 \\
+\bottomrule
+\end{tabular}
+
+% Later rounds (Qwen3.5-4B addendum, summary protocol, round 3)
+\begin{tabular}{llll}
+\toprule
+model & hypothesis & estimate [CI] & n \\
+\midrule
+Qwen3.5-4B & R1 & 0.541 [0.469, 0.623] & 49 \\
+Qwen3.5-4B & R2 & 0.409 [0.291, 0.540] & 50$\times$660 \\
+Qwen3.5-4B & change & -0.324 [-0.383, -0.258] & 49 \\
+\bottomrule
+\end{tabular}

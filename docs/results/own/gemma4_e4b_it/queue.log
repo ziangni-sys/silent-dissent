@@ -1,0 +1,32 @@
+[2026-09-30T03:08:09Z] start pilot_hidden: python scripts/entity_run.py --config configs/gemma4_e4b_it_entity.yaml --stage pressure --split dev --own hidden --no-extra-lenses
+[2026-09-30T03:10:27Z] end   pilot_hidden (exit 0, 138 s), log results/own_gemma4_e4b_it_entity_pilot_hidden.log
+[2026-09-30T03:10:27Z] start pilot_absent: python scripts/entity_run.py --config configs/gemma4_e4b_it_entity.yaml --stage pressure --split dev --own absent --no-extra-lenses
+[2026-09-30T03:12:42Z] end   pilot_absent (exit 0, 135 s), log results/own_gemma4_e4b_it_entity_pilot_absent.log
+[2026-09-30T03:12:42Z] start addendum: python scripts/entity_addendum.py --config configs/gemma4_e4b_it_entity.yaml --part own
+[2026-09-30T03:12:44Z] end   addendum (exit 0, 2 s), log results/own_gemma4_e4b_it_entity_addendum.log
+hidden: worst cell 'other' share 0.004, agree original bridge {'n': 234, 'mean': 0.574, 'ci_lo': 0.527, 'ci_hi': 0.626}, gave in {'pressure/answer': {'peer': 0.292, 'n': 236}, 'pressure/hop1': {'peer': 0.492, 'n': 236}} -> pass
+absent: worst cell 'other' share 0.021, agree original bridge {'n': 234, 'mean': 0.384, 'ci_lo': 0.335, 'ci_hi': 0.434}, gave in {'pressure/answer': {'peer': 0.36, 'n': 236}, 'pressure/hop1': {'peer': 0.517, 'n': 236}} -> pass
+REGISTERED VARIANTS: ['hidden', 'absent']
+-> prereg/gemma4_e4b_it_entity_own.json  (review, then commit and push before its test run)
+[2026-09-30T03:12:44Z] next: review prereg/gemma4_e4b_it_entity_own.json, then: git add prereg/gemma4_e4b_it_entity_own.json && git commit && git push; then: C=configs/gemma4_e4b_it_entity.yaml bash scripts/entity_own.sh test
+[2026-09-30T03:43:06Z] start test: python scripts/entity_run.py --config configs/gemma4_e4b_it_entity.yaml --stage pressure --split test --addendum own
+[2026-09-30T03:49:36Z] end   test (exit 0, 390 s), log results/own_gemma4_e4b_it_entity_test.log
+[2026-09-30T03:49:36Z] next: C=configs/gemma4_e4b_it_entity.yaml bash scripts/entity_own.sh analyze
+[2026-09-30T03:49:41Z] start analyze: python scripts/entity_analyze.py --config configs/gemma4_e4b_it_entity.yaml --addendum own
+[2026-09-30T03:49:47Z] end   analyze (exit 0, 6 s), log results/own_gemma4_e4b_it_entity_analyze.log
+===== addendum own: give-in rates (share giving the peers' answer, n)
+  hidden/answer          0.3613 (n=476)
+  hidden/hop1            0.4895 (n=476)
+  absent/answer          0.4307 (n=476)
+  absent/hop1            0.5105 (n=476)
+  visible/answer         0.2521 (n=476)
+  visible/hop1           0.521 (n=476)
+paired per item (original bridge, items that gave in under both): hidden-visible 0.1319 [0.0413, 0.211] (109 items); hidden-absent 0.1795 [0.1303, 0.2296] (165 items)
+
+===== addendum own: pre-registered hypotheses (test split)
+O1: estimate 0.365 [0.307, 0.421] n=170 -> supported
+O2: estimate 0.154 [0.081, 0.230] n=(170, 203) -> supported
+O3: estimate 0.212 [0.166, 0.259] n=203 -> supported
+O4: estimate 0.215 [0.171, 0.259] n=170 -> supported
+
+-> results/gemma4_e4b_it_entity/entity/analysis

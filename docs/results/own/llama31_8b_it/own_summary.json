@@ -1,0 +1,809 @@
+{
+ "rates": {
+  "hidden/answer": {
+   "peer": 0.7103,
+   "other": 0.0111,
+   "n": 542
+  },
+  "hidden/hop1": {
+   "peer": 0.8801,
+   "other": 0.0055,
+   "n": 542
+  },
+  "absent/answer": {
+   "peer": 0.5959,
+   "other": 0.0221,
+   "n": 542
+  },
+  "absent/hop1": {
+   "peer": 0.7103,
+   "other": 0.0111,
+   "n": 542
+  },
+  "visible/answer": {
+   "peer": 0.9022,
+   "other": 0.0314,
+   "n": 542
+  },
+  "visible/hop1": {
+   "peer": 0.9686,
+   "other": 0.0037,
+   "n": 542
+  }
+ },
+ "cells": {
+  "hidden/agree/jlens/orig_bridge": {
+   "mean": 0.2382,
+   "ci": [
+    0.2079,
+    0.2695
+   ],
+   "n": 538
+  },
+  "hidden/agree/jlens/peer_bridge": {
+   "mean": 0.0021,
+   "ci": [
+    -0.005,
+    0.0095
+   ],
+   "n": 540
+  },
+  "hidden/agree/logit/orig_bridge": {
+   "mean": 0.0536,
+   "ci": [
+    0.0414,
+    0.069
+   ],
+   "n": 538
+  },
+  "hidden/agree/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 540
+  },
+  "hidden/agree/jlens_wiki100/orig_bridge": {
+   "mean": 0.1798,
+   "ci": [
+    0.1527,
+    0.2087
+   ],
+   "n": 538
+  },
+  "hidden/agree/jlens_wiki100/peer_bridge": {
+   "mean": 0.0008,
+   "ci": [
+    -0.0063,
+    0.0077
+   ],
+   "n": 540
+  },
+  "hidden/mention/jlens/orig_bridge": {
+   "mean": 0.2172,
+   "ci": [
+    0.1872,
+    0.252
+   ],
+   "n": 538
+  },
+  "hidden/mention/jlens/peer_bridge": {
+   "mean": 0.0003,
+   "ci": [
+    -0.0053,
+    0.0042
+   ],
+   "n": 540
+  },
+  "hidden/mention/logit/orig_bridge": {
+   "mean": 0.0751,
+   "ci": [
+    0.0576,
+    0.0969
+   ],
+   "n": 538
+  },
+  "hidden/mention/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 540
+  },
+  "hidden/mention/jlens_wiki100/orig_bridge": {
+   "mean": 0.1729,
+   "ci": [
+    0.1447,
+    0.2053
+   ],
+   "n": 538
+  },
+  "hidden/mention/jlens_wiki100/peer_bridge": {
+   "mean": 0.0005,
+   "ci": [
+    -0.0034,
+    0.0037
+   ],
+   "n": 540
+  },
+  "hidden/held/jlens/orig_bridge": {
+   "mean": 0.3914,
+   "ci": [
+    0.3228,
+    0.4619
+   ],
+   "n": 150
+  },
+  "hidden/held/jlens/peer_bridge": {
+   "mean": -0.0085,
+   "ci": [
+    -0.0218,
+    0.0019
+   ],
+   "n": 151
+  },
+  "hidden/held/logit/orig_bridge": {
+   "mean": 0.1467,
+   "ci": [
+    0.1038,
+    0.1914
+   ],
+   "n": 150
+  },
+  "hidden/held/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 151
+  },
+  "hidden/held/jlens_wiki100/orig_bridge": {
+   "mean": 0.3857,
+   "ci": [
+    0.3162,
+    0.4553
+   ],
+   "n": 150
+  },
+  "hidden/held/jlens_wiki100/peer_bridge": {
+   "mean": -0.0038,
+   "ci": [
+    -0.0151,
+    0.0057
+   ],
+   "n": 151
+  },
+  "hidden/flipped/jlens/orig_bridge": {
+   "mean": 0.2543,
+   "ci": [
+    0.2195,
+    0.2917
+   ],
+   "n": 382
+  },
+  "hidden/flipped/jlens/peer_bridge": {
+   "mean": 0.0179,
+   "ci": [
+    0.0075,
+    0.0306
+   ],
+   "n": 383
+  },
+  "hidden/flipped/logit/orig_bridge": {
+   "mean": 0.049,
+   "ci": [
+    0.0333,
+    0.0688
+   ],
+   "n": 382
+  },
+  "hidden/flipped/logit/peer_bridge": {
+   "mean": 0.0052,
+   "ci": [
+    0.0015,
+    0.0104
+   ],
+   "n": 383
+  },
+  "hidden/flipped/jlens_wiki100/orig_bridge": {
+   "mean": 0.2188,
+   "ci": [
+    0.1855,
+    0.2536
+   ],
+   "n": 382
+  },
+  "hidden/flipped/jlens_wiki100/peer_bridge": {
+   "mean": 0.0138,
+   "ci": [
+    0.0048,
+    0.0242
+   ],
+   "n": 383
+  },
+  "hidden/flipped_hop1/jlens/orig_bridge": {
+   "mean": 0.0577,
+   "ci": [
+    0.039,
+    0.0773
+   ],
+   "n": 473
+  },
+  "hidden/flipped_hop1/jlens/peer_bridge": {
+   "mean": 0.0863,
+   "ci": [
+    0.0665,
+    0.1071
+   ],
+   "n": 475
+  },
+  "hidden/flipped_hop1/logit/orig_bridge": {
+   "mean": 0.0097,
+   "ci": [
+    0.0042,
+    0.0157
+   ],
+   "n": 473
+  },
+  "hidden/flipped_hop1/logit/peer_bridge": {
+   "mean": 0.009,
+   "ci": [
+    0.003,
+    0.0168
+   ],
+   "n": 475
+  },
+  "hidden/flipped_hop1/jlens_wiki100/orig_bridge": {
+   "mean": 0.0489,
+   "ci": [
+    0.0323,
+    0.0664
+   ],
+   "n": 473
+  },
+  "hidden/flipped_hop1/jlens_wiki100/peer_bridge": {
+   "mean": 0.0677,
+   "ci": [
+    0.0505,
+    0.0863
+   ],
+   "n": 475
+  },
+  "absent/agree/jlens/orig_bridge": {
+   "mean": 0.1612,
+   "ci": [
+    0.1352,
+    0.188
+   ],
+   "n": 538
+  },
+  "absent/agree/jlens/peer_bridge": {
+   "mean": 0.0005,
+   "ci": [
+    -0.0034,
+    0.0045
+   ],
+   "n": 540
+  },
+  "absent/agree/logit/orig_bridge": {
+   "mean": 0.0181,
+   "ci": [
+    0.0122,
+    0.025
+   ],
+   "n": 538
+  },
+  "absent/agree/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 540
+  },
+  "absent/agree/jlens_wiki100/orig_bridge": {
+   "mean": 0.1152,
+   "ci": [
+    0.094,
+    0.1378
+   ],
+   "n": 538
+  },
+  "absent/agree/jlens_wiki100/peer_bridge": {
+   "mean": -0.0003,
+   "ci": [
+    -0.0019,
+    0.0011
+   ],
+   "n": 540
+  },
+  "absent/mention/jlens/orig_bridge": {
+   "mean": 0.1851,
+   "ci": [
+    0.1569,
+    0.2175
+   ],
+   "n": 538
+  },
+  "absent/mention/jlens/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    -0.004,
+    0.004
+   ],
+   "n": 540
+  },
+  "absent/mention/logit/orig_bridge": {
+   "mean": 0.0467,
+   "ci": [
+    0.034,
+    0.0619
+   ],
+   "n": 538
+  },
+  "absent/mention/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 540
+  },
+  "absent/mention/jlens_wiki100/orig_bridge": {
+   "mean": 0.1407,
+   "ci": [
+    0.1179,
+    0.1678
+   ],
+   "n": 538
+  },
+  "absent/mention/jlens_wiki100/peer_bridge": {
+   "mean": -0.0003,
+   "ci": [
+    -0.0024,
+    0.0016
+   ],
+   "n": 540
+  },
+  "absent/held/jlens/orig_bridge": {
+   "mean": 0.4307,
+   "ci": [
+    0.3703,
+    0.4841
+   ],
+   "n": 206
+  },
+  "absent/held/jlens/peer_bridge": {
+   "mean": 0.0014,
+   "ci": [
+    -0.0083,
+    0.0146
+   ],
+   "n": 206
+  },
+  "absent/held/logit/orig_bridge": {
+   "mean": 0.1304,
+   "ci": [
+    0.0964,
+    0.1658
+   ],
+   "n": 206
+  },
+  "absent/held/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 206
+  },
+  "absent/held/jlens_wiki100/orig_bridge": {
+   "mean": 0.4168,
+   "ci": [
+    0.3571,
+    0.4681
+   ],
+   "n": 206
+  },
+  "absent/held/jlens_wiki100/peer_bridge": {
+   "mean": 0.0042,
+   "ci": [
+    -0.0049,
+    0.0166
+   ],
+   "n": 206
+  },
+  "absent/flipped/jlens/orig_bridge": {
+   "mean": 0.3906,
+   "ci": [
+    0.3482,
+    0.4326
+   ],
+   "n": 320
+  },
+  "absent/flipped/jlens/peer_bridge": {
+   "mean": 0.0102,
+   "ci": [
+    0.0018,
+    0.0204
+   ],
+   "n": 322
+  },
+  "absent/flipped/logit/orig_bridge": {
+   "mean": 0.0754,
+   "ci": [
+    0.0513,
+    0.1005
+   ],
+   "n": 320
+  },
+  "absent/flipped/logit/peer_bridge": {
+   "mean": -0.0004,
+   "ci": [
+    -0.0013,
+    0.0
+   ],
+   "n": 322
+  },
+  "absent/flipped/jlens_wiki100/orig_bridge": {
+   "mean": 0.3362,
+   "ci": [
+    0.2973,
+    0.375
+   ],
+   "n": 320
+  },
+  "absent/flipped/jlens_wiki100/peer_bridge": {
+   "mean": 0.0067,
+   "ci": [
+    -0.0009,
+    0.0155
+   ],
+   "n": 322
+  },
+  "absent/flipped_hop1/jlens/orig_bridge": {
+   "mean": 0.1111,
+   "ci": [
+    0.0845,
+    0.1376
+   ],
+   "n": 382
+  },
+  "absent/flipped_hop1/jlens/peer_bridge": {
+   "mean": 0.0515,
+   "ci": [
+    0.0347,
+    0.0705
+   ],
+   "n": 383
+  },
+  "absent/flipped_hop1/logit/orig_bridge": {
+   "mean": 0.0127,
+   "ci": [
+    0.006,
+    0.0209
+   ],
+   "n": 382
+  },
+  "absent/flipped_hop1/logit/peer_bridge": {
+   "mean": 0.0056,
+   "ci": [
+    0.0004,
+    0.0127
+   ],
+   "n": 383
+  },
+  "absent/flipped_hop1/jlens_wiki100/orig_bridge": {
+   "mean": 0.0845,
+   "ci": [
+    0.0625,
+    0.107
+   ],
+   "n": 382
+  },
+  "absent/flipped_hop1/jlens_wiki100/peer_bridge": {
+   "mean": 0.0436,
+   "ci": [
+    0.028,
+    0.0608
+   ],
+   "n": 383
+  },
+  "visible/agree/jlens/orig_bridge": {
+   "mean": 0.517,
+   "ci": [
+    0.4804,
+    0.5522
+   ],
+   "n": 535
+  },
+  "visible/agree/jlens/peer_bridge": {
+   "mean": -0.0021,
+   "ci": [
+    -0.0101,
+    0.0056
+   ],
+   "n": 537
+  },
+  "visible/agree/logit/orig_bridge": {
+   "mean": 0.0745,
+   "ci": [
+    0.0593,
+    0.0916
+   ],
+   "n": 535
+  },
+  "visible/agree/logit/peer_bridge": {
+   "mean": 0.0013,
+   "ci": [
+    0.0,
+    0.0032
+   ],
+   "n": 537
+  },
+  "visible/agree/jlens_wiki100/orig_bridge": {
+   "mean": 0.475,
+   "ci": [
+    0.4398,
+    0.5092
+   ],
+   "n": 535
+  },
+  "visible/agree/jlens_wiki100/peer_bridge": {
+   "mean": -0.0005,
+   "ci": [
+    -0.0082,
+    0.0075
+   ],
+   "n": 537
+  },
+  "visible/mention/jlens/orig_bridge": {
+   "mean": 0.4689,
+   "ci": [
+    0.431,
+    0.5048
+   ],
+   "n": 538
+  },
+  "visible/mention/jlens/peer_bridge": {
+   "mean": 0.0066,
+   "ci": [
+    -0.0008,
+    0.0146
+   ],
+   "n": 540
+  },
+  "visible/mention/logit/orig_bridge": {
+   "mean": 0.0871,
+   "ci": [
+    0.0714,
+    0.1054
+   ],
+   "n": 538
+  },
+  "visible/mention/logit/peer_bridge": {
+   "mean": 0.0008,
+   "ci": [
+    -0.0005,
+    0.0026
+   ],
+   "n": 540
+  },
+  "visible/mention/jlens_wiki100/orig_bridge": {
+   "mean": 0.4344,
+   "ci": [
+    0.3991,
+    0.4687
+   ],
+   "n": 538
+  },
+  "visible/mention/jlens_wiki100/peer_bridge": {
+   "mean": 0.0048,
+   "ci": [
+    -0.0026,
+    0.0127
+   ],
+   "n": 540
+  },
+  "visible/held/jlens/orig_bridge": {
+   "mean": 0.2897,
+   "ci": [
+    0.1706,
+    0.4088
+   ],
+   "n": 36
+  },
+  "visible/held/jlens/peer_bridge": {
+   "mean": 0.0079,
+   "ci": [
+    -0.0397,
+    0.0516
+   ],
+   "n": 36
+  },
+  "visible/held/logit/orig_bridge": {
+   "mean": 0.0357,
+   "ci": [
+    0.0079,
+    0.0794
+   ],
+   "n": 36
+  },
+  "visible/held/logit/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "n": 36
+  },
+  "visible/held/jlens_wiki100/orig_bridge": {
+   "mean": 0.2421,
+   "ci": [
+    0.1388,
+    0.3611
+   ],
+   "n": 36
+  },
+  "visible/held/jlens_wiki100/peer_bridge": {
+   "mean": 0.0,
+   "ci": [
+    -0.0357,
+    0.0278
+   ],
+   "n": 36
+  },
+  "visible/flipped/jlens/orig_bridge": {
+   "mean": 0.0336,
+   "ci": [
+    0.02,
+    0.048
+   ],
+   "n": 485
+  },
+  "visible/flipped/jlens/peer_bridge": {
+   "mean": 0.0337,
+   "ci": [
+    0.0235,
+    0.044
+   ],
+   "n": 487
+  },
+  "visible/flipped/logit/orig_bridge": {
+   "mean": 0.0035,
+   "ci": [
+    0.0006,
+    0.0074
+   ],
+   "n": 485
+  },
+  "visible/flipped/logit/peer_bridge": {
+   "mean": 0.0185,
+   "ci": [
+    0.0123,
+    0.0255
+   ],
+   "n": 487
+  },
+  "visible/flipped/jlens_wiki100/orig_bridge": {
+   "mean": 0.0244,
+   "ci": [
+    0.0127,
+    0.0374
+   ],
+   "n": 485
+  },
+  "visible/flipped/jlens_wiki100/peer_bridge": {
+   "mean": 0.0208,
+   "ci": [
+    0.0132,
+    0.0293
+   ],
+   "n": 487
+  },
+  "visible/flipped_hop1/jlens/orig_bridge": {
+   "mean": 0.0129,
+   "ci": [
+    0.0025,
+    0.0239
+   ],
+   "n": 521
+  },
+  "visible/flipped_hop1/jlens/peer_bridge": {
+   "mean": 0.1639,
+   "ci": [
+    0.1401,
+    0.1915
+   ],
+   "n": 523
+  },
+  "visible/flipped_hop1/logit/orig_bridge": {
+   "mean": 0.0052,
+   "ci": [
+    0.0016,
+    0.0096
+   ],
+   "n": 521
+  },
+  "visible/flipped_hop1/logit/peer_bridge": {
+   "mean": 0.0339,
+   "ci": [
+    0.0243,
+    0.044
+   ],
+   "n": 523
+  },
+  "visible/flipped_hop1/jlens_wiki100/orig_bridge": {
+   "mean": 0.0121,
+   "ci": [
+    0.0016,
+    0.0239
+   ],
+   "n": 521
+  },
+  "visible/flipped_hop1/jlens_wiki100/peer_bridge": {
+   "mean": 0.1287,
+   "ci": [
+    0.1079,
+    0.1524
+   ],
+   "n": 523
+  }
+ },
+ "h2": {
+  "hidden": {
+   "diff": 0.0176,
+   "ci": [
+    0.0062,
+    0.031
+   ],
+   "n": [
+    383,
+    540
+   ]
+  },
+  "absent": {
+   "diff": 0.0102,
+   "ci": [
+    0.0005,
+    0.0217
+   ],
+   "n": [
+    322,
+    540
+   ]
+  },
+  "visible": {
+   "diff": 0.0271,
+   "ci": [
+    0.0137,
+    0.0408
+   ],
+   "n": [
+    487,
+    540
+   ]
+  }
+ },
+ "paired": {
+  "hidden-visible": {
+   "diff": 0.2289,
+   "ci": [
+    0.196,
+    0.2655
+   ],
+   "n_items": 382
+  },
+  "hidden-absent": {
+   "diff": -0.154,
+   "ci": [
+    -0.1826,
+    -0.1248
+   ],
+   "n_items": 309
+  }
+ }
+}

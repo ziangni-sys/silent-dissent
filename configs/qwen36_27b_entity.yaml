@@ -1,0 +1,90 @@
+# Replication of the entity study at scale: Qwen3.6-27B with its official pre-fitted J-lens.
+# ~54 GB of bf16 weights: fits one A100 80GB with small batches. The Hub lists the model as
+# image-text-to-text (Qwen3_5ForConditionalGeneration, like the 4B); run
+#   python scripts/check_model.py --config configs/qwen36_27b_entity.yaml
+# first to confirm the text-only loading, the letter tokens and the lens shape.
+# Every rule below was fixed on Qwen3.5-4B (prereg/qwen35_4b_entity.json, prereg/qwen35_4b_entity_rounds.json)
+# before any 27B run; this model's dev split only applies them. Queue: scripts/entity_replicate.sh.
+model:
+  name: Qwen/Qwen3.6-27B
+  dtype: bfloat16
+  chat_template_kwargs: {enable_thinking: false}
+
+lens:
+  name: jlens
+  kwargs:
+    repo: neuronpedia/jacobian-lens
+    revision: qwen-n1000
+    filename: qwen3.6-27b/jlens/Salesforce-wikitext/Qwen3.6-27B_jacobian_lens_n1000.pt
+
+data: {n_choices: 4}
+seed: 0
+batch_size: 8
+out_dir: results/qwen36_27b_entity
+entity_prereg: prereg/qwen36_27b_entity_v2.json
+
+entity:
+  sources:
+    - {name: twohopfact}
+    - {name: handmade}
+  max_per_category: null  # all 45,595 facts, as for Qwen3.5-4B
+  dev_frac: 0.3
+  gen_tokens: 12
+  gen_batch_size: 32       # 64 ran out of memory at round 3 of the repeat pilot (long prompts)
+  formats: [plain, chat]   # E0 runs both; entity_select keeps plain if it passes, as for Qwen3.5-4B
+  e0_n_peers: [3]
+  styles: [answer, hop1, hop2]
+  n_peers: [1, 3, 5]
+  primary_n_peers: 3
+  rounds: 1                # H1-H4 are round-1 hypotheses; rounds 2-3 only through the rounds addendum (summary)
+  select:                  # v2 (prereg/qwen36_27b_entity_v2.json); v1 = the Qwen3.5-4B rules (prereg/qwen36_27b_entity.json)
+    k: 100
+    band_threshold: 0.5    # v1 only
+    min_accuracy: 0.7
+    min_n: 30
+    exclude_last_layer: true
+    band_rule: dialogue    # see scripts/entity_select.py
+    latent_gap: 0.25
+    dialogue_min: 0.3
+    min_category_n: 10
+    f2: adoption
+    min_adoption_ratio: 3
+    min_persistence: 0.5
+    supersedes: prereg/qwen36_27b_entity.json
+    supersedes_reason: "the v1 band rule selected only layer 62 of 64, where the logit lens reads the bridge as well as the J-lens; replaced before any test-split run"
+    notes:                 # copied into the prereg
+      - "v2 replaces prereg/qwen36_27b_entity.json (v1, commit 869ce85), whose test split was never run. v1 copied the Qwen3.5-4B rule (round-0 J-lens readout >= 0.5 over all categories) and selected only layer 62 of 64, where the logit lens reads the bridge too (dev round 0: J-lens 0.722, logit lens 0.717), so H4 could not be tested there. On the 27B dev split the J-lens advantage lies at layers 42-53 in round 0 and 52-55 in dialogue."
+      - "Band rule v2, decided on the 27B dev split before any test data: categories where the J-lens beats the logit lens in round 0, then the layers where the bridge is readable in dialogue (agree records) and the J-lens beats the logit lens. On the Qwen3.5-4B dev split the same rule gives that prereg's three categories and layers 23-28 in the plain format (its band: 23-30); on Llama-3.1-8B-Instruct it selects nothing in the plain format and layers 17-23 in the chat format."
+      - "F2 adoption criterion changed from an absolute gap (hypothetical - mention_bridge >= 0.3) to a ratio (hypothetical >= 3 x mention_bridge), since readout levels differ between models; with the absolute gap the 27B dev split gives 0.331 - 0.053 = 0.278 and would fail (ratio 6.2)."
+      - "Pressure runs have round 1 only (the repeat protocol degenerates at rounds 2-3 on Qwen3.5-4B); later rounds are not run for this model."
+      - "All 45,595 TwoHopFact facts were checked; dev share 0.3, as for Qwen3.5-4B."
+  timeline: {styles: [answer, hop1, hop2], n_peers: 3, layers: null, limit: 400}   # null = the prereg band
+  intervention:
+    style: answer
+    n_peers: 3
+    layers: null
+    band_layers: 3         # three evenly spaced layers of the prereg band (Qwen3.5-4B: 3 of its band)
+    alphas: [0.0, 0.1, 0.2, 0.4, 0.8]
+    kinds_flipped: [orig_bridge, orig_answer, ctrl_bridge, random]
+    kinds_held: [peer_bridge, peer_answer, ctrl_bridge, random]
+    limit: 600
+  debate: {n_items: 400, known_share: 0.5, n_agents: 3, rounds: 3, temperature: 1.0}
+  addenda:
+    rounds:                # the Qwen3.5-4B choice, checked on this model's dev split with the same thresholds
+      variants: [summary]
+      pilot_limit: 200
+      n_peers: 3
+      round: 3
+      max_other: 0.10
+      min_round1_agreement: 0.98
+    own:                   # round 1 with the agent's round-0 answer hidden / absent (declared 2026-09-30,
+                           # before any run; scripts/entity_addendum.py --part own)
+      variants: [hidden, absent]
+      styles: [answer, hop1]
+      baselines: [agree, mention]
+      n_peers: 3
+      pilot_limit: 300     # dev items per variant pilot
+      max_other: 0.10      # every pilot cell: share of answers that are neither side's
+      min_agree_n: 30      # the agree cell must still read the original bridge (n, CI lower bound > 0)
+      min_test_n: 10       # fewer test records in a hypothesis cell: no verdict
+  extra_lenses: []

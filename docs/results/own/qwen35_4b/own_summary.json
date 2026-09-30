@@ -1,0 +1,1049 @@
+{
+ "rates": {
+  "hidden/answer": {
+   "peer": 0.8892,
+   "other": 0.009,
+   "n": 668
+  },
+  "hidden/hop1": {
+   "peer": 0.7754,
+   "other": 0.0778,
+   "n": 668
+  },
+  "absent/answer": {
+   "peer": 0.6153,
+   "other": 0.003,
+   "n": 668
+  },
+  "absent/hop1": {
+   "peer": 0.7874,
+   "other": 0.0868,
+   "n": 668
+  },
+  "visible/answer": {
+   "peer": 0.0823,
+   "other": 0.0,
+   "n": 668
+  },
+  "visible/hop1": {
+   "peer": 0.0808,
+   "other": 0.003,
+   "n": 668
+  }
+ },
+ "cells": {
+  "hidden/agree/jlens/orig_bridge": {
+   "mean": 0.6182,
+   "ci": [
+    0.5824,
+    0.6527
+   ],
+   "n": 663
+  },
+  "hidden/agree/jlens/peer_bridge": {
+   "mean": -0.013,
+   "ci": [
+    -0.0294,
+    0.0036
+   ],
+   "n": 664
+  },
+  "hidden/agree/logit/orig_bridge": {
+   "mean": 0.2121,
+   "ci": [
+    0.1974,
+    0.2287
+   ],
+   "n": 663
+  },
+  "hidden/agree/logit/peer_bridge": {
+   "mean": 0.0006,
+   "ci": [
+    -0.0004,
+    0.0015
+   ],
+   "n": 664
+  },
+  "hidden/agree/jlens_wiki100/orig_bridge": {
+   "mean": 0.6143,
+   "ci": [
+    0.579,
+    0.6489
+   ],
+   "n": 663
+  },
+  "hidden/agree/jlens_wiki100/peer_bridge": {
+   "mean": -0.0152,
+   "ci": [
+    -0.0322,
+    0.0011
+   ],
+   "n": 664
+  },
+  "hidden/agree/jlens_chat/orig_bridge": {
+   "mean": 0.6288,
+   "ci": [
+    0.5958,
+    0.6622
+   ],
+   "n": 663
+  },
+  "hidden/agree/jlens_chat/peer_bridge": {
+   "mean": -0.0111,
+   "ci": [
+    -0.0256,
+    0.0026
+   ],
+   "n": 664
+  },
+  "hidden/agree/jlens_mixed/orig_bridge": {
+   "mean": 0.6216,
+   "ci": [
+    0.5869,
+    0.6556
+   ],
+   "n": 663
+  },
+  "hidden/agree/jlens_mixed/peer_bridge": {
+   "mean": -0.0141,
+   "ci": [
+    -0.0301,
+    0.0017
+   ],
+   "n": 664
+  },
+  "hidden/mention/jlens/orig_bridge": {
+   "mean": 0.5774,
+   "ci": [
+    0.5439,
+    0.6125
+   ],
+   "n": 649
+  },
+  "hidden/mention/jlens/peer_bridge": {
+   "mean": 0.0152,
+   "ci": [
+    0.0,
+    0.0306
+   ],
+   "n": 650
+  },
+  "hidden/mention/logit/orig_bridge": {
+   "mean": 0.1423,
+   "ci": [
+    0.1306,
+    0.1541
+   ],
+   "n": 649
+  },
+  "hidden/mention/logit/peer_bridge": {
+   "mean": -0.0006,
+   "ci": [
+    -0.0023,
+    0.001
+   ],
+   "n": 650
+  },
+  "hidden/mention/jlens_wiki100/orig_bridge": {
+   "mean": 0.5732,
+   "ci": [
+    0.5399,
+    0.609
+   ],
+   "n": 649
+  },
+  "hidden/mention/jlens_wiki100/peer_bridge": {
+   "mean": 0.015,
+   "ci": [
+    -0.0004,
+    0.0304
+   ],
+   "n": 650
+  },
+  "hidden/mention/jlens_chat/orig_bridge": {
+   "mean": 0.5666,
+   "ci": [
+    0.535,
+    0.6021
+   ],
+   "n": 649
+  },
+  "hidden/mention/jlens_chat/peer_bridge": {
+   "mean": 0.0142,
+   "ci": [
+    0.0017,
+    0.0277
+   ],
+   "n": 650
+  },
+  "hidden/mention/jlens_mixed/orig_bridge": {
+   "mean": 0.5749,
+   "ci": [
+    0.5418,
+    0.6107
+   ],
+   "n": 649
+  },
+  "hidden/mention/jlens_mixed/peer_bridge": {
+   "mean": 0.0135,
+   "ci": [
+    -0.0015,
+    0.0283
+   ],
+   "n": 650
+  },
+  "hidden/held/jlens/orig_bridge": {
+   "mean": 0.5284,
+   "ci": [
+    0.4166,
+    0.644
+   ],
+   "n": 66
+  },
+  "hidden/held/jlens/peer_bridge": {
+   "mean": 0.1673,
+   "ci": [
+    0.0992,
+    0.2409
+   ],
+   "n": 68
+  },
+  "hidden/held/logit/orig_bridge": {
+   "mean": 0.0663,
+   "ci": [
+    0.0417,
+    0.0928
+   ],
+   "n": 66
+  },
+  "hidden/held/logit/peer_bridge": {
+   "mean": 0.0018,
+   "ci": [
+    -0.0037,
+    0.0074
+   ],
+   "n": 68
+  },
+  "hidden/held/jlens_wiki100/orig_bridge": {
+   "mean": 0.5227,
+   "ci": [
+    0.4072,
+    0.6383
+   ],
+   "n": 66
+  },
+  "hidden/held/jlens_wiki100/peer_bridge": {
+   "mean": 0.171,
+   "ci": [
+    0.1029,
+    0.2409
+   ],
+   "n": 68
+  },
+  "hidden/held/jlens_chat/orig_bridge": {
+   "mean": 0.5057,
+   "ci": [
+    0.3901,
+    0.6212
+   ],
+   "n": 66
+  },
+  "hidden/held/jlens_chat/peer_bridge": {
+   "mean": 0.1452,
+   "ci": [
+    0.0754,
+    0.2133
+   ],
+   "n": 68
+  },
+  "hidden/held/jlens_mixed/orig_bridge": {
+   "mean": 0.5038,
+   "ci": [
+    0.3901,
+    0.6193
+   ],
+   "n": 66
+  },
+  "hidden/held/jlens_mixed/peer_bridge": {
+   "mean": 0.1599,
+   "ci": [
+    0.0864,
+    0.2335
+   ],
+   "n": 68
+  },
+  "hidden/flipped/jlens/orig_bridge": {
+   "mean": 0.434,
+   "ci": [
+    0.4025,
+    0.4672
+   ],
+   "n": 591
+  },
+  "hidden/flipped/jlens/peer_bridge": {
+   "mean": 0.3564,
+   "ci": [
+    0.3216,
+    0.3884
+   ],
+   "n": 590
+  },
+  "hidden/flipped/logit/orig_bridge": {
+   "mean": 0.0508,
+   "ci": [
+    0.0421,
+    0.0592
+   ],
+   "n": 591
+  },
+  "hidden/flipped/logit/peer_bridge": {
+   "mean": 0.0093,
+   "ci": [
+    0.0053,
+    0.0144
+   ],
+   "n": 590
+  },
+  "hidden/flipped/jlens_wiki100/orig_bridge": {
+   "mean": 0.4306,
+   "ci": [
+    0.3989,
+    0.4628
+   ],
+   "n": 591
+  },
+  "hidden/flipped/jlens_wiki100/peer_bridge": {
+   "mean": 0.3538,
+   "ci": [
+    0.3197,
+    0.3862
+   ],
+   "n": 590
+  },
+  "hidden/flipped/jlens_chat/orig_bridge": {
+   "mean": 0.4264,
+   "ci": [
+    0.3951,
+    0.4583
+   ],
+   "n": 591
+  },
+  "hidden/flipped/jlens_chat/peer_bridge": {
+   "mean": 0.3483,
+   "ci": [
+    0.3159,
+    0.3776
+   ],
+   "n": 590
+  },
+  "hidden/flipped/jlens_mixed/orig_bridge": {
+   "mean": 0.4368,
+   "ci": [
+    0.4048,
+    0.47
+   ],
+   "n": 591
+  },
+  "hidden/flipped/jlens_mixed/peer_bridge": {
+   "mean": 0.3587,
+   "ci": [
+    0.3254,
+    0.3888
+   ],
+   "n": 590
+  },
+  "hidden/flipped_hop1/jlens/orig_bridge": {
+   "mean": 0.1958,
+   "ci": [
+    0.1732,
+    0.2213
+   ],
+   "n": 514
+  },
+  "hidden/flipped_hop1/jlens/peer_bridge": {
+   "mean": 0.6582,
+   "ci": [
+    0.6364,
+    0.681
+   ],
+   "n": 516
+  },
+  "hidden/flipped_hop1/logit/orig_bridge": {
+   "mean": 0.0161,
+   "ci": [
+    0.0107,
+    0.0217
+   ],
+   "n": 514
+  },
+  "hidden/flipped_hop1/logit/peer_bridge": {
+   "mean": 0.2594,
+   "ci": [
+    0.2444,
+    0.2757
+   ],
+   "n": 516
+  },
+  "hidden/flipped_hop1/jlens_wiki100/orig_bridge": {
+   "mean": 0.1933,
+   "ci": [
+    0.1707,
+    0.2189
+   ],
+   "n": 514
+  },
+  "hidden/flipped_hop1/jlens_wiki100/peer_bridge": {
+   "mean": 0.6567,
+   "ci": [
+    0.6349,
+    0.6793
+   ],
+   "n": 516
+  },
+  "hidden/flipped_hop1/jlens_chat/orig_bridge": {
+   "mean": 0.1678,
+   "ci": [
+    0.1479,
+    0.1904
+   ],
+   "n": 514
+  },
+  "hidden/flipped_hop1/jlens_chat/peer_bridge": {
+   "mean": 0.6395,
+   "ci": [
+    0.6194,
+    0.6594
+   ],
+   "n": 516
+  },
+  "hidden/flipped_hop1/jlens_mixed/orig_bridge": {
+   "mean": 0.1899,
+   "ci": [
+    0.1678,
+    0.2157
+   ],
+   "n": 514
+  },
+  "hidden/flipped_hop1/jlens_mixed/peer_bridge": {
+   "mean": 0.655,
+   "ci": [
+    0.6342,
+    0.6771
+   ],
+   "n": 516
+  },
+  "absent/agree/jlens/orig_bridge": {
+   "mean": 0.6173,
+   "ci": [
+    0.5836,
+    0.6503
+   ],
+   "n": 662
+  },
+  "absent/agree/jlens/peer_bridge": {
+   "mean": -0.0036,
+   "ci": [
+    -0.0156,
+    0.0081
+   ],
+   "n": 663
+  },
+  "absent/agree/logit/orig_bridge": {
+   "mean": 0.1573,
+   "ci": [
+    0.1416,
+    0.1733
+   ],
+   "n": 662
+  },
+  "absent/agree/logit/peer_bridge": {
+   "mean": 0.0004,
+   "ci": [
+    -0.0004,
+    0.0013
+   ],
+   "n": 663
+  },
+  "absent/agree/jlens_wiki100/orig_bridge": {
+   "mean": 0.6131,
+   "ci": [
+    0.5795,
+    0.646
+   ],
+   "n": 662
+  },
+  "absent/agree/jlens_wiki100/peer_bridge": {
+   "mean": -0.0055,
+   "ci": [
+    -0.0175,
+    0.0059
+   ],
+   "n": 663
+  },
+  "absent/agree/jlens_chat/orig_bridge": {
+   "mean": 0.6182,
+   "ci": [
+    0.5865,
+    0.6503
+   ],
+   "n": 662
+  },
+  "absent/agree/jlens_chat/peer_bridge": {
+   "mean": -0.004,
+   "ci": [
+    -0.0143,
+    0.0062
+   ],
+   "n": 663
+  },
+  "absent/agree/jlens_mixed/orig_bridge": {
+   "mean": 0.6171,
+   "ci": [
+    0.5838,
+    0.6496
+   ],
+   "n": 662
+  },
+  "absent/agree/jlens_mixed/peer_bridge": {
+   "mean": -0.0053,
+   "ci": [
+    -0.0168,
+    0.0058
+   ],
+   "n": 663
+  },
+  "absent/mention/jlens/orig_bridge": {
+   "mean": 0.5659,
+   "ci": [
+    0.5311,
+    0.6005
+   ],
+   "n": 654
+  },
+  "absent/mention/jlens/peer_bridge": {
+   "mean": 0.0284,
+   "ci": [
+    0.0137,
+    0.0439
+   ],
+   "n": 655
+  },
+  "absent/mention/logit/orig_bridge": {
+   "mean": 0.1275,
+   "ci": [
+    0.1154,
+    0.1384
+   ],
+   "n": 654
+  },
+  "absent/mention/logit/peer_bridge": {
+   "mean": -0.0004,
+   "ci": [
+    -0.0023,
+    0.0013
+   ],
+   "n": 655
+  },
+  "absent/mention/jlens_wiki100/orig_bridge": {
+   "mean": 0.5602,
+   "ci": [
+    0.5256,
+    0.5942
+   ],
+   "n": 654
+  },
+  "absent/mention/jlens_wiki100/peer_bridge": {
+   "mean": 0.0265,
+   "ci": [
+    0.0109,
+    0.042
+   ],
+   "n": 655
+  },
+  "absent/mention/jlens_chat/orig_bridge": {
+   "mean": 0.5549,
+   "ci": [
+    0.5216,
+    0.5881
+   ],
+   "n": 654
+  },
+  "absent/mention/jlens_chat/peer_bridge": {
+   "mean": 0.0219,
+   "ci": [
+    0.0088,
+    0.0355
+   ],
+   "n": 655
+  },
+  "absent/mention/jlens_mixed/orig_bridge": {
+   "mean": 0.5604,
+   "ci": [
+    0.5262,
+    0.5938
+   ],
+   "n": 654
+  },
+  "absent/mention/jlens_mixed/peer_bridge": {
+   "mean": 0.0267,
+   "ci": [
+    0.012,
+    0.0412
+   ],
+   "n": 655
+  },
+  "absent/held/jlens/orig_bridge": {
+   "mean": 0.4951,
+   "ci": [
+    0.4451,
+    0.5445
+   ],
+   "n": 253
+  },
+  "absent/held/jlens/peer_bridge": {
+   "mean": 0.0585,
+   "ci": [
+    0.0382,
+    0.0809
+   ],
+   "n": 252
+  },
+  "absent/held/logit/orig_bridge": {
+   "mean": 0.1186,
+   "ci": [
+    0.0973,
+    0.1393
+   ],
+   "n": 253
+  },
+  "absent/held/logit/peer_bridge": {
+   "mean": 0.0015,
+   "ci": [
+    0.0,
+    0.004
+   ],
+   "n": 252
+  },
+  "absent/held/jlens_wiki100/orig_bridge": {
+   "mean": 0.4901,
+   "ci": [
+    0.4397,
+    0.5386
+   ],
+   "n": 253
+  },
+  "absent/held/jlens_wiki100/peer_bridge": {
+   "mean": 0.06,
+   "ci": [
+    0.0387,
+    0.0819
+   ],
+   "n": 252
+  },
+  "absent/held/jlens_chat/orig_bridge": {
+   "mean": 0.4911,
+   "ci": [
+    0.4392,
+    0.5381
+   ],
+   "n": 253
+  },
+  "absent/held/jlens_chat/peer_bridge": {
+   "mean": 0.0585,
+   "ci": [
+    0.0372,
+    0.0799
+   ],
+   "n": 252
+  },
+  "absent/held/jlens_mixed/orig_bridge": {
+   "mean": 0.4941,
+   "ci": [
+    0.4427,
+    0.542
+   ],
+   "n": 253
+  },
+  "absent/held/jlens_mixed/peer_bridge": {
+   "mean": 0.0655,
+   "ci": [
+    0.0437,
+    0.0878
+   ],
+   "n": 252
+  },
+  "absent/flipped/jlens/orig_bridge": {
+   "mean": 0.5,
+   "ci": [
+    0.4617,
+    0.5408
+   ],
+   "n": 408
+  },
+  "absent/flipped/jlens/peer_bridge": {
+   "mean": 0.2994,
+   "ci": [
+    0.2598,
+    0.3403
+   ],
+   "n": 410
+  },
+  "absent/flipped/logit/orig_bridge": {
+   "mean": 0.0475,
+   "ci": [
+    0.0371,
+    0.0588
+   ],
+   "n": 408
+  },
+  "absent/flipped/logit/peer_bridge": {
+   "mean": 0.0058,
+   "ci": [
+    0.0027,
+    0.0091
+   ],
+   "n": 410
+  },
+  "absent/flipped/jlens_wiki100/orig_bridge": {
+   "mean": 0.4963,
+   "ci": [
+    0.4589,
+    0.5377
+   ],
+   "n": 408
+  },
+  "absent/flipped/jlens_wiki100/peer_bridge": {
+   "mean": 0.2988,
+   "ci": [
+    0.2597,
+    0.3393
+   ],
+   "n": 410
+  },
+  "absent/flipped/jlens_chat/orig_bridge": {
+   "mean": 0.4828,
+   "ci": [
+    0.4464,
+    0.5212
+   ],
+   "n": 408
+  },
+  "absent/flipped/jlens_chat/peer_bridge": {
+   "mean": 0.2771,
+   "ci": [
+    0.2409,
+    0.314
+   ],
+   "n": 410
+  },
+  "absent/flipped/jlens_mixed/orig_bridge": {
+   "mean": 0.4979,
+   "ci": [
+    0.4605,
+    0.5374
+   ],
+   "n": 408
+  },
+  "absent/flipped/jlens_mixed/peer_bridge": {
+   "mean": 0.2963,
+   "ci": [
+    0.2582,
+    0.3357
+   ],
+   "n": 410
+  },
+  "absent/flipped_hop1/jlens/orig_bridge": {
+   "mean": 0.2237,
+   "ci": [
+    0.1992,
+    0.2488
+   ],
+   "n": 522
+  },
+  "absent/flipped_hop1/jlens/peer_bridge": {
+   "mean": 0.6393,
+   "ci": [
+    0.6155,
+    0.6639
+   ],
+   "n": 524
+  },
+  "absent/flipped_hop1/logit/orig_bridge": {
+   "mean": 0.022,
+   "ci": [
+    0.0158,
+    0.0283
+   ],
+   "n": 522
+  },
+  "absent/flipped_hop1/logit/peer_bridge": {
+   "mean": 0.2421,
+   "ci": [
+    0.2269,
+    0.2588
+   ],
+   "n": 524
+  },
+  "absent/flipped_hop1/jlens_wiki100/orig_bridge": {
+   "mean": 0.2213,
+   "ci": [
+    0.1971,
+    0.2455
+   ],
+   "n": 522
+  },
+  "absent/flipped_hop1/jlens_wiki100/peer_bridge": {
+   "mean": 0.6369,
+   "ci": [
+    0.6135,
+    0.6615
+   ],
+   "n": 524
+  },
+  "absent/flipped_hop1/jlens_chat/orig_bridge": {
+   "mean": 0.2047,
+   "ci": [
+    0.1813,
+    0.2287
+   ],
+   "n": 522
+  },
+  "absent/flipped_hop1/jlens_chat/peer_bridge": {
+   "mean": 0.6221,
+   "ci": [
+    0.6011,
+    0.6441
+   ],
+   "n": 524
+  },
+  "absent/flipped_hop1/jlens_mixed/orig_bridge": {
+   "mean": 0.2208,
+   "ci": [
+    0.1966,
+    0.245
+   ],
+   "n": 522
+  },
+  "absent/flipped_hop1/jlens_mixed/peer_bridge": {
+   "mean": 0.6348,
+   "ci": [
+    0.6133,
+    0.6579
+   ],
+   "n": 524
+  },
+  "visible/agree/jlens/orig_bridge": {
+   "mean": 0.6299,
+   "ci": [
+    0.5969,
+    0.664
+   ],
+   "n": 663
+  },
+  "visible/agree/jlens/peer_bridge": {
+   "mean": -0.0032,
+   "ci": [
+    -0.0141,
+    0.0073
+   ],
+   "n": 664
+  },
+  "visible/agree/logit/orig_bridge": {
+   "mean": 0.1929,
+   "ci": [
+    0.1757,
+    0.2121
+   ],
+   "n": 663
+  },
+  "visible/agree/logit/peer_bridge": {
+   "mean": 0.0006,
+   "ci": [
+    -0.0002,
+    0.0013
+   ],
+   "n": 664
+  },
+  "visible/mention/jlens/orig_bridge": {
+   "mean": 0.6169,
+   "ci": [
+    0.5805,
+    0.6504
+   ],
+   "n": 660
+  },
+  "visible/mention/jlens/peer_bridge": {
+   "mean": 0.025,
+   "ci": [
+    0.0119,
+    0.0384
+   ],
+   "n": 661
+  },
+  "visible/mention/logit/orig_bridge": {
+   "mean": 0.1663,
+   "ci": [
+    0.1498,
+    0.1818
+   ],
+   "n": 660
+  },
+  "visible/mention/logit/peer_bridge": {
+   "mean": -0.0004,
+   "ci": [
+    -0.0017,
+    0.0004
+   ],
+   "n": 661
+  },
+  "visible/held/jlens/orig_bridge": {
+   "mean": 0.5363,
+   "ci": [
+    0.4988,
+    0.5723
+   ],
+   "n": 609
+  },
+  "visible/held/jlens/peer_bridge": {
+   "mean": 0.1624,
+   "ci": [
+    0.1383,
+    0.188
+   ],
+   "n": 609
+  },
+  "visible/held/logit/orig_bridge": {
+   "mean": 0.092,
+   "ci": [
+    0.0802,
+    0.1037
+   ],
+   "n": 609
+  },
+  "visible/held/logit/peer_bridge": {
+   "mean": 0.001,
+   "ci": [
+    -0.0014,
+    0.0033
+   ],
+   "n": 609
+  },
+  "visible/flipped/jlens/orig_bridge": {
+   "mean": 0.8519,
+   "ci": [
+    0.7824,
+    0.9167
+   ],
+   "n": 54
+  },
+  "visible/flipped/jlens/peer_bridge": {
+   "mean": 0.3977,
+   "ci": [
+    0.2931,
+    0.5137
+   ],
+   "n": 55
+  },
+  "visible/flipped/logit/orig_bridge": {
+   "mean": 0.0602,
+   "ci": [
+    0.037,
+    0.088
+   ],
+   "n": 54
+  },
+  "visible/flipped/logit/peer_bridge": {
+   "mean": 0.0114,
+   "ci": [
+    0.0,
+    0.0273
+   ],
+   "n": 55
+  },
+  "visible/flipped_hop1/jlens/orig_bridge": {
+   "mean": 0.6132,
+   "ci": [
+    0.5283,
+    0.7075
+   ],
+   "n": 53
+  },
+  "visible/flipped_hop1/jlens/peer_bridge": {
+   "mean": 0.5694,
+   "ci": [
+    0.5069,
+    0.6297
+   ],
+   "n": 54
+  },
+  "visible/flipped_hop1/logit/orig_bridge": {
+   "mean": 0.0495,
+   "ci": [
+    0.0259,
+    0.0755
+   ],
+   "n": 53
+  },
+  "visible/flipped_hop1/logit/peer_bridge": {
+   "mean": 0.3449,
+   "ci": [
+    0.2986,
+    0.3912
+   ],
+   "n": 54
+  }
+ },
+ "h2": {
+  "hidden": {
+   "diff": 0.3412,
+   "ci": [
+    0.3036,
+    0.377
+   ],
+   "n": [
+    590,
+    650
+   ]
+  },
+  "absent": {
+   "diff": 0.271,
+   "ci": [
+    0.2307,
+    0.3132
+   ],
+   "n": [
+    410,
+    655
+   ]
+  },
+  "visible": {
+   "diff": 0.3728,
+   "ci": [
+    0.2614,
+    0.4906
+   ],
+   "n": [
+    55,
+    661
+   ]
+  }
+ },
+ "paired": {
+  "hidden-visible": {
+   "diff": -0.4375,
+   "ci": [
+    -0.5047,
+    -0.3611
+   ],
+   "n_items": 54
+  },
+  "hidden-absent": {
+   "diff": -0.0583,
+   "ci": [
+    -0.0731,
+    -0.0438
+   ],
+   "n_items": 405
+  }
+ }
+}

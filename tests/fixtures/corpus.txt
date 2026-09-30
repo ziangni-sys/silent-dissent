@@ -1,0 +1,6 @@
+Answer the following multiple-choice question.  Question: What is 2 + 2? A. 3 B. 4 C. 5 D. 6  Reply with a single letter.
+Answer the following multiple-choice question.  Question: Which planet is closest to the Sun? A. Venus B. Earth C. Mercury D. Mars  Reply with a single letter.
+Answer the following multiple-choice question.  Question: What color is a clear daytime sky? A. Blue B. Green C. Red D. Black  Reply with a single letter.
+Answer the following multiple-choice question.  Question: How many legs does a spider have? A. Six B. Four C. Ten D. Eight  Reply with a single letter.
+Answer the following multiple-choice question.  Question: Water boils at sea level at what temperature in Celsius? A. 90 B. 100 C. 110 D. 120  Reply with a single letter.
+Answer the following multiple-choice question.  Question: Which is a prime number? A. 9 B. 15 C. 7 D. 21  Reply with a single letter.

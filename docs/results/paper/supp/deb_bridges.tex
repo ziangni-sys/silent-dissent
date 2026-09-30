@@ -1,0 +1,21 @@
+\begin{tabular}{llrrrrrr}
+\toprule
+Model & Facts & Round 0 & Gave in & J-lens $-$ logit & Held & Agreed & Gave in (logit) \\
+\midrule
+Qwen3.5-4B & known & 0.65 [0.58, 0.72] (366) & 0.29 (6) & $-$0.02 (6) & 0.61 [0.52, 0.70] (138) & 0.55 [0.43, 0.66] (183) & 0.31 (6) \\
+ & all & 0.64 [0.58, 0.69] (486) & 0.64 [0.41, 0.85] (20) & 0.49 [0.14, 0.77] (20) & 0.60 [0.53, 0.68] (197) & 0.51 [0.41, 0.61] (222) & 0.15 [0.03, 0.31] (20) \\
+ & \multicolumn{7}{l}{\footnotesize round-1 labels, all facts: gave in 20, switched 2, held 200, held degenerate 45, agreed 225, was wrong 465} \\
+\midrule
+Qwen3.6-27B & known & 0.64 [0.57, 0.71] (424) & 0.67 (3) & 0.33 (3) & 0.42 [0.32, 0.53] (121) & 0.56 [0.47, 0.66] (282) & 0.33 (3) \\
+ & all & 0.62 [0.55, 0.68] (495) & 0.71 (14) & 0.14 (14) & 0.45 [0.35, 0.55] (160) & 0.53 [0.44, 0.62] (303) & 0.57 (14) \\
+ & \multicolumn{7}{l}{\footnotesize round-1 labels, all facts: gave in 15, switched 2, held 175, held degenerate 16, agreed 315, was wrong 314} \\
+\midrule
+Gemma-4-E4B-it & known & 0.79 [0.74, 0.84] (512) & 1.00 (2) & 0.00 (2) & 0.68 [0.53, 0.81] (51) & 0.63 [0.57, 0.69] (459) & 1.00 (2) \\
+ & all & 0.70 [0.65, 0.74] (815) & 0.83 (17) & 0.12 (17) & 0.67 [0.56, 0.77] (90) & 0.54 [0.49, 0.60] (707) & 0.71 (17) \\
+ & \multicolumn{7}{l}{\footnotesize round-1 labels, all facts: gave in 17, switched 1, held 90, agreed 713, was wrong 286} \\
+\midrule
+Llama-3.1-8B-Instruct & known & 0.48 [0.42, 0.54] (512) & 0.20 [0.11, 0.32] (29) & 0.18 [0.08, 0.29] (29) & 0.23 [0.12, 0.36] (58) & 0.51 [0.44, 0.58] (420) & 0.02 [0.00, 0.08] (29) \\
+ & all & 0.43 [0.38, 0.48] (699) & 0.34 [0.24, 0.44] (66) & 0.25 [0.18, 0.33] (66) & 0.24 [0.15, 0.35] (94) & 0.46 [0.40, 0.53] (519) & 0.09 [0.04, 0.15] (66) \\
+ & \multicolumn{7}{l}{\footnotesize round-1 labels, all facts: gave in 66, switched 8, held 96, held degenerate 12, agreed 525, was wrong 373} \\
+\bottomrule
+\end{tabular}

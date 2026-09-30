@@ -1,0 +1,23 @@
+# E6: a J-lens for Qwen3.5-4B fit on chat-formatted text instead of wikitext.
+#   python scripts/build_lens_corpus.py --config configs/qwen35_4b_jlens_chat.yaml
+#   python scripts/fit_jlens.py --config configs/qwen35_4b_jlens_chat.yaml
+# The result is picked up as `jlens_chat` by configs/qwen35_4b_entity.yaml (entity.extra_lenses)
+# and can be compared on text with scripts/lens_benchmark.py --extra-lens jlens_chat=<path>.
+model:
+  name: Qwen/Qwen3.5-4B
+  dtype: bfloat16
+  chat_template_kwargs: {enable_thinking: false}
+
+lens:
+  name: jlens
+  kwargs: {path: lenses/qwen35_4b_jlens_chat.pt}
+
+jlens:
+  corpus: results/lens_corpus/qwen35_4b/chat.jsonl
+  n_prompts: 100       # 22 s per prompt on one A100 (4B); quality saturates early (README); wiki100 is the matched control
+  max_seq_len: 128
+  dim_batch: 64
+
+data: {n_choices: 4}
+seed: 0
+out_dir: results/qwen35_4b_jlens_chat

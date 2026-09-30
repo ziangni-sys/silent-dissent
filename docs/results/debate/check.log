@@ -1,0 +1,45 @@
+
+===== qwen35_4b_entity (3828 records)
+round 0: correct 0.514, other_candidate 0.409, degenerate 0.077, other 0.000 | stated (a) 0.618, without degenerate (b) 0.618 (no valid answer: 0), agents (c) 0.514, latent 0.705
+   top answers (degenerate/other): [('', 70), ('_______________', 1), ("...'", 1), ('...?', 1), ('…', 1)]
+round 1: correct 0.754, other_candidate 0.234, degenerate 0.000, other 0.011 | stated (a) 0.762, without degenerate (b) 0.762 (no valid answer: 0), agents (c) 0.754, latent 0.708
+   top answers (degenerate/other): [('Italy', 3), ('the United Kingdom', 3), ('Canada', 2), ('... United Arab Emirates', 1), ('Greece', 1), ('France', 1)]
+round 2: correct 0.755, other_candidate 0.232, degenerate 0.000, other 0.013 | stated (a) 0.759, without degenerate (b) 0.759 (no valid answer: 0), agents (c) 0.755, latent 0.718
+   top answers (degenerate/other): [('Italy', 3), ('the United Kingdom', 3), ('Canada', 3), ('Greece', 1), ('France', 1), ('*Ital<span class="Owne<span class="O', 1)]
+round 3: correct 0.700, other_candidate 0.225, degenerate 0.007, other 0.068 | stated (a) 0.705, without degenerate (b) 0.710 (no valid answer: 2), agents (c) 0.700, latent 0.686
+   top answers (degenerate/other): [('trivia', 6), ('', 4), ('repeating the same answer', 3), ('Trinit', 3), ('Italy', 3), ('all three agents', 3), ("identical to Agent 2's statement", 3), ('Statue of Liberty', 3)]
+ATTRIBUTED TO THE PROTOCOL: no (max degenerate share r2-r3 0.007, accuracy criterion met)
+
+===== qwen36_27b_entity (3348 records)
+round 0: correct 0.625, other_candidate 0.349, degenerate 0.026, other 0.000 | stated (a) 0.724, without degenerate (b) 0.724 (no valid answer: 0), agents (c) 0.625, latent 0.712
+   top answers (degenerate/other): [('', 21), ('____', 1)]
+round 1: correct 0.774, other_candidate 0.211, degenerate 0.000, other 0.014 | stated (a) 0.781, without degenerate (b) 0.781 (no valid answer: 0), agents (c) 0.774, latent 0.704
+   top answers (degenerate/other): [('South Korea', 3), ('Czechoslovak said', 3), ('Rio de answer', 3), ('San Francisco', 1), ('Berkeley', 1), ('Canada', 1)]
+round 2: correct 0.282, other_candidate 0.128, degenerate 0.082, other 0.508 | stated (a) 0.301, without degenerate (b) 0.309 (no valid answer: 7), agents (c) 0.282, latent 0.657
+   top answers (degenerate/other): [('an island', 45), ('Agent 2', 28), ('an island nation in East Asia', 27), ('agents', 25), ('the agents', 24), ('', 13), ('loop', 11), ('unconfirmed', 9)]
+round 3: correct 0.412, other_candidate 0.167, degenerate 0.050, other 0.370 | stated (a) 0.444, without degenerate (b) 0.456 (no valid answer: 7), agents (c) 0.412, latent 0.690
+   top answers (degenerate/other): [('an island', 45), ('an island nation in East Asia', 24), ('the agents', 23), ('Agent 2', 19), ('agents', 15), ('unconfirmed', 9), ('loop', 9), ('Washington', 9)]
+ATTRIBUTED TO THE PROTOCOL: no (max degenerate share r2-r3 0.082, accuracy criterion not met)
+
+===== gemma4_e4b_it_entity (4428 records)
+round 0: correct 0.742, other_candidate 0.258, degenerate 0.000, other 0.000 | stated (a) 0.764, without degenerate (b) 0.764 (no valid answer: 0), agents (c) 0.742, latent 0.764
+   top answers (degenerate/other): []
+round 1: correct 0.807, other_candidate 0.192, degenerate 0.000, other 0.002 | stated (a) 0.810, without degenerate (b) 0.810 (no valid answer: 0), agents (c) 0.807, latent 0.787
+   top answers (degenerate/other): [('New York', 1), ('Greece', 1)]
+round 2: correct 0.805, other_candidate 0.193, degenerate 0.000, other 0.002 | stated (a) 0.808, without degenerate (b) 0.808 (no valid answer: 0), agents (c) 0.805, latent 0.784
+   top answers (degenerate/other): [('New York', 1), ('Greece', 1)]
+round 3: correct 0.810, other_candidate 0.188, degenerate 0.000, other 0.002 | stated (a) 0.816, without degenerate (b) 0.816 (no valid answer: 0), agents (c) 0.810, latent 0.792
+   top answers (degenerate/other): [('New York', 1), ('Greece', 1)]
+ATTRIBUTED TO THE PROTOCOL: no (max degenerate share r2-r3 0.000, accuracy criterion met)
+
+===== llama31_8b_it_entity (4320 records)
+round 0: correct 0.655, other_candidate 0.323, degenerate 0.022, other 0.000 | stated (a) 0.717, without degenerate (b) 0.717 (no valid answer: 0), agents (c) 0.655, latent 0.685
+   top answers (degenerate/other): [('', 23), ('...,', 1)]
+round 1: correct 0.706, other_candidate 0.244, degenerate 0.004, other 0.046 | stated (a) 0.706, without degenerate (b) 0.706 (no valid answer: 0), agents (c) 0.706, latent 0.693
+   top answers (degenerate/other): [('the United Kingdom', 11), ('England', 4), ('Porbandar, India', 2), ('the United Kingdom, more specifically, Dublin, Ireland', 2), ('A particular region of Scotland', 2), ('Chile', 2), ('actually Chandigarh', 2), ('Canada, specifically in the city of Edinburgh is incorrect, it', 2)]
+round 2: correct 0.716, other_candidate 0.234, degenerate 0.002, other 0.048 | stated (a) 0.725, without degenerate (b) 0.725 (no valid answer: 0), agents (c) 0.716, latent 0.702
+   top answers (degenerate/other): [('the United Kingdom', 10), ('France', 3), ('England', 3), ('A particular region of Scotland', 3), ('Canada, specifically in the city of Edinburgh is incorrect, it', 3), ('Timor-Leste, specifically in the city of Dili', 2), ('Iran, but he grew up in Las Vegas which is in', 2), ('Chile', 2)]
+round 3: correct 0.723, other_candidate 0.229, degenerate 0.003, other 0.045 | stated (a) 0.728, without degenerate (b) 0.728 (no valid answer: 0), agents (c) 0.723, latent 0.710
+   top answers (degenerate/other): [('the United Kingdom', 8), ('England', 4), ('Sudan, in the city of Wau', 3), ('Czechoslovakia, specifically in the city of Koš', 3), ('A particular region of Scotland', 3), ('Porbandar, India', 2), ('Timor-Leste', 2), ('the United Kingdom, specifically in Wales', 2)]
+ATTRIBUTED TO THE PROTOCOL: no (max degenerate share r2-r3 0.003, accuracy criterion met)
+-> results/debate_check/summary.json

@@ -1,0 +1,86 @@
+# Replication of the entity study on another model family: Llama-3.1-8B-Instruct with its official J-lens.
+# The model is gated on the Hub: accept the licence and log in (hf auth login) before setup.
+# Plain prompts get Llama's BOS token (entity_prompts.bos_text); the chat template adds its own.
+# Every rule below was fixed on Qwen3.5-4B (prereg/qwen35_4b_entity.json, prereg/qwen35_4b_entity_rounds.json)
+# before any Llama run; this model's dev split only applies them. Queue: scripts/entity_replicate.sh.
+model:
+  name: meta-llama/Llama-3.1-8B-Instruct
+  dtype: bfloat16
+
+lens:
+  name: jlens
+  kwargs:
+    repo: neuronpedia/jacobian-lens
+    revision: qwen-n1000   # the branch that holds all reference lenses, Llama included
+    filename: llama3.1-8b-it/jlens/Salesforce-wikitext/Llama-3.1-8B-Instruct_jacobian_lens.pt
+
+data: {n_choices: 4}
+seed: 0
+batch_size: 16
+out_dir: results/llama31_8b_it_entity
+entity_prereg: prereg/llama31_8b_it_entity.json
+
+entity:
+  sources:
+    - {name: twohopfact}
+    - {name: handmade}
+  max_per_category: null  # all 45,595 facts, as for Qwen3.5-4B
+  dev_frac: 0.3
+  gen_tokens: 12
+  gen_batch_size: 64
+  formats: [plain, chat]   # E0 runs both; entity_select keeps plain if it passes, as for Qwen3.5-4B
+  e0_n_peers: [3]
+  styles: [answer, hop1, hop2]
+  n_peers: [1, 3, 5]
+  primary_n_peers: 3
+  rounds: 1                # H1-H4 are round-1 hypotheses; rounds 2-3 only through the rounds addendum (summary)
+  select:                  # v2, as for Qwen3.6-27B (prereg/qwen36_27b_entity_v2.json)
+    k: 100
+    band_threshold: 0.5    # v1 only
+    min_accuracy: 0.7
+    min_n: 30
+    exclude_last_layer: true
+    band_rule: dialogue    # see scripts/entity_select.py
+    latent_gap: 0.25
+    dialogue_min: 0.3
+    min_category_n: 10
+    f2: adoption
+    min_adoption_ratio: 3
+    min_persistence: 0.5
+    notes:                 # copied into the prereg
+      - "The Qwen3.5-4B rule (v1: round-0 J-lens readout >= 0.5 over all categories) failed F1 on the Llama dev split in both formats (J-lens peak 0.30 at layer 24, plain; the logit lens reads as much), so no prereg was written with it."
+      - "Band rule v2 and the F2 ratio were decided on the Qwen3.6-27B dev split (prereg/qwen36_27b_entity_v2.json, where v1 selected only the second-to-last layer) and are applied here unchanged: categories where the J-lens beats the logit lens in round 0, then the layers where the bridge is readable in dialogue (agree records) and the J-lens beats the logit lens; F2 adoption as hypothetical >= 3 x mention_bridge. On this dev split v2 selects nothing in the plain format and passes in the chat format."
+      - "Pressure runs have round 1 only (the repeat protocol degenerates at rounds 2-3 on Qwen3.5-4B); later rounds are not run for this model."
+      - "Extra lens jlens_wiki100 (a 100-prompt refit, entity.extra_lenses) is read where its file exists; exploratory only."
+      - "All 45,595 TwoHopFact facts were checked; dev share 0.3, as for Qwen3.5-4B."
+  timeline: {styles: [answer, hop1, hop2], n_peers: 3, layers: null, limit: 400}   # null = the prereg band
+  intervention:
+    style: answer
+    n_peers: 3
+    layers: null
+    band_layers: 3         # three evenly spaced layers of the prereg band (Qwen3.5-4B: 3 of its band)
+    alphas: [0.0, 0.1, 0.2, 0.4, 0.8]
+    kinds_flipped: [orig_bridge, orig_answer, ctrl_bridge, random]
+    kinds_held: [peer_bridge, peer_answer, ctrl_bridge, random]
+    limit: 600
+  debate: {n_items: 400, known_share: 0.5, n_agents: 3, rounds: 3, temperature: 1.0}
+  addenda:
+    rounds:                # the Qwen3.5-4B choice, checked on this model's dev split with the same thresholds
+      variants: [summary]
+      pilot_limit: 200
+      n_peers: 3
+      round: 3
+      max_other: 0.10
+      min_round1_agreement: 0.98
+    own:                   # round 1 with the agent's round-0 answer hidden / absent (declared 2026-09-30,
+                           # before any run; scripts/entity_addendum.py --part own)
+      variants: [hidden, absent]
+      styles: [answer, hop1]
+      baselines: [agree, mention]
+      n_peers: 3
+      pilot_limit: 300     # dev items per variant pilot
+      max_other: 0.10      # every pilot cell: share of answers that are neither side's
+      min_agree_n: 30      # the agree cell must still read the original bridge (n, CI lower bound > 0)
+      min_test_n: 10       # fewer test records in a hypothesis cell: no verdict
+  extra_lenses:            # exploratory refit (the replication failed F1 with the official lens)
+    - {name: jlens_wiki100, path: lenses/llama31_8b_it_jlens_wiki100.pt}

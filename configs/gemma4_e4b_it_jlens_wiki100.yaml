@@ -1,0 +1,23 @@
+# The primary J-lens of the Gemma-4-E4B-it replication: fit with this repo's code on 100 wikitext prompts
+# on the instruction-tuned model (the official Gemma 4 lens was fit on the base model google/gemma-4-E4B).
+# Same budget and settings as the Qwen3.5-4B and Llama-3.1-8B-Instruct refits, which read like the
+# official lenses of those models.
+#   python scripts/fit_jlens.py --config configs/gemma4_e4b_it_jlens_wiki100.yaml
+model:
+  name: google/gemma-4-E4B-it
+  dtype: bfloat16
+  chat_template_kwargs: {enable_thinking: false}
+
+lens:
+  name: jlens
+  kwargs: {path: lenses/gemma4_e4b_it_jlens_wiki100.pt}
+
+jlens:
+  corpus: wikitext
+  n_prompts: 100
+  max_seq_len: 128
+  dim_batch: 64
+
+data: {n_choices: 4}
+seed: 0
+out_dir: results/gemma4_e4b_it_jlens_wiki100

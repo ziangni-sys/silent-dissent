@@ -1,0 +1,21 @@
+{
+ "source": "results/llama31_8b_it_entity/entity/debate_test/records.jsonl",
+ "lens": "jlens",
+ "band": [
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23
+ ],
+ "k": 100,
+ "format": "chat",
+ "n_facts": 360,
+ "n_agents": 3,
+ "rounds": 3,
+ "reconstruction_match": 1.0,
+ "reconstruction_identical": 1.0,
+ "config": "configs/llama31_8b_it_entity.yaml"
+}

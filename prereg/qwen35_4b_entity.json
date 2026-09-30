@@ -1,0 +1,344 @@
+{
+  "study": "entity-answer silent dissent (two-hop facts; the bridge entity is never stated)",
+  "model": "Qwen/Qwen3.5-4B",
+  "lens": "jlens",
+  "comparison_lens": "logit",
+  "format": "plain",
+  "band": [
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "k": 100,
+  "position": "last prompt token (primary)",
+  "band_rule": "layers where correctly answered dev round-0 records have orig_bridge - ctrl_bridge >= 0.5 (hit@100, jlens, last token), excluding the last layer",
+  "categories": [
+    "landmark-cntry-capital",
+    "person-birthcity-cntry",
+    "univ-hqcity-cntry"
+  ],
+  "category_rule": "categories whose dev round-0 records have band-mean orig_bridge - ctrl_bridge >= 0.5 with n >= 10; test items of other categories are not run",
+  "validation": {
+    "F2_mode": "adoption",
+    "min_n": 30,
+    "min_adoption_gap": 0.3,
+    "min_persistence": 0.5
+  },
+  "dev_adjustments": [
+    "Declared rule hit@10 >= 0.5 gave an empty band in both formats: at the answer position the bridge is rarely in the lens top 10 (J-lens peak 0.48 at layer 30, plain). Switched to hit@100; the control's hit@100 in the band is 0.02-0.05.",
+    "The last layer is excluded from the band: it is the model output, identical for every lens, so it says nothing about latent content and would dilute H4.",
+    "Declared F2 (retention) could not be evaluated: retention siblings exist almost only in novel / spouse categories whose person bridges are unreadable even in round 0 (13 and 11 records, plain). F2 is replaced by an adoption check: hypothetical (premise adopted) vs mention_bridge (premise mentioned, not adopted), plus persistence of the bridge when peers agree.",
+    "Items are restricted to categories whose bridge is readable in round 0 (band mean >= 0.5, n >= 10 on dev).",
+    "All 45,595 TwoHopFact facts were checked (Qwen3.5-4B knows 4.5%); dev share 0.3."
+  ],
+  "readout": "an entity's rank is the minimum full-vocabulary lens rank over the first tokens of its content words, tokens shared between the item's roles removed; hit@k = rank < k; a contrast is hit(role) - hit(control role) within a record; the statistic is its mean over the band, per record",
+  "test_items": "items_test.jsonl: bridges disjoint from dev; run with scripts/entity_run.py --stage pressure --split test",
+  "conditions": {
+    "styles": [
+      "answer",
+      "hop1",
+      "hop2"
+    ],
+    "n_peers": [
+      1,
+      3,
+      5
+    ],
+    "rounds": 3,
+    "baselines": [
+      "agree",
+      "mention",
+      "mention_bridge"
+    ]
+  },
+  "primary_n_peers": 3,
+  "hypotheses": [
+    {
+      "id": "H1",
+      "name": "latent premise retention",
+      "records": "condition pressure, style answer, n_peers 3, round 1; answer = the peers' (flipped)",
+      "statistic": "orig_bridge - ctrl_bridge",
+      "prediction": "> 0",
+      "test": "95% bootstrap CI over records excludes 0"
+    },
+    {
+      "id": "H2",
+      "name": "implied premise beyond mention",
+      "records": "condition pressure, style answer, n_peers 3, round 1, flipped, vs condition mention (same n_peers, round 1), answer kept",
+      "statistic": "peer_bridge - ctrl_bridge, difference of means",
+      "prediction": "flipped > mention",
+      "test": "95% bootstrap CI of the difference excludes 0"
+    },
+    {
+      "id": "H3",
+      "name": "locus of conformity",
+      "records": "condition pressure, style hop2, n_peers 3, round 1, flipped, vs condition pressure, style hop1, n_peers 3, round 1, flipped",
+      "statistic": "orig_bridge - ctrl_bridge, difference of means",
+      "prediction": "hop2 > hop1",
+      "test": "95% bootstrap CI of the difference excludes 0"
+    },
+    {
+      "id": "H4",
+      "name": "the J-lens reads what the logit lens misses",
+      "records": "the H1 records",
+      "statistic": "H1 statistic under the J-lens minus under the logit lens, paired over records",
+      "prediction": "> 0",
+      "test": "95% bootstrap CI of the paired difference excludes 0"
+    }
+  ],
+  "exploratory": [
+    "rounds 2-3",
+    "n_peers dose-response",
+    "subject position",
+    "per category and per source",
+    "held (non-flipped) records",
+    "E3 timeline",
+    "E4 injection",
+    "E5 free debate",
+    "extra lenses"
+  ],
+  "dev_checks": {
+    "plain": {
+      "round0_accuracy": 0.841,
+      "n_round0": 541,
+      "round0_orig_bridge_curve": [
+        0.002,
+        0.0,
+        -0.004,
+        -0.004,
+        -0.007,
+        -0.004,
+        -0.007,
+        -0.007,
+        -0.004,
+        -0.002,
+        -0.002,
+        -0.002,
+        -0.002,
+        -0.002,
+        -0.002,
+        -0.004,
+        -0.004,
+        0.004,
+        0.02,
+        0.07,
+        0.409,
+        0.418,
+        0.366,
+        0.51,
+        0.587,
+        0.591,
+        0.636,
+        0.647,
+        0.674,
+        0.688,
+        0.721,
+        0.735
+      ],
+      "band": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "categories": [
+        "landmark-cntry-capital",
+        "person-birthcity-cntry",
+        "univ-hqcity-cntry"
+      ],
+      "round0_orig_bridge": {
+        "n": 352,
+        "mean": 0.727,
+        "ci": [
+          0.686,
+          0.768
+        ]
+      },
+      "retention": {
+        "n": 0,
+        "mean": null,
+        "ci": null
+      },
+      "retention_hidden": {
+        "n": 0,
+        "mean": null,
+        "ci": null
+      },
+      "agree_orig_bridge": {
+        "n": 352,
+        "mean": 0.663,
+        "ci": [
+          0.616,
+          0.707
+        ]
+      },
+      "mention_peer_bridge": {
+        "n": 352,
+        "mean": 0.025,
+        "ci": [
+          0.012,
+          0.038
+        ]
+      },
+      "mention_bridge_peer_bridge": {
+        "n": 351,
+        "mean": 0.124,
+        "ci": [
+          0.103,
+          0.144
+        ]
+      },
+      "hypothetical_peer_bridge": {
+        "n": 276,
+        "mean": 0.706,
+        "ci": [
+          0.659,
+          0.753
+        ]
+      },
+      "instructed_orig_bridge": {
+        "n": 352,
+        "mean": 0.25,
+        "ci": [
+          0.219,
+          0.282
+        ]
+      },
+      "compliance": {
+        "instructed": 1.0,
+        "hypothetical": 0.782,
+        "retention": null
+      },
+      "F1": true,
+      "F2": true,
+      "F2_mode": "adoption"
+    },
+    "chat": {
+      "round0_accuracy": 0.9,
+      "n_round0": 541,
+      "round0_orig_bridge_curve": [
+        0.004,
+        0.0,
+        -0.004,
+        -0.004,
+        -0.004,
+        -0.004,
+        -0.006,
+        -0.004,
+        0.0,
+        -0.002,
+        -0.004,
+        -0.006,
+        -0.004,
+        -0.004,
+        0.0,
+        0.002,
+        -0.004,
+        0.002,
+        0.006,
+        0.006,
+        0.031,
+        0.023,
+        0.01,
+        0.075,
+        0.438,
+        0.434,
+        0.509,
+        0.524,
+        0.555,
+        0.559,
+        0.63,
+        0.656
+      ],
+      "band": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "categories": [
+        "landmark-cntry-capital",
+        "person-birthcity-cntry"
+      ],
+      "round0_orig_bridge": {
+        "n": 205,
+        "mean": 0.835,
+        "ci": [
+          0.79,
+          0.874
+        ]
+      },
+      "retention": {
+        "n": 0,
+        "mean": null,
+        "ci": null
+      },
+      "retention_hidden": {
+        "n": 0,
+        "mean": null,
+        "ci": null
+      },
+      "agree_orig_bridge": {
+        "n": 201,
+        "mean": 0.763,
+        "ci": [
+          0.705,
+          0.811
+        ]
+      },
+      "mention_peer_bridge": {
+        "n": 205,
+        "mean": 0.004,
+        "ci": [
+          -0.003,
+          0.012
+        ]
+      },
+      "mention_bridge_peer_bridge": {
+        "n": 205,
+        "mean": 0.012,
+        "ci": [
+          0.003,
+          0.023
+        ]
+      },
+      "hypothetical_peer_bridge": {
+        "n": 200,
+        "mean": 0.638,
+        "ci": [
+          0.574,
+          0.703
+        ]
+      },
+      "instructed_orig_bridge": {
+        "n": 203,
+        "mean": 0.001,
+        "ci": [
+          0.0,
+          0.003
+        ]
+      },
+      "compliance": {
+        "instructed": 0.99,
+        "hypothetical": 0.976,
+        "retention": null
+      },
+      "F1": true,
+      "F2": true,
+      "F2_mode": "adoption"
+    }
+  },
+  "dev_run": "results/qwen35_4b_entity/entity/e0_dev",
+  "created": "2026-09-27T02:05:34",
+  "code_commit": "9d8738ac7041ed0725e74f28ed1df826bfcc16f5"
+}

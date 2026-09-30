@@ -1,0 +1,60 @@
+# Logit-lens comparison for configs/qwen35_4b.yaml: identical items, prompts, peers and
+# pre-registered layer (the J-lens prereg is reused, not re-selected); only the lens differs.
+# Model outputs do not depend on the lens, so stated answers must match the J-lens run exactly.
+model:
+  name: Qwen/Qwen3.5-4B
+  dtype: bfloat16
+  chat_template_kwargs: {enable_thinking: false}   # otherwise the template opens "<think>" before our prefix
+
+lens:
+  name: logit
+  kwargs: {}
+
+data:
+  n_choices: 4
+  require_letter_format: true  # drop items whose unrestricted top-1 token is not a letter
+  sources:
+    - {name: mmlu, split: test, limit: 6000}  # 4000 left only 891 initially-wrong items
+    - {name: arc, split: test, limit: 1172}
+  n_per_stratum: 1000  # initially-correct and initially-wrong items kept after round 0
+
+seed: 0
+batch_size: 16
+out_dir: results/qwen35_4b_logit
+prereg: prereg/qwen35_4b.json
+
+# Pre-registration rule for the readout layer (applied to round-0 data only).
+layer_selection:
+  tau: 0.9             # earliest layer whose lens top-1 matches the output on >= 90% of items
+  delta: 1.0           # logit margin for the lenient silent-dissent definition
+
+pressure:
+  rounds: 3
+  grids:
+    main:              # the headline conformity grid
+      condition: [pressure]
+      n_peers: [1, 3, 5]
+      peer_style: [answer_only, with_reason]
+      target_mode: [wrong, correct]
+    controls:          # confound controls at a single setting
+      condition: [agree, split, mention_control, remove_original]
+      n_peers: [3]
+      peer_style: [answer_only]
+      target_mode: [wrong, correct]
+
+intervention:
+  layer: null          # null = prereg layer
+  # Set after the --limit 50 pilot, from flip rates only (no lens data): answer-only peers
+  # produced no flips, so the causal test uses the strongest-pressure cell instead.
+  source: {condition: pressure, n_peers: 5, peer_style: with_reason}
+  rounds: [3]          # which pressure rounds to re-run with injection
+  alphas: [0.0, 0.05, 0.1, 0.2, 0.4]
+  kinds: [original, majority, other, random]
+  contrastive: true
+  baseline_check: 300  # round-0 items re-run with injection to check for plain letter bias
+
+debate:
+  n_items: 500
+  n_agents: 3
+  rounds: 3
+  temperature: 1.0

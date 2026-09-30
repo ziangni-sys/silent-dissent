@@ -1,0 +1,702 @@
+{
+ "lens": "jlens",
+ "band": [
+  52,
+  53,
+  54,
+  55
+ ],
+ "k": 100,
+ "min_n": 20,
+ "n_boot": 10000,
+ "cells": {
+  "known/round0_correct/jlens": {
+   "n": 424,
+   "n_facts": 176,
+   "mean": 0.6432783018867925,
+   "ci": [
+    0.5698350154627047,
+    0.7130578558768011
+   ]
+  },
+  "known/round0_correct/logit": {
+   "n": 424,
+   "n_facts": 176,
+   "mean": 0.08254716981132075,
+   "ci": [
+    0.050572813655516385,
+    0.11899381916462941
+   ]
+  },
+  "known/r1/gave_in/jlens": {
+   "n": 3,
+   "n_facts": 3,
+   "mean": 0.6666666666666666
+  },
+  "known/r1/gave_in/logit": {
+   "n": 3,
+   "n_facts": 3,
+   "mean": 0.3333333333333333
+  },
+  "known/r1/switched/jlens": {
+   "n": 2,
+   "n_facts": 1,
+   "mean": 1.0
+  },
+  "known/r1/switched/logit": {
+   "n": 2,
+   "n_facts": 1,
+   "mean": 0.0
+  },
+  "known/r1/held/jlens": {
+   "n": 121,
+   "n_facts": 69,
+   "mean": 0.4214876033057851,
+   "ci": [
+    0.3149529934835732,
+    0.5307377049180327
+   ]
+  },
+  "known/r1/held/logit": {
+   "n": 121,
+   "n_facts": 69,
+   "mean": 0.04132231404958678,
+   "ci": [
+    0.012195121951219513,
+    0.08266129032258064
+   ]
+  },
+  "known/r1/agreed/jlens": {
+   "n": 282,
+   "n_facts": 94,
+   "mean": 0.5629432624113475,
+   "ci": [
+    0.47074468085106386,
+    0.6560283687943262
+   ]
+  },
+  "known/r1/agreed/logit": {
+   "n": 282,
+   "n_facts": 94,
+   "mean": 0.07712765957446809,
+   "ci": [
+    0.04521276595744681,
+    0.11176861702127562
+   ]
+  },
+  "known/r1/held_degenerate/jlens": {
+   "n": 16,
+   "n_facts": 9,
+   "mean": 0.5
+  },
+  "known/r1/held_degenerate/logit": {
+   "n": 16,
+   "n_facts": 9,
+   "mean": 0.109375
+  },
+  "known/r1/was_wrong/jlens": {
+   "n": 134,
+   "n_facts": 92,
+   "mean": 0.39738805970149255,
+   "ci": [
+    0.30514249582811853,
+    0.4932545991369519
+   ]
+  },
+  "known/r1/was_wrong/logit": {
+   "n": 134,
+   "n_facts": 92,
+   "mean": 0.07276119402985075,
+   "ci": [
+    0.029511335784313728,
+    0.12603366187771442
+   ]
+  },
+  "known/r2/gave_in/jlens": {
+   "n": 0,
+   "n_facts": 0,
+   "mean": null
+  },
+  "known/r2/gave_in/logit": {
+   "n": 0,
+   "n_facts": 0,
+   "mean": null
+  },
+  "known/r2/switched/jlens": {
+   "n": 364,
+   "n_facts": 136,
+   "mean": 0.009615384615384616,
+   "ci": [
+    0.0006849315068493151,
+    0.021708683473389355
+   ]
+  },
+  "known/r2/switched/logit": {
+   "n": 364,
+   "n_facts": 136,
+   "mean": 0.0006868131868131869,
+   "ci": [
+    0.0,
+    0.002130681818181818
+   ]
+  },
+  "known/r2/held/jlens": {
+   "n": 6,
+   "n_facts": 3,
+   "mean": 0.125
+  },
+  "known/r2/held/logit": {
+   "n": 6,
+   "n_facts": 3,
+   "mean": 0.041666666666666664
+  },
+  "known/r2/agreed/jlens": {
+   "n": 146,
+   "n_facts": 61,
+   "mean": 0.2208904109589041,
+   "ci": [
+    0.12664420283663705,
+    0.3263958333333332
+   ]
+  },
+  "known/r2/agreed/logit": {
+   "n": 146,
+   "n_facts": 61,
+   "mean": 0.03595890410958904,
+   "ci": [
+    0.013333333333333334,
+    0.06164383561643835
+   ]
+  },
+  "known/r2/held_degenerate/jlens": {
+   "n": 0,
+   "n_facts": 0,
+   "mean": null
+  },
+  "known/r2/held_degenerate/logit": {
+   "n": 0,
+   "n_facts": 0,
+   "mean": null
+  },
+  "known/r2/was_wrong/jlens": {
+   "n": 42,
+   "n_facts": 16,
+   "mean": 0.17261904761904762,
+   "ci": [
+    0.023809523809523808,
+    0.3522727272727273
+   ]
+  },
+  "known/r2/was_wrong/logit": {
+   "n": 42,
+   "n_facts": 16,
+   "mean": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ]
+  },
+  "known/r3/gave_in/jlens": {
+   "n": 5,
+   "n_facts": 4,
+   "mean": 0.4
+  },
+  "known/r3/gave_in/logit": {
+   "n": 5,
+   "n_facts": 4,
+   "mean": 0.0
+  },
+  "known/r3/switched/jlens": {
+   "n": 36,
+   "n_facts": 18,
+   "mean": 0.020833333333333332,
+   "ci": [
+    0.0,
+    0.05714285714285714
+   ]
+  },
+  "known/r3/switched/logit": {
+   "n": 36,
+   "n_facts": 18,
+   "mean": 0.006944444444444444,
+   "ci": [
+    0.0,
+    0.022727272727272728
+   ]
+  },
+  "known/r3/held/jlens": {
+   "n": 39,
+   "n_facts": 23,
+   "mean": 0.391025641025641,
+   "ci": [
+    0.21153846153846154,
+    0.575
+   ]
+  },
+  "known/r3/held/logit": {
+   "n": 39,
+   "n_facts": 23,
+   "mean": 0.01282051282051282,
+   "ci": [
+    0.0,
+    0.039473684210526314
+   ]
+  },
+  "known/r3/agreed/jlens": {
+   "n": 66,
+   "n_facts": 26,
+   "mean": 0.07196969696969698,
+   "ci": [
+    0.015384615384615385,
+    0.15151515151515152
+   ]
+  },
+  "known/r3/agreed/logit": {
+   "n": 66,
+   "n_facts": 26,
+   "mean": 0.003787878787878788,
+   "ci": [
+    0.0,
+    0.0125
+   ]
+  },
+  "known/r3/held_degenerate/jlens": {
+   "n": 6,
+   "n_facts": 3,
+   "mean": -0.08333333333333333
+  },
+  "known/r3/held_degenerate/logit": {
+   "n": 6,
+   "n_facts": 3,
+   "mean": 0.0
+  },
+  "known/r3/was_wrong/jlens": {
+   "n": 406,
+   "n_facts": 152,
+   "mean": 0.37561576354679804,
+   "ci": [
+    0.304666888313733,
+    0.44775945834958203
+   ]
+  },
+  "known/r3/was_wrong/logit": {
+   "n": 406,
+   "n_facts": 152,
+   "mean": 0.01293103448275862,
+   "ci": [
+    -0.008750548245614035,
+    0.032688361282994044
+   ]
+  },
+  "all/round0_correct/jlens": {
+   "n": 495,
+   "n_facts": 215,
+   "mean": 0.6176767676767677,
+   "ci": [
+    0.5480568086130158,
+    0.684237920506694
+   ]
+  },
+  "all/round0_correct/logit": {
+   "n": 495,
+   "n_facts": 215,
+   "mean": 0.11363636363636363,
+   "ci": [
+    0.07908023795999514,
+    0.15171414595788713
+   ]
+  },
+  "all/r1/gave_in/jlens": {
+   "n": 14,
+   "n_facts": 10,
+   "mean": 0.7142857142857143
+  },
+  "all/r1/gave_in/logit": {
+   "n": 14,
+   "n_facts": 10,
+   "mean": 0.5714285714285714
+  },
+  "all/r1/switched/jlens": {
+   "n": 2,
+   "n_facts": 1,
+   "mean": 1.0
+  },
+  "all/r1/switched/logit": {
+   "n": 2,
+   "n_facts": 1,
+   "mean": 0.0
+  },
+  "all/r1/held/jlens": {
+   "n": 160,
+   "n_facts": 95,
+   "mean": 0.45,
+   "ci": [
+    0.35416343167701864,
+    0.5456008398527381
+   ]
+  },
+  "all/r1/held/logit": {
+   "n": 160,
+   "n_facts": 95,
+   "mean": 0.125,
+   "ci": [
+    0.06612903225806452,
+    0.19099601416307313
+   ]
+  },
+  "all/r1/agreed/jlens": {
+   "n": 303,
+   "n_facts": 101,
+   "mean": 0.5297029702970297,
+   "ci": [
+    0.4381188118811881,
+    0.6188118811881188
+   ]
+  },
+  "all/r1/agreed/logit": {
+   "n": 303,
+   "n_facts": 101,
+   "mean": 0.07178217821782178,
+   "ci": [
+    0.04207920792079208,
+    0.10396039603960396
+   ]
+  },
+  "all/r1/held_degenerate/jlens": {
+   "n": 16,
+   "n_facts": 9,
+   "mean": 0.5
+  },
+  "all/r1/held_degenerate/logit": {
+   "n": 16,
+   "n_facts": 9,
+   "mean": 0.109375
+  },
+  "all/r1/was_wrong/jlens": {
+   "n": 264,
+   "n_facts": 152,
+   "mean": 0.4479166666666667,
+   "ci": [
+    0.361794997928749,
+    0.5344827586206896
+   ]
+  },
+  "all/r1/was_wrong/logit": {
+   "n": 264,
+   "n_facts": 152,
+   "mean": 0.16571969696969696,
+   "ci": [
+    0.10949594720760482,
+    0.22580800846929877
+   ]
+  },
+  "all/r2/gave_in/jlens": {
+   "n": 2,
+   "n_facts": 2,
+   "mean": 0.5
+  },
+  "all/r2/gave_in/logit": {
+   "n": 2,
+   "n_facts": 2,
+   "mean": 0.125
+  },
+  "all/r2/switched/jlens": {
+   "n": 401,
+   "n_facts": 152,
+   "mean": 0.008728179551122194,
+   "ci": [
+    0.0,
+    0.020072992700729927
+   ]
+  },
+  "all/r2/switched/logit": {
+   "n": 401,
+   "n_facts": 152,
+   "mean": 0.0012468827930174563,
+   "ci": [
+    0.0,
+    0.0031645569620253164
+   ]
+  },
+  "all/r2/held/jlens": {
+   "n": 22,
+   "n_facts": 14,
+   "mean": 0.32954545454545453,
+   "ci": [
+    0.125,
+    0.5476190476190477
+   ]
+  },
+  "all/r2/held/logit": {
+   "n": 22,
+   "n_facts": 14,
+   "mean": 0.056818181818181816,
+   "ci": [
+    0.0,
+    0.11458333333333333
+   ]
+  },
+  "all/r2/agreed/jlens": {
+   "n": 184,
+   "n_facts": 76,
+   "mean": 0.22010869565217392,
+   "ci": [
+    0.13648648648648648,
+    0.3103932584269663
+   ]
+  },
+  "all/r2/agreed/logit": {
+   "n": 184,
+   "n_facts": 76,
+   "mean": 0.04483695652173913,
+   "ci": [
+    0.018571428571428572,
+    0.078125
+   ]
+  },
+  "all/r2/held_degenerate/jlens": {
+   "n": 0,
+   "n_facts": 0,
+   "mean": null
+  },
+  "all/r2/held_degenerate/logit": {
+   "n": 0,
+   "n_facts": 0,
+   "mean": null
+  },
+  "all/r2/was_wrong/jlens": {
+   "n": 150,
+   "n_facts": 58,
+   "mean": 0.195,
+   "ci": [
+    0.08333333333333333,
+    0.30892230805646403
+   ]
+  },
+  "all/r2/was_wrong/logit": {
+   "n": 150,
+   "n_facts": 58,
+   "mean": 0.06,
+   "ci": [
+    0.016778523489932886,
+    0.11409395973154363
+   ]
+  },
+  "all/r3/gave_in/jlens": {
+   "n": 7,
+   "n_facts": 6,
+   "mean": 0.2857142857142857
+  },
+  "all/r3/gave_in/logit": {
+   "n": 7,
+   "n_facts": 6,
+   "mean": 0.0
+  },
+  "all/r3/switched/jlens": {
+   "n": 57,
+   "n_facts": 28,
+   "mean": 0.021929824561403508,
+   "ci": [
+    -0.02403846153846154,
+    0.0635593220338983
+   ]
+  },
+  "all/r3/switched/logit": {
+   "n": 57,
+   "n_facts": 28,
+   "mean": 0.0043859649122807015,
+   "ci": [
+    0.0,
+    0.014423076923076924
+   ]
+  },
+  "all/r3/held/jlens": {
+   "n": 59,
+   "n_facts": 37,
+   "mean": 0.3813559322033898,
+   "ci": [
+    0.2333262711864407,
+    0.5330267295597484
+   ]
+  },
+  "all/r3/held/logit": {
+   "n": 59,
+   "n_facts": 37,
+   "mean": 0.03389830508474576,
+   "ci": [
+    0.004629629629629629,
+    0.0703125
+   ]
+  },
+  "all/r3/agreed/jlens": {
+   "n": 81,
+   "n_facts": 32,
+   "mean": 0.09567901234567901,
+   "ci": [
+    0.02108433734939759,
+    0.19318858225108215
+   ]
+  },
+  "all/r3/agreed/logit": {
+   "n": 81,
+   "n_facts": 32,
+   "mean": 0.012345679012345678,
+   "ci": [
+    0.0,
+    0.034375
+   ]
+  },
+  "all/r3/held_degenerate/jlens": {
+   "n": 6,
+   "n_facts": 3,
+   "mean": -0.08333333333333333
+  },
+  "all/r3/held_degenerate/logit": {
+   "n": 6,
+   "n_facts": 3,
+   "mean": 0.0
+  },
+  "all/r3/was_wrong/jlens": {
+   "n": 549,
+   "n_facts": 208,
+   "mean": 0.3638433515482696,
+   "ci": [
+    0.29704797047970477,
+    0.4288258694522467
+   ]
+  },
+  "all/r3/was_wrong/logit": {
+   "n": 549,
+   "n_facts": 208,
+   "mean": 0.03506375227686703,
+   "ci": [
+    0.00909090909090909,
+    0.06057866184448463
+   ]
+  }
+ },
+ "contrasts": {
+  "known/r1/gave_in/jlens-logit": {
+   "n": 3,
+   "n_facts": 3,
+   "mean": 0.3333333333333333
+  },
+  "known/r1/gave_in/logrank": {
+   "n": 3,
+   "n_facts": 3,
+   "mean": 1.3666474068027326
+  },
+  "known/r1/gave_in-held/jlens": {
+   "n": [
+    3,
+    121
+   ],
+   "mean": 0.24517906336088152
+  },
+  "known/r2/gave_in/jlens-logit": {
+   "n": 0,
+   "n_facts": 0,
+   "mean": null
+  },
+  "known/r2/gave_in/logrank": {
+   "n": 0,
+   "n_facts": 0,
+   "mean": null
+  },
+  "known/r2/gave_in-held/jlens": {
+   "n": [
+    0,
+    6
+   ],
+   "mean": null
+  },
+  "known/r3/gave_in/jlens-logit": {
+   "n": 5,
+   "n_facts": 4,
+   "mean": 0.4
+  },
+  "known/r3/gave_in/logrank": {
+   "n": 5,
+   "n_facts": 4,
+   "mean": 1.4103406498875404
+  },
+  "known/r3/gave_in-held/jlens": {
+   "n": [
+    5,
+    39
+   ],
+   "mean": 0.008974358974358998
+  },
+  "all/r1/gave_in/jlens-logit": {
+   "n": 14,
+   "n_facts": 10,
+   "mean": 0.14285714285714285
+  },
+  "all/r1/gave_in/logrank": {
+   "n": 14,
+   "n_facts": 10,
+   "mean": 1.2096104159992616
+  },
+  "all/r1/gave_in-held/jlens": {
+   "n": [
+    14,
+    160
+   ],
+   "mean": 0.2642857142857143
+  },
+  "all/r2/gave_in/jlens-logit": {
+   "n": 2,
+   "n_facts": 2,
+   "mean": 0.375
+  },
+  "all/r2/gave_in/logrank": {
+   "n": 2,
+   "n_facts": 2,
+   "mean": 0.8286001769854685
+  },
+  "all/r2/gave_in-held/jlens": {
+   "n": [
+    2,
+    22
+   ],
+   "mean": 0.17045454545454547
+  },
+  "all/r3/gave_in/jlens-logit": {
+   "n": 7,
+   "n_facts": 6,
+   "mean": 0.2857142857142857
+  },
+  "all/r3/gave_in/logrank": {
+   "n": 7,
+   "n_facts": 6,
+   "mean": 1.0211243140802002
+  },
+  "all/r3/gave_in-held/jlens": {
+   "n": [
+    7,
+    59
+   ],
+   "mean": -0.09564164648910412
+  }
+ },
+ "counts": {
+  "r1/agreed": 315,
+  "r1/gave_in": 15,
+  "r1/held": 175,
+  "r1/held_degenerate": 16,
+  "r1/switched": 2,
+  "r1/was_wrong": 314,
+  "r2/agreed": 208,
+  "r2/gave_in": 2,
+  "r2/held": 24,
+  "r2/held_degenerate": 0,
+  "r2/switched": 414,
+  "r2/was_wrong": 189,
+  "r3/agreed": 98,
+  "r3/gave_in": 7,
+  "r3/held": 64,
+  "r3/held_degenerate": 6,
+  "r3/switched": 61,
+  "r3/was_wrong": 601
+ }
+}

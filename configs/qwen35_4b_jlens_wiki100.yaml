@@ -1,0 +1,22 @@
+# E6 control: a J-lens for Qwen3.5-4B fit with this repo's code on 100 wikitext prompts, the same
+# budget as the chat / mixed refits, so a corpus effect is not confounded with the number of prompts
+# (the reference lens used ~417-1000 wikitext prompts).
+#   python scripts/fit_jlens.py --config configs/qwen35_4b_jlens_wiki100.yaml
+model:
+  name: Qwen/Qwen3.5-4B
+  dtype: bfloat16
+  chat_template_kwargs: {enable_thinking: false}
+
+lens:
+  name: jlens
+  kwargs: {path: lenses/qwen35_4b_jlens_wiki100.pt}
+
+jlens:
+  corpus: wikitext
+  n_prompts: 100
+  max_seq_len: 128
+  dim_batch: 64
+
+data: {n_choices: 4}
+seed: 0
+out_dir: results/qwen35_4b_jlens_wiki100

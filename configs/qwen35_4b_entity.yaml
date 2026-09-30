@@ -1,0 +1,109 @@
+# Entity-answer study on Qwen3.5-4B (two-hop facts; the bridge entity is never stated).
+# Pipeline (README, section "Entity-answer study"):
+#   entity_build -> entity_run --stage e0 --split dev -> entity_select (writes the entity prereg;
+#   commit + push it) -> entity_run --stage pressure --split test -> entity_timeline /
+#   entity_intervene / entity_free_debate -> entity_analyze
+model:
+  name: Qwen/Qwen3.5-4B
+  dtype: bfloat16
+  chat_template_kwargs: {enable_thinking: false}
+
+lens:
+  name: jlens
+  kwargs:              # official pre-fitted lens (1000 wikitext sequences)
+    repo: neuronpedia/jacobian-lens
+    revision: qwen-n1000
+    filename: qwen3.5-4b/jlens/Salesforce-wikitext/Qwen3.5-4B_jacobian_lens_n1000.pt
+
+data: {n_choices: 4}   # only used to set up the letter ids of the shared model wrapper
+
+seed: 0
+batch_size: 16         # readouts (residuals of every layer are held in memory)
+out_dir: results/qwen35_4b_entity
+entity_prereg: prereg/qwen35_4b_entity.json
+
+entity:
+  sources:
+    - {name: twohopfact}   # soheeyang/TwoHopFact, downloaded from the Hub
+    - {name: handmade}
+  max_per_category: null   # all 45,595 facts: Qwen3.5-4B knows only ~6% of TwoHopFact (hop 1, hop 2 and composition)
+  dev_frac: 0.3            # dev / test split by bridge entity; 0.3 so the dev split has enough retention siblings
+  gen_tokens: 12
+  gen_batch_size: 64
+  formats: [plain, chat]   # E0 runs both; entity_select fixes one for everything after it
+  e0_n_peers: [3]
+  styles: [answer, hop1, hop2]
+  n_peers: [1, 3, 5]
+  primary_n_peers: 3
+  rounds: 3
+  select:                  # dev-only rules; see scripts/entity_select.py
+    k: 100
+    band_threshold: 0.5
+    min_accuracy: 0.7
+    min_n: 30
+    exclude_last_layer: true
+    category_threshold: 0.5
+    min_category_n: 10
+    f2: adoption
+    min_adoption_gap: 0.3
+    min_persistence: 0.5
+    notes:                 # dev adjustments, copied into the prereg (decided on e0_dev, before any test data)
+      - "Declared rule hit@10 >= 0.5 gave an empty band in both formats: at the answer position the bridge is rarely in the lens top 10 (J-lens peak 0.48 at layer 30, plain). Switched to hit@100; the control's hit@100 in the band is 0.02-0.05."
+      - "The last layer is excluded from the band: it is the model output, identical for every lens, so it says nothing about latent content and would dilute H4."
+      - "Declared F2 (retention) could not be evaluated: retention siblings exist almost only in novel / spouse categories whose person bridges are unreadable even in round 0 (13 and 11 records, plain). F2 is replaced by an adoption check: hypothetical (premise adopted) vs mention_bridge (premise mentioned, not adopted), plus persistence of the bridge when peers agree."
+      - "Items are restricted to categories whose bridge is readable in round 0 (band mean >= 0.5, n >= 10 on dev)."
+      - "All 45,595 TwoHopFact facts were checked (Qwen3.5-4B knows 4.5%); dev share 0.3."
+  timeline:                # E3
+    styles: [answer, hop1, hop2]
+    n_peers: 3
+    layers: null           # null = the prereg band
+    limit: 400
+  intervention:            # E4
+    style: answer
+    n_peers: 3
+    layers: [23, 26, 29]   # three layers of the dev band 23-30 (null = the whole prereg band, 8x the cost)
+    alphas: [0.0, 0.1, 0.2, 0.4, 0.8]
+    kinds_flipped: [orig_bridge, orig_answer, ctrl_bridge, random]
+    kinds_held: [peer_bridge, peer_answer, ctrl_bridge, random]
+    limit: 600
+  debate:                  # E5
+    n_items: 400
+    known_share: 0.5
+    n_agents: 3
+    rounds: 3
+    temperature: 1.0
+  addenda:                 # follow-ups; rules declared before their dev runs (scripts/entity_addendum.py)
+    rounds:                # rounds 2-3 of the plain transcript degenerate ("correct", "identical", ...)
+      variants: [rephrase, summary]   # candidates; repeat (the prereg protocol) is run as the reference
+      pilot_limit: 200     # dev items per variant (scripts/entity_followup_dev.sh)
+      n_peers: 3
+      round: 3
+      max_other: 0.10      # every pressure / baseline cell at rounds 2-3: share of answers that are neither side's
+      min_round1_agreement: 0.98   # round 1 is the same prompt in every variant: answers must match the reference
+    bridges:               # person bridges are unreadable at the answer position (dev E0)
+      bridge_types: [person]
+      probe_modes: [words, last_word]
+      positions: [last, mention, span]
+      band_threshold: 0.5  # the main prereg's thresholds
+      category_threshold: 0.5
+      min_category_n: 10
+      min_n: 30
+      min_adoption_gap: 0.3
+      min_persistence: 0.5
+      styles: [answer, hop1]      # hop2 attacks never flipped an agent on the test split
+      baselines: [agree, mention, mention_bridge]
+      n_peers: [1, 3, 5]   # pooled, one value per item (few person-bridge items)
+    own:                   # round 1 with the agent's round-0 answer hidden / absent (declared 2026-09-30,
+                           # before any run; scripts/entity_addendum.py --part own)
+      variants: [hidden, absent]
+      styles: [answer, hop1]
+      baselines: [agree, mention]
+      n_peers: 3
+      pilot_limit: 300     # dev items per variant pilot
+      max_other: 0.10      # every pilot cell: share of answers that are neither side's
+      min_agree_n: 30      # the agree cell must still read the original bridge (n, CI lower bound > 0)
+      min_test_n: 10       # fewer test records in a hypothesis cell: no verdict
+  extra_lenses:            # E6: refit J-lenses (100 prompts each), used wherever the files exist
+    - {name: jlens_wiki100, path: lenses/qwen35_4b_jlens_wiki100.pt}
+    - {name: jlens_chat, path: lenses/qwen35_4b_jlens_chat.pt}
+    - {name: jlens_mixed, path: lenses/qwen35_4b_jlens_mixed.pt}

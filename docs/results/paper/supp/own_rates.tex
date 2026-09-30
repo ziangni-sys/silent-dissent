@@ -1,0 +1,18 @@
+\begin{tabular}{lrrrrrrll}
+\toprule
+ & \multicolumn{3}{c}{Gave in, answer (\%)} & \multicolumn{3}{c}{Gave in, hop 1 (\%)} & \multicolumn{2}{c}{Same items, original bridge} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-9}
+Model & vis. & hid. & abs. & vis. & hid. & abs. & hidden $-$ visible & hidden $-$ absent \\
+\midrule
+Qwen3.5-4B & 8 & 89 & 62 & 8 & 78 & 79 & $-$0.44 [$-$0.50, $-$0.36], 54 items & $-$0.06 [$-$0.07, $-$0.04], 405 items \\
+Qwen3.6-27B & 39 & 73 & 77 & 49 & 97 & 99 & 0.04 [0.00, 0.07], 167 items & $-$0.00 [$-$0.02, 0.01], 309 items \\
+Gemma-4-E4B-it & 25 & 36 & 43 & 52 & 49 & 51 & 0.13 [0.04, 0.21], 109 items & 0.18 [0.13, 0.23], 165 items \\
+Llama-3.1-8B-Instruct & 90 & 71 & 60 & 97 & 88 & 71 & 0.23 [0.20, 0.27], 382 items & $-$0.15 [$-$0.18, $-$0.12], 309 items \\
+\midrule
+ & \multicolumn{8}{l}{H2 analogue: peer bridge, gave in minus mention (visible / hidden / absent)} \\
+Qwen3.5-4B & \multicolumn{8}{l}{0.37 [0.26, 0.49] / 0.34 [0.30, 0.38] / 0.27 [0.23, 0.31]} \\
+Qwen3.6-27B & \multicolumn{8}{l}{0.13 [0.08, 0.17] / 0.14 [0.10, 0.19] / 0.10 [0.05, 0.15]} \\
+Gemma-4-E4B-it & \multicolumn{8}{l}{0.21 [0.16, 0.26] / 0.16 [0.12, 0.20] / 0.15 [0.11, 0.19]} \\
+Llama-3.1-8B-Instruct & \multicolumn{8}{l}{0.03 [0.01, 0.04] / 0.02 [0.01, 0.03] / 0.01 [0.00, 0.02]} \\
+\bottomrule
+\end{tabular}

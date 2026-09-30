@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the preprint."
+title: "Silent Dissent: LLM Agents That Yield to the Majority Still Represent Their Original Premise"
+authors:
+  - family-names: Ni
+    given-names: Ziang
+    affiliation: "Delft University of Technology"
+    email: ziangni@tudelft.nl
+date-released: 2026-10-01
+url: "https://github.com/ziangni-sys/silent-dissent"
+license: MIT

@@ -1,0 +1,22 @@
+# Exploratory check of the failed Llama replication: a J-lens for Llama-3.1-8B-Instruct fit with this
+# repo's code on 100 wikitext prompts (the official Llama lens used 461, the Qwen lenses ~1000). On
+# Qwen3.5-4B a 100-prompt refit read the entity bridges like the official lens (within ~0.02), so if
+# this one also reads like the official Llama lens, the weak readout is not a lens-fit artefact.
+#   python scripts/fit_jlens.py --config configs/llama31_8b_it_jlens_wiki100.yaml
+model:
+  name: meta-llama/Llama-3.1-8B-Instruct
+  dtype: bfloat16
+
+lens:
+  name: jlens
+  kwargs: {path: lenses/llama31_8b_it_jlens_wiki100.pt}
+
+jlens:
+  corpus: wikitext
+  n_prompts: 100
+  max_seq_len: 128
+  dim_batch: 64
+
+data: {n_choices: 4}
+seed: 0
+out_dir: results/llama31_8b_it_jlens_wiki100

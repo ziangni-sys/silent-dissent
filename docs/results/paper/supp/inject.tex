@@ -1,0 +1,41 @@
+\begin{tabular}{lllrrrrr}
+\toprule
+Model (layers) & Agents & Direction & $\alpha{=}0.0$ & $\alpha{=}0.1$ & $\alpha{=}0.2$ & $\alpha{=}0.4$ & $\alpha{=}0.8$ \\
+\midrule
+Qwen3.5-4B (23, 26, 29) & gave in & ctrl bridge & 0.04 & 0.07 & 0.08 & 0.06 & 0.00 \\
+ &  & orig answer & 0.04 & 0.73 & 0.88 & 0.97 & 0.98 \\
+ &  & orig bridge & 0.04 & 0.38 & 0.41 & 0.14 & 0.00 \\
+ &  & random & 0.04 & 0.04 & 0.06 & 0.15 & 0.23 \\
+ & held & ctrl bridge & 0.01 & 0.02 & 0.02 & 0.02 & 0.01 \\
+ &  & peer answer & 0.01 & 0.21 & 0.47 & 0.76 & 0.89 \\
+ &  & peer bridge & 0.01 & 0.06 & 0.11 & 0.12 & 0.01 \\
+ &  & random & 0.01 & 0.02 & 0.02 & 0.03 & 0.09 \\
+\midrule
+Qwen3.6-27B (52, 54, 55) & gave in & ctrl bridge & 0.03 & 0.06 & 0.09 & 0.07 & 0.01 \\
+ &  & orig answer & 0.03 & 0.43 & 0.62 & 0.79 & 0.89 \\
+ &  & orig bridge & 0.03 & 0.11 & 0.19 & 0.07 & 0.02 \\
+ &  & random & 0.03 & 0.04 & 0.05 & 0.07 & 0.11 \\
+ & held & ctrl bridge & 0.01 & 0.02 & 0.03 & 0.03 & 0.00 \\
+ &  & peer answer & 0.01 & 0.27 & 0.39 & 0.66 & 0.87 \\
+ &  & peer bridge & 0.01 & 0.08 & 0.13 & 0.09 & 0.00 \\
+ &  & random & 0.01 & 0.01 & 0.03 & 0.05 & 0.10 \\
+\midrule
+Gemma-4-E4B-it (32, 37, 40) & gave in & ctrl bridge & 0.00 & 0.04 & 0.01 & 0.00 & 0.00 \\
+ &  & orig answer & 0.00 & 0.52 & 0.89 & 0.98 & 0.98 \\
+ &  & orig bridge & 0.00 & 0.04 & 0.03 & 0.00 & 0.00 \\
+ &  & random & 0.00 & 0.02 & 0.04 & 0.07 & 0.11 \\
+ & held & ctrl bridge & 0.01 & 0.01 & 0.00 & 0.00 & 0.00 \\
+ &  & peer answer & 0.01 & 0.21 & 0.62 & 0.86 & 0.88 \\
+ &  & peer bridge & 0.01 & 0.01 & 0.01 & 0.00 & 0.00 \\
+ &  & random & 0.01 & 0.01 & 0.01 & 0.03 & 0.03 \\
+\midrule
+Llama-3.1-8B-Instruct (17, 20, 23) & gave in & ctrl bridge & 0.00 & 0.00 & 0.01 & 0.01 & 0.00 \\
+ &  & orig answer & 0.00 & 0.02 & 0.05 & 0.20 & 0.66 \\
+ &  & orig bridge & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+ &  & random & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 \\
+ & held & ctrl bridge & 0.00 & 0.03 & 0.06 & 0.06 & 0.10 \\
+ &  & peer answer & 0.00 & 0.10 & 0.25 & 0.69 & 0.89 \\
+ &  & peer bridge & 0.00 & 0.06 & 0.11 & 0.20 & 0.17 \\
+ &  & random & 0.00 & 0.01 & 0.04 & 0.05 & 0.08 \\
+\bottomrule
+\end{tabular}

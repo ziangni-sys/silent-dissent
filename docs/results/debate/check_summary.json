@@ -1,0 +1,2742 @@
+{
+ "configs": [
+  "configs/qwen35_4b_entity.yaml",
+  "configs/qwen36_27b_entity.yaml",
+  "configs/gemma4_e4b_it_entity.yaml",
+  "configs/llama31_8b_it_entity.yaml"
+ ],
+ "rule": "attributed iff degenerate share >= 0.10 at round 2 or 3, and accuracy (b, excluded) at each of rounds 2 and 3 within 0.05 of round 1 or with overlapping CI",
+ "models": {
+  "qwen35_4b_entity": {
+   "kinds": {
+    "r0/all": {
+     "correct": 0.5141,
+     "other_candidate": 0.4086,
+     "degenerate": 0.0773,
+     "other": 0.0,
+     "n": 957
+    },
+    "r0/known": {
+     "correct": 0.62,
+     "other_candidate": 0.3067,
+     "degenerate": 0.0733,
+     "other": 0.0,
+     "n": 600
+    },
+    "r0/unknown": {
+     "correct": 0.3361,
+     "other_candidate": 0.5798,
+     "degenerate": 0.084,
+     "other": 0.0,
+     "n": 357
+    },
+    "r1/all": {
+     "correct": 0.7544,
+     "other_candidate": 0.2341,
+     "degenerate": 0.0,
+     "other": 0.0115,
+     "n": 957
+    },
+    "r1/known": {
+     "correct": 0.8867,
+     "other_candidate": 0.1067,
+     "degenerate": 0.0,
+     "other": 0.0067,
+     "n": 600
+    },
+    "r1/unknown": {
+     "correct": 0.5322,
+     "other_candidate": 0.4482,
+     "degenerate": 0.0,
+     "other": 0.0196,
+     "n": 357
+    },
+    "r2/all": {
+     "correct": 0.7555,
+     "other_candidate": 0.232,
+     "degenerate": 0.0,
+     "other": 0.0125,
+     "n": 957
+    },
+    "r2/known": {
+     "correct": 0.8867,
+     "other_candidate": 0.1083,
+     "degenerate": 0.0,
+     "other": 0.005,
+     "n": 600
+    },
+    "r2/unknown": {
+     "correct": 0.535,
+     "other_candidate": 0.4398,
+     "degenerate": 0.0,
+     "other": 0.0252,
+     "n": 357
+    },
+    "r3/all": {
+     "correct": 0.7001,
+     "other_candidate": 0.2247,
+     "degenerate": 0.0073,
+     "other": 0.0679,
+     "n": 957
+    },
+    "r3/known": {
+     "correct": 0.7983,
+     "other_candidate": 0.1083,
+     "degenerate": 0.0117,
+     "other": 0.0817,
+     "n": 600
+    },
+    "r3/unknown": {
+     "correct": 0.535,
+     "other_candidate": 0.4202,
+     "degenerate": 0.0,
+     "other": 0.0448,
+     "n": 357
+    }
+   },
+   "strings": {
+    "r0": [
+     [
+      "",
+      70
+     ],
+     [
+      "_______________",
+      1
+     ],
+     [
+      "...'",
+      1
+     ],
+     [
+      "...?",
+      1
+     ],
+     [
+      "…",
+      1
+     ]
+    ],
+    "r1": [
+     [
+      "Italy",
+      3
+     ],
+     [
+      "the United Kingdom",
+      3
+     ],
+     [
+      "Canada",
+      2
+     ],
+     [
+      "... United Arab Emirates",
+      1
+     ],
+     [
+      "Greece",
+      1
+     ],
+     [
+      "France",
+      1
+     ]
+    ],
+    "r2": [
+     [
+      "Italy",
+      3
+     ],
+     [
+      "the United Kingdom",
+      3
+     ],
+     [
+      "Canada",
+      3
+     ],
+     [
+      "Greece",
+      1
+     ],
+     [
+      "France",
+      1
+     ],
+     [
+      "*Ital<span class=\"Owne<span class=\"O",
+      1
+     ]
+    ],
+    "r3": [
+     [
+      "trivia",
+      6
+     ],
+     [
+      "",
+      4
+     ],
+     [
+      "repeating the same answer",
+      3
+     ],
+     [
+      "Trinit",
+      3
+     ],
+     [
+      "Italy",
+      3
+     ],
+     [
+      "all three agents",
+      3
+     ],
+     [
+      "identical to Agent 2's statement",
+      3
+     ],
+     [
+      "Statue of Liberty",
+      3
+     ],
+     [
+      "Chain of Thought",
+      3
+     ],
+     [
+      "**Nigeria**",
+      3
+     ],
+     [
+      "Universidad Mexicana",
+      3
+     ],
+     [
+      "Trapani",
+      3
+     ],
+     [
+      "of Israel",
+      3
+     ],
+     [
+      "simple",
+      3
+     ],
+     [
+      "knowledge",
+      3
+     ],
+     [
+      "the United Kingdom",
+      3
+     ],
+     [
+      "of England",
+      3
+     ],
+     [
+      "Canada",
+      3
+     ],
+     [
+      "changed to Finland",
+      2
+     ],
+     [
+      "Toby Jones",
+      2
+     ]
+    ]
+   },
+   "accuracy": {
+    "r0/all": {
+     "a_stated": {
+      "mean": 0.6176,
+      "ci": [
+       0.5643,
+       0.6708
+      ],
+      "n": 319
+     },
+     "b_excluded": {
+      "mean": 0.6176,
+      "ci": [
+       0.5643,
+       0.6708
+      ],
+      "n": 319
+     },
+     "b_wrong": {
+      "mean": 0.6176,
+      "ci": [
+       0.5643,
+       0.6708
+      ],
+      "n": 319
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.5141,
+      "ci": [
+       0.4765,
+       0.5549
+      ],
+      "n": 319
+     },
+     "latent": 0.7051
+    },
+    "r0/known": {
+     "a_stated": {
+      "mean": 0.755,
+      "ci": [
+       0.695,
+       0.81
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.755,
+      "ci": [
+       0.695,
+       0.81
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.755,
+      "ci": [
+       0.695,
+       0.81
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.62,
+      "ci": [
+       0.5767,
+       0.6633
+      ],
+      "n": 200
+     }
+    },
+    "r0/unknown": {
+     "a_stated": {
+      "mean": 0.3866,
+      "ci": [
+       0.2941,
+       0.4706
+      ],
+      "n": 119
+     },
+     "b_excluded": {
+      "mean": 0.3866,
+      "ci": [
+       0.2941,
+       0.4706
+      ],
+      "n": 119
+     },
+     "b_wrong": {
+      "mean": 0.3866,
+      "ci": [
+       0.2941,
+       0.4706
+      ],
+      "n": 119
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.3361,
+      "ci": [
+       0.2773,
+       0.395
+      ],
+      "n": 119
+     }
+    },
+    "r1/all": {
+     "a_stated": {
+      "mean": 0.7618,
+      "ci": [
+       0.7147,
+       0.8088
+      ],
+      "n": 319
+     },
+     "b_excluded": {
+      "mean": 0.7618,
+      "ci": [
+       0.7147,
+       0.8088
+      ],
+      "n": 319
+     },
+     "b_wrong": {
+      "mean": 0.7618,
+      "ci": [
+       0.7147,
+       0.8088
+      ],
+      "n": 319
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.7544,
+      "ci": [
+       0.7095,
+       0.7994
+      ],
+      "n": 319
+     },
+     "latent": 0.7083
+    },
+    "r1/known": {
+     "a_stated": {
+      "mean": 0.895,
+      "ci": [
+       0.85,
+       0.935
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.895,
+      "ci": [
+       0.85,
+       0.935
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.895,
+      "ci": [
+       0.85,
+       0.935
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.8867,
+      "ci": [
+       0.8433,
+       0.925
+      ],
+      "n": 200
+     }
+    },
+    "r1/unknown": {
+     "a_stated": {
+      "mean": 0.5378,
+      "ci": [
+       0.4454,
+       0.6303
+      ],
+      "n": 119
+     },
+     "b_excluded": {
+      "mean": 0.5378,
+      "ci": [
+       0.4454,
+       0.6303
+      ],
+      "n": 119
+     },
+     "b_wrong": {
+      "mean": 0.5378,
+      "ci": [
+       0.4454,
+       0.6303
+      ],
+      "n": 119
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.5322,
+      "ci": [
+       0.4481,
+       0.619
+      ],
+      "n": 119
+     }
+    },
+    "r2/all": {
+     "a_stated": {
+      "mean": 0.7586,
+      "ci": [
+       0.7147,
+       0.8025
+      ],
+      "n": 319
+     },
+     "b_excluded": {
+      "mean": 0.7586,
+      "ci": [
+       0.7147,
+       0.8025
+      ],
+      "n": 319
+     },
+     "b_wrong": {
+      "mean": 0.7586,
+      "ci": [
+       0.7147,
+       0.8025
+      ],
+      "n": 319
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.7555,
+      "ci": [
+       0.7106,
+       0.8004
+      ],
+      "n": 319
+     },
+     "latent": 0.7179
+    },
+    "r2/known": {
+     "a_stated": {
+      "mean": 0.89,
+      "ci": [
+       0.845,
+       0.93
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.89,
+      "ci": [
+       0.845,
+       0.93
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.89,
+      "ci": [
+       0.845,
+       0.93
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.8867,
+      "ci": [
+       0.8433,
+       0.925
+      ],
+      "n": 200
+     }
+    },
+    "r2/unknown": {
+     "a_stated": {
+      "mean": 0.5378,
+      "ci": [
+       0.4454,
+       0.6303
+      ],
+      "n": 119
+     },
+     "b_excluded": {
+      "mean": 0.5378,
+      "ci": [
+       0.4454,
+       0.6303
+      ],
+      "n": 119
+     },
+     "b_wrong": {
+      "mean": 0.5378,
+      "ci": [
+       0.4454,
+       0.6303
+      ],
+      "n": 119
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.535,
+      "ci": [
+       0.4482,
+       0.619
+      ],
+      "n": 119
+     }
+    },
+    "r3/all": {
+     "a_stated": {
+      "mean": 0.7053,
+      "ci": [
+       0.6552,
+       0.7555
+      ],
+      "n": 319
+     },
+     "b_excluded": {
+      "mean": 0.7098,
+      "ci": [
+       0.6562,
+       0.7603
+      ],
+      "n": 317
+     },
+     "b_wrong": {
+      "mean": 0.7053,
+      "ci": [
+       0.6552,
+       0.7555
+      ],
+      "n": 319
+     },
+     "b_no_valid_answer": 2,
+     "c_agents": {
+      "mean": 0.7001,
+      "ci": [
+       0.651,
+       0.7503
+      ],
+      "n": 319
+     },
+     "latent": 0.6859
+    },
+    "r3/known": {
+     "a_stated": {
+      "mean": 0.805,
+      "ci": [
+       0.75,
+       0.855
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.8131,
+      "ci": [
+       0.7576,
+       0.8636
+      ],
+      "n": 198
+     },
+     "b_wrong": {
+      "mean": 0.805,
+      "ci": [
+       0.75,
+       0.855
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 2,
+     "c_agents": {
+      "mean": 0.7983,
+      "ci": [
+       0.7467,
+       0.8483
+      ],
+      "n": 200
+     }
+    },
+    "r3/unknown": {
+     "a_stated": {
+      "mean": 0.5378,
+      "ci": [
+       0.4454,
+       0.6303
+      ],
+      "n": 119
+     },
+     "b_excluded": {
+      "mean": 0.5378,
+      "ci": [
+       0.4454,
+       0.6303
+      ],
+      "n": 119
+     },
+     "b_wrong": {
+      "mean": 0.5378,
+      "ci": [
+       0.4454,
+       0.6303
+      ],
+      "n": 119
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.535,
+      "ci": [
+       0.4482,
+       0.619
+      ],
+      "n": 119
+     }
+    }
+   },
+   "attribution": {
+    "max_degenerate_share_r2_r3": 0.0073,
+    "degenerate_ok": false,
+    "accuracy_ok": true,
+    "attributed": false
+   }
+  },
+  "qwen36_27b_entity": {
+   "kinds": {
+    "r0/all": {
+     "correct": 0.6249,
+     "other_candidate": 0.3489,
+     "degenerate": 0.0263,
+     "other": 0.0,
+     "n": 837
+    },
+    "r0/known": {
+     "correct": 0.7467,
+     "other_candidate": 0.2283,
+     "degenerate": 0.025,
+     "other": 0.0,
+     "n": 600
+    },
+    "r0/unknown": {
+     "correct": 0.3165,
+     "other_candidate": 0.654,
+     "degenerate": 0.0295,
+     "other": 0.0,
+     "n": 237
+    },
+    "r1/all": {
+     "correct": 0.7742,
+     "other_candidate": 0.2115,
+     "degenerate": 0.0,
+     "other": 0.0143,
+     "n": 837
+    },
+    "r1/known": {
+     "correct": 0.9133,
+     "other_candidate": 0.0767,
+     "degenerate": 0.0,
+     "other": 0.01,
+     "n": 600
+    },
+    "r1/unknown": {
+     "correct": 0.4219,
+     "other_candidate": 0.5527,
+     "degenerate": 0.0,
+     "other": 0.0253,
+     "n": 237
+    },
+    "r2/all": {
+     "correct": 0.282,
+     "other_candidate": 0.1278,
+     "degenerate": 0.0824,
+     "other": 0.5078,
+     "n": 837
+    },
+    "r2/known": {
+     "correct": 0.29,
+     "other_candidate": 0.0483,
+     "degenerate": 0.0917,
+     "other": 0.57,
+     "n": 600
+    },
+    "r2/unknown": {
+     "correct": 0.2616,
+     "other_candidate": 0.3291,
+     "degenerate": 0.0591,
+     "other": 0.3502,
+     "n": 237
+    },
+    "r3/all": {
+     "correct": 0.4122,
+     "other_candidate": 0.1673,
+     "degenerate": 0.0502,
+     "other": 0.3704,
+     "n": 837
+    },
+    "r3/known": {
+     "correct": 0.4767,
+     "other_candidate": 0.0717,
+     "degenerate": 0.0433,
+     "other": 0.4083,
+     "n": 600
+    },
+    "r3/unknown": {
+     "correct": 0.2489,
+     "other_candidate": 0.4093,
+     "degenerate": 0.0675,
+     "other": 0.2743,
+     "n": 237
+    }
+   },
+   "strings": {
+    "r0": [
+     [
+      "",
+      21
+     ],
+     [
+      "____",
+      1
+     ]
+    ],
+    "r1": [
+     [
+      "South Korea",
+      3
+     ],
+     [
+      "Czechoslovak said",
+      3
+     ],
+     [
+      "Rio de answer",
+      3
+     ],
+     [
+      "San Francisco",
+      1
+     ],
+     [
+      "Berkeley",
+      1
+     ],
+     [
+      "Canada",
+      1
+     ]
+    ],
+    "r2": [
+     [
+      "an island",
+      45
+     ],
+     [
+      "Agent 2",
+      28
+     ],
+     [
+      "an island nation in East Asia",
+      27
+     ],
+     [
+      "agents",
+      25
+     ],
+     [
+      "the agents",
+      24
+     ],
+     [
+      "",
+      13
+     ],
+     [
+      "loop",
+      11
+     ],
+     [
+      "unconfirmed",
+      9
+     ],
+     [
+      "disagreement",
+      8
+     ],
+     [
+      "straightforward",
+      7
+     ],
+     [
+      "Washington",
+      7
+     ],
+     [
+      "infinite",
+      6
+     ],
+     [
+      "there is no consensus",
+      6
+     ],
+     [
+      "an independent state",
+      6
+     ],
+     [
+      "Agents 2 and 3",
+      6
+     ],
+     [
+      "the Soviet Union",
+      6
+     ],
+     [
+      "initial",
+      5
+     ],
+     [
+      "Agent 3",
+      5
+     ],
+     [
+      "factual statements",
+      5
+     ],
+     [
+      "consensus",
+      4
+     ]
+    ],
+    "r3": [
+     [
+      "an island",
+      45
+     ],
+     [
+      "an island nation in East Asia",
+      24
+     ],
+     [
+      "the agents",
+      23
+     ],
+     [
+      "Agent 2",
+      19
+     ],
+     [
+      "agents",
+      15
+     ],
+     [
+      "unconfirmed",
+      9
+     ],
+     [
+      "loop",
+      9
+     ],
+     [
+      "Washington",
+      9
+     ],
+     [
+      "infinite",
+      6
+     ],
+     [
+      "Agent 1",
+      6
+     ],
+     [
+      "an independent state",
+      6
+     ],
+     [
+      "the Soviet Union",
+      6
+     ],
+     [
+      "United country",
+      6
+     ],
+     [
+      "answer",
+      5
+     ],
+     [
+      "persistent error",
+      3
+     ],
+     [
+      "just Egypt",
+      3
+     ],
+     [
+      "collectively",
+      3
+     ],
+     [
+      "an Egyptian",
+      3
+     ],
+     [
+      "uncorrected",
+      3
+     ],
+     [
+      "reinforced concrete",
+      3
+     ]
+    ]
+   },
+   "accuracy": {
+    "r0/all": {
+     "a_stated": {
+      "mean": 0.724,
+      "ci": [
+       0.6703,
+       0.7742
+      ],
+      "n": 279
+     },
+     "b_excluded": {
+      "mean": 0.724,
+      "ci": [
+       0.6703,
+       0.7742
+      ],
+      "n": 279
+     },
+     "b_wrong": {
+      "mean": 0.724,
+      "ci": [
+       0.6703,
+       0.7742
+      ],
+      "n": 279
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.6249,
+      "ci": [
+       0.5818,
+       0.6679
+      ],
+      "n": 279
+     },
+     "latent": 0.7117
+    },
+    "r0/known": {
+     "a_stated": {
+      "mean": 0.865,
+      "ci": [
+       0.82,
+       0.91
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.865,
+      "ci": [
+       0.82,
+       0.91
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.865,
+      "ci": [
+       0.82,
+       0.91
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.7467,
+      "ci": [
+       0.7067,
+       0.7867
+      ],
+      "n": 200
+     }
+    },
+    "r0/unknown": {
+     "a_stated": {
+      "mean": 0.3671,
+      "ci": [
+       0.2658,
+       0.4684
+      ],
+      "n": 79
+     },
+     "b_excluded": {
+      "mean": 0.3671,
+      "ci": [
+       0.2658,
+       0.4684
+      ],
+      "n": 79
+     },
+     "b_wrong": {
+      "mean": 0.3671,
+      "ci": [
+       0.2658,
+       0.4684
+      ],
+      "n": 79
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.3165,
+      "ci": [
+       0.2405,
+       0.3924
+      ],
+      "n": 79
+     }
+    },
+    "r1/all": {
+     "a_stated": {
+      "mean": 0.7814,
+      "ci": [
+       0.7348,
+       0.828
+      ],
+      "n": 279
+     },
+     "b_excluded": {
+      "mean": 0.7814,
+      "ci": [
+       0.7348,
+       0.828
+      ],
+      "n": 279
+     },
+     "b_wrong": {
+      "mean": 0.7814,
+      "ci": [
+       0.7348,
+       0.828
+      ],
+      "n": 279
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.7742,
+      "ci": [
+       0.7288,
+       0.8196
+      ],
+      "n": 279
+     },
+     "latent": 0.7044
+    },
+    "r1/known": {
+     "a_stated": {
+      "mean": 0.92,
+      "ci": [
+       0.88,
+       0.955
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.92,
+      "ci": [
+       0.88,
+       0.955
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.92,
+      "ci": [
+       0.88,
+       0.955
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.9133,
+      "ci": [
+       0.8733,
+       0.9483
+      ],
+      "n": 200
+     }
+    },
+    "r1/unknown": {
+     "a_stated": {
+      "mean": 0.4304,
+      "ci": [
+       0.3165,
+       0.532
+      ],
+      "n": 79
+     },
+     "b_excluded": {
+      "mean": 0.4304,
+      "ci": [
+       0.3165,
+       0.532
+      ],
+      "n": 79
+     },
+     "b_wrong": {
+      "mean": 0.4304,
+      "ci": [
+       0.3165,
+       0.532
+      ],
+      "n": 79
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.4219,
+      "ci": [
+       0.3207,
+       0.5232
+      ],
+      "n": 79
+     }
+    },
+    "r2/all": {
+     "a_stated": {
+      "mean": 0.3011,
+      "ci": [
+       0.2473,
+       0.3548
+      ],
+      "n": 279
+     },
+     "b_excluded": {
+      "mean": 0.3088,
+      "ci": [
+       0.2537,
+       0.364
+      ],
+      "n": 272
+     },
+     "b_wrong": {
+      "mean": 0.3011,
+      "ci": [
+       0.2473,
+       0.3548
+      ],
+      "n": 279
+     },
+     "b_no_valid_answer": 7,
+     "c_agents": {
+      "mean": 0.282,
+      "ci": [
+       0.2354,
+       0.3274
+      ],
+      "n": 279
+     },
+     "latent": 0.6569
+    },
+    "r2/known": {
+     "a_stated": {
+      "mean": 0.31,
+      "ci": [
+       0.245,
+       0.37
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.3212,
+      "ci": [
+       0.2539,
+       0.3938
+      ],
+      "n": 193
+     },
+     "b_wrong": {
+      "mean": 0.31,
+      "ci": [
+       0.245,
+       0.37
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 7,
+     "c_agents": {
+      "mean": 0.29,
+      "ci": [
+       0.2317,
+       0.345
+      ],
+      "n": 200
+     }
+    },
+    "r2/unknown": {
+     "a_stated": {
+      "mean": 0.2785,
+      "ci": [
+       0.1772,
+       0.3797
+      ],
+      "n": 79
+     },
+     "b_excluded": {
+      "mean": 0.2785,
+      "ci": [
+       0.1772,
+       0.3797
+      ],
+      "n": 79
+     },
+     "b_wrong": {
+      "mean": 0.2785,
+      "ci": [
+       0.1772,
+       0.3797
+      ],
+      "n": 79
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.2616,
+      "ci": [
+       0.1814,
+       0.3502
+      ],
+      "n": 79
+     }
+    },
+    "r3/all": {
+     "a_stated": {
+      "mean": 0.4444,
+      "ci": [
+       0.3871,
+       0.5018
+      ],
+      "n": 279
+     },
+     "b_excluded": {
+      "mean": 0.4559,
+      "ci": [
+       0.3971,
+       0.5184
+      ],
+      "n": 272
+     },
+     "b_wrong": {
+      "mean": 0.4444,
+      "ci": [
+       0.3871,
+       0.5018
+      ],
+      "n": 279
+     },
+     "b_no_valid_answer": 7,
+     "c_agents": {
+      "mean": 0.4122,
+      "ci": [
+       0.3632,
+       0.4648
+      ],
+      "n": 279
+     },
+     "latent": 0.6898
+    },
+    "r3/known": {
+     "a_stated": {
+      "mean": 0.505,
+      "ci": [
+       0.435,
+       0.575
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.5179,
+      "ci": [
+       0.4462,
+       0.5846
+      ],
+      "n": 195
+     },
+     "b_wrong": {
+      "mean": 0.505,
+      "ci": [
+       0.435,
+       0.575
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 5,
+     "c_agents": {
+      "mean": 0.4767,
+      "ci": [
+       0.4117,
+       0.5417
+      ],
+      "n": 200
+     }
+    },
+    "r3/unknown": {
+     "a_stated": {
+      "mean": 0.2911,
+      "ci": [
+       0.1899,
+       0.3924
+      ],
+      "n": 79
+     },
+     "b_excluded": {
+      "mean": 0.2987,
+      "ci": [
+       0.1948,
+       0.4026
+      ],
+      "n": 77
+     },
+     "b_wrong": {
+      "mean": 0.2911,
+      "ci": [
+       0.1899,
+       0.3924
+      ],
+      "n": 79
+     },
+     "b_no_valid_answer": 2,
+     "c_agents": {
+      "mean": 0.2489,
+      "ci": [
+       0.1646,
+       0.3334
+      ],
+      "n": 79
+     }
+    }
+   },
+   "attribution": {
+    "max_degenerate_share_r2_r3": 0.0824,
+    "degenerate_ok": false,
+    "accuracy_ok": false,
+    "attributed": false
+   }
+  },
+  "gemma4_e4b_it_entity": {
+   "kinds": {
+    "r0/all": {
+     "correct": 0.7416,
+     "other_candidate": 0.2584,
+     "degenerate": 0.0,
+     "other": 0.0,
+     "n": 1107
+    },
+    "r0/known": {
+     "correct": 0.8633,
+     "other_candidate": 0.1367,
+     "degenerate": 0.0,
+     "other": 0.0,
+     "n": 600
+    },
+    "r0/unknown": {
+     "correct": 0.5976,
+     "other_candidate": 0.4024,
+     "degenerate": 0.0,
+     "other": 0.0,
+     "n": 507
+    },
+    "r1/all": {
+     "correct": 0.8067,
+     "other_candidate": 0.1915,
+     "degenerate": 0.0,
+     "other": 0.0018,
+     "n": 1107
+    },
+    "r1/known": {
+     "correct": 0.9433,
+     "other_candidate": 0.0567,
+     "degenerate": 0.0,
+     "other": 0.0,
+     "n": 600
+    },
+    "r1/unknown": {
+     "correct": 0.645,
+     "other_candidate": 0.3511,
+     "degenerate": 0.0,
+     "other": 0.0039,
+     "n": 507
+    },
+    "r2/all": {
+     "correct": 0.8049,
+     "other_candidate": 0.1933,
+     "degenerate": 0.0,
+     "other": 0.0018,
+     "n": 1107
+    },
+    "r2/known": {
+     "correct": 0.9433,
+     "other_candidate": 0.0567,
+     "degenerate": 0.0,
+     "other": 0.0,
+     "n": 600
+    },
+    "r2/unknown": {
+     "correct": 0.641,
+     "other_candidate": 0.355,
+     "degenerate": 0.0,
+     "other": 0.0039,
+     "n": 507
+    },
+    "r3/all": {
+     "correct": 0.8103,
+     "other_candidate": 0.1879,
+     "degenerate": 0.0,
+     "other": 0.0018,
+     "n": 1107
+    },
+    "r3/known": {
+     "correct": 0.945,
+     "other_candidate": 0.055,
+     "degenerate": 0.0,
+     "other": 0.0,
+     "n": 600
+    },
+    "r3/unknown": {
+     "correct": 0.6509,
+     "other_candidate": 0.3452,
+     "degenerate": 0.0,
+     "other": 0.0039,
+     "n": 507
+    }
+   },
+   "strings": {
+    "r0": [],
+    "r1": [
+     [
+      "New York",
+      1
+     ],
+     [
+      "Greece",
+      1
+     ]
+    ],
+    "r2": [
+     [
+      "New York",
+      1
+     ],
+     [
+      "Greece",
+      1
+     ]
+    ],
+    "r3": [
+     [
+      "New York",
+      1
+     ],
+     [
+      "Greece",
+      1
+     ]
+    ]
+   },
+   "accuracy": {
+    "r0/all": {
+     "a_stated": {
+      "mean": 0.7642,
+      "ci": [
+       0.7209,
+       0.8049
+      ],
+      "n": 369
+     },
+     "b_excluded": {
+      "mean": 0.7642,
+      "ci": [
+       0.7209,
+       0.8049
+      ],
+      "n": 369
+     },
+     "b_wrong": {
+      "mean": 0.7642,
+      "ci": [
+       0.7209,
+       0.8049
+      ],
+      "n": 369
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.7416,
+      "ci": [
+       0.701,
+       0.7805
+      ],
+      "n": 369
+     },
+     "latent": 0.764
+    },
+    "r0/known": {
+     "a_stated": {
+      "mean": 0.895,
+      "ci": [
+       0.85,
+       0.935
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.895,
+      "ci": [
+       0.85,
+       0.935
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.895,
+      "ci": [
+       0.85,
+       0.935
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.8633,
+      "ci": [
+       0.82,
+       0.9017
+      ],
+      "n": 200
+     }
+    },
+    "r0/unknown": {
+     "a_stated": {
+      "mean": 0.6095,
+      "ci": [
+       0.5383,
+       0.6805
+      ],
+      "n": 169
+     },
+     "b_excluded": {
+      "mean": 0.6095,
+      "ci": [
+       0.5383,
+       0.6805
+      ],
+      "n": 169
+     },
+     "b_wrong": {
+      "mean": 0.6095,
+      "ci": [
+       0.5383,
+       0.6805
+      ],
+      "n": 169
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.5976,
+      "ci": [
+       0.5325,
+       0.6627
+      ],
+      "n": 169
+     }
+    },
+    "r1/all": {
+     "a_stated": {
+      "mean": 0.8103,
+      "ci": [
+       0.7696,
+       0.8509
+      ],
+      "n": 369
+     },
+     "b_excluded": {
+      "mean": 0.8103,
+      "ci": [
+       0.7696,
+       0.8509
+      ],
+      "n": 369
+     },
+     "b_wrong": {
+      "mean": 0.8103,
+      "ci": [
+       0.7696,
+       0.8509
+      ],
+      "n": 369
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.8067,
+      "ci": [
+       0.7669,
+       0.8456
+      ],
+      "n": 369
+     },
+     "latent": 0.7865
+    },
+    "r1/known": {
+     "a_stated": {
+      "mean": 0.945,
+      "ci": [
+       0.91,
+       0.975
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.945,
+      "ci": [
+       0.91,
+       0.975
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.945,
+      "ci": [
+       0.91,
+       0.975
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.9433,
+      "ci": [
+       0.9117,
+       0.9717
+      ],
+      "n": 200
+     }
+    },
+    "r1/unknown": {
+     "a_stated": {
+      "mean": 0.6509,
+      "ci": [
+       0.574,
+       0.7219
+      ],
+      "n": 169
+     },
+     "b_excluded": {
+      "mean": 0.6509,
+      "ci": [
+       0.574,
+       0.7219
+      ],
+      "n": 169
+     },
+     "b_wrong": {
+      "mean": 0.6509,
+      "ci": [
+       0.574,
+       0.7219
+      ],
+      "n": 169
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.645,
+      "ci": [
+       0.57,
+       0.7141
+      ],
+      "n": 169
+     }
+    },
+    "r2/all": {
+     "a_stated": {
+      "mean": 0.8076,
+      "ci": [
+       0.7669,
+       0.8482
+      ],
+      "n": 369
+     },
+     "b_excluded": {
+      "mean": 0.8076,
+      "ci": [
+       0.7669,
+       0.8482
+      ],
+      "n": 369
+     },
+     "b_wrong": {
+      "mean": 0.8076,
+      "ci": [
+       0.7669,
+       0.8482
+      ],
+      "n": 369
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.8049,
+      "ci": [
+       0.7642,
+       0.8437
+      ],
+      "n": 369
+     },
+     "latent": 0.7837
+    },
+    "r2/known": {
+     "a_stated": {
+      "mean": 0.945,
+      "ci": [
+       0.91,
+       0.975
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.945,
+      "ci": [
+       0.91,
+       0.975
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.945,
+      "ci": [
+       0.91,
+       0.975
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.9433,
+      "ci": [
+       0.91,
+       0.9717
+      ],
+      "n": 200
+     }
+    },
+    "r2/unknown": {
+     "a_stated": {
+      "mean": 0.645,
+      "ci": [
+       0.568,
+       0.716
+      ],
+      "n": 169
+     },
+     "b_excluded": {
+      "mean": 0.645,
+      "ci": [
+       0.568,
+       0.716
+      ],
+      "n": 169
+     },
+     "b_wrong": {
+      "mean": 0.645,
+      "ci": [
+       0.568,
+       0.716
+      ],
+      "n": 169
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.641,
+      "ci": [
+       0.5661,
+       0.712
+      ],
+      "n": 169
+     }
+    },
+    "r3/all": {
+     "a_stated": {
+      "mean": 0.8157,
+      "ci": [
+       0.7751,
+       0.8537
+      ],
+      "n": 369
+     },
+     "b_excluded": {
+      "mean": 0.8157,
+      "ci": [
+       0.7751,
+       0.8537
+      ],
+      "n": 369
+     },
+     "b_wrong": {
+      "mean": 0.8157,
+      "ci": [
+       0.7751,
+       0.8537
+      ],
+      "n": 369
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.8103,
+      "ci": [
+       0.7706,
+       0.8491
+      ],
+      "n": 369
+     },
+     "latent": 0.7921
+    },
+    "r3/known": {
+     "a_stated": {
+      "mean": 0.95,
+      "ci": [
+       0.92,
+       0.98
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.95,
+      "ci": [
+       0.92,
+       0.98
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.95,
+      "ci": [
+       0.92,
+       0.98
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.945,
+      "ci": [
+       0.9133,
+       0.9717
+      ],
+      "n": 200
+     }
+    },
+    "r3/unknown": {
+     "a_stated": {
+      "mean": 0.6568,
+      "ci": [
+       0.5799,
+       0.7278
+      ],
+      "n": 169
+     },
+     "b_excluded": {
+      "mean": 0.6568,
+      "ci": [
+       0.5799,
+       0.7278
+      ],
+      "n": 169
+     },
+     "b_wrong": {
+      "mean": 0.6568,
+      "ci": [
+       0.5799,
+       0.7278
+      ],
+      "n": 169
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.6509,
+      "ci": [
+       0.5759,
+       0.7219
+      ],
+      "n": 169
+     }
+    }
+   },
+   "attribution": {
+    "max_degenerate_share_r2_r3": 0.0,
+    "degenerate_ok": false,
+    "accuracy_ok": true,
+    "attributed": false
+   }
+  },
+  "llama31_8b_it_entity": {
+   "kinds": {
+    "r0/all": {
+     "correct": 0.6546,
+     "other_candidate": 0.3231,
+     "degenerate": 0.0222,
+     "other": 0.0,
+     "n": 1080
+    },
+    "r0/known": {
+     "correct": 0.8567,
+     "other_candidate": 0.1333,
+     "degenerate": 0.01,
+     "other": 0.0,
+     "n": 600
+    },
+    "r0/unknown": {
+     "correct": 0.4021,
+     "other_candidate": 0.5604,
+     "degenerate": 0.0375,
+     "other": 0.0,
+     "n": 480
+    },
+    "r1/all": {
+     "correct": 0.7065,
+     "other_candidate": 0.2435,
+     "degenerate": 0.0037,
+     "other": 0.0463,
+     "n": 1080
+    },
+    "r1/known": {
+     "correct": 0.9133,
+     "other_candidate": 0.07,
+     "degenerate": 0.0,
+     "other": 0.0167,
+     "n": 600
+    },
+    "r1/unknown": {
+     "correct": 0.4479,
+     "other_candidate": 0.4604,
+     "degenerate": 0.0083,
+     "other": 0.0833,
+     "n": 480
+    },
+    "r2/all": {
+     "correct": 0.7157,
+     "other_candidate": 0.2343,
+     "degenerate": 0.0019,
+     "other": 0.0481,
+     "n": 1080
+    },
+    "r2/known": {
+     "correct": 0.915,
+     "other_candidate": 0.0683,
+     "degenerate": 0.0,
+     "other": 0.0167,
+     "n": 600
+    },
+    "r2/unknown": {
+     "correct": 0.4667,
+     "other_candidate": 0.4417,
+     "degenerate": 0.0042,
+     "other": 0.0875,
+     "n": 480
+    },
+    "r3/all": {
+     "correct": 0.7231,
+     "other_candidate": 0.2287,
+     "degenerate": 0.0028,
+     "other": 0.0454,
+     "n": 1080
+    },
+    "r3/known": {
+     "correct": 0.92,
+     "other_candidate": 0.065,
+     "degenerate": 0.0,
+     "other": 0.015,
+     "n": 600
+    },
+    "r3/unknown": {
+     "correct": 0.4771,
+     "other_candidate": 0.4333,
+     "degenerate": 0.0063,
+     "other": 0.0833,
+     "n": 480
+    }
+   },
+   "strings": {
+    "r0": [
+     [
+      "",
+      23
+     ],
+     [
+      "...,",
+      1
+     ]
+    ],
+    "r1": [
+     [
+      "the United Kingdom",
+      11
+     ],
+     [
+      "England",
+      4
+     ],
+     [
+      "Porbandar, India",
+      2
+     ],
+     [
+      "the United Kingdom, more specifically, Dublin, Ireland",
+      2
+     ],
+     [
+      "A particular region of Scotland",
+      2
+     ],
+     [
+      "Chile",
+      2
+     ],
+     [
+      "actually Chandigarh",
+      2
+     ],
+     [
+      "Canada, specifically in the city of Edinburgh is incorrect, it",
+      2
+     ],
+     [
+      "Russia, more specifically in the city of Kiev, Ukraine",
+      1
+     ],
+     [
+      "Russia, more specifically in the city of Kiev, Ukraine was",
+      1
+     ],
+     [
+      "Germany",
+      1
+     ],
+     [
+      "Timor-Leste, specifically in the city of Dili",
+      1
+     ],
+     [
+      "Timor-Leste",
+      1
+     ],
+     [
+      "actually Ankara",
+      1
+     ],
+     [
+      "Sudan",
+      1
+     ],
+     [
+      "Sudan, and more specifically, in the city of Wau",
+      1
+     ],
+     [
+      "the United Kingdom, specifically in Wales",
+      1
+     ],
+     [
+      "Iran, but he grew up in Las Vegas which is in",
+      1
+     ],
+     [
+      "Iran",
+      1
+     ],
+     [
+      "Iran, and he grew up in Las Vegas which is in",
+      1
+     ]
+    ],
+    "r2": [
+     [
+      "the United Kingdom",
+      10
+     ],
+     [
+      "France",
+      3
+     ],
+     [
+      "England",
+      3
+     ],
+     [
+      "A particular region of Scotland",
+      3
+     ],
+     [
+      "Canada, specifically in the city of Edinburgh is incorrect, it",
+      3
+     ],
+     [
+      "Timor-Leste, specifically in the city of Dili",
+      2
+     ],
+     [
+      "Iran, but he grew up in Las Vegas which is in",
+      2
+     ],
+     [
+      "Chile",
+      2
+     ],
+     [
+      "Florence, the capital of Italy",
+      2
+     ],
+     [
+      "**Laos**",
+      2
+     ],
+     [
+      "Spain",
+      2
+     ],
+     [
+      "Russia, more specifically in the city of Kiev, Ukraine was",
+      1
+     ],
+     [
+      "Russia, more specifically in the city of Kiev, Ukraine (",
+      1
+     ],
+     [
+      "**Porbandar, India**",
+      1
+     ],
+     [
+      "Timor-Leste",
+      1
+     ],
+     [
+      "Sudan",
+      1
+     ],
+     [
+      "Sudan, and more specifically, in the city of Wau",
+      1
+     ],
+     [
+      "the United Kingdom, more specifically, Dublin, Ireland",
+      1
+     ],
+     [
+      "the United Kingdom, specifically in Wales",
+      1
+     ],
+     [
+      "Iran, and he grew up in Las Vegas which is in",
+      1
+     ]
+    ],
+    "r3": [
+     [
+      "the United Kingdom",
+      8
+     ],
+     [
+      "England",
+      4
+     ],
+     [
+      "Sudan, in the city of Wau",
+      3
+     ],
+     [
+      "Czechoslovakia, specifically in the city of Koš",
+      3
+     ],
+     [
+      "A particular region of Scotland",
+      3
+     ],
+     [
+      "Porbandar, India",
+      2
+     ],
+     [
+      "Timor-Leste",
+      2
+     ],
+     [
+      "the United Kingdom, specifically in Wales",
+      2
+     ],
+     [
+      "Iran, but he grew up in Las Vegas which is in",
+      2
+     ],
+     [
+      "Chile",
+      2
+     ],
+     [
+      "Florence, the capital of Italy",
+      2
+     ],
+     [
+      "**Laos**",
+      2
+     ],
+     [
+      "Canada, specifically in the city of Edinburgh is incorrect, it",
+      2
+     ],
+     [
+      "Russia, more specifically in the city of Kiev, Ukraine",
+      1
+     ],
+     [
+      "Timor-Leste, specifically in the city of Dili",
+      1
+     ],
+     [
+      "Basel, Switzerland",
+      1
+     ],
+     [
+      "Iran, and he grew up in Las Vegas which is in",
+      1
+     ],
+     [
+      "not Krakow, but it is located in Poland, and",
+      1
+     ],
+     [
+      "Florence, the capital of Italy, specifically the region of T",
+      1
+     ],
+     [
+      "Laos",
+      1
+     ]
+    ]
+   },
+   "accuracy": {
+    "r0/all": {
+     "a_stated": {
+      "mean": 0.7167,
+      "ci": [
+       0.6722,
+       0.7583
+      ],
+      "n": 360
+     },
+     "b_excluded": {
+      "mean": 0.7167,
+      "ci": [
+       0.6722,
+       0.7583
+      ],
+      "n": 360
+     },
+     "b_wrong": {
+      "mean": 0.7167,
+      "ci": [
+       0.6722,
+       0.7583
+      ],
+      "n": 360
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.6546,
+      "ci": [
+       0.6157,
+       0.6926
+      ],
+      "n": 360
+     },
+     "latent": 0.6847
+    },
+    "r0/known": {
+     "a_stated": {
+      "mean": 0.93,
+      "ci": [
+       0.89,
+       0.965
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.93,
+      "ci": [
+       0.89,
+       0.965
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.93,
+      "ci": [
+       0.89,
+       0.965
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.8567,
+      "ci": [
+       0.8217,
+       0.89
+      ],
+      "n": 200
+     }
+    },
+    "r0/unknown": {
+     "a_stated": {
+      "mean": 0.45,
+      "ci": [
+       0.375,
+       0.525
+      ],
+      "n": 160
+     },
+     "b_excluded": {
+      "mean": 0.45,
+      "ci": [
+       0.375,
+       0.525
+      ],
+      "n": 160
+     },
+     "b_wrong": {
+      "mean": 0.45,
+      "ci": [
+       0.375,
+       0.525
+      ],
+      "n": 160
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.4021,
+      "ci": [
+       0.3438,
+       0.4625
+      ],
+      "n": 160
+     }
+    },
+    "r1/all": {
+     "a_stated": {
+      "mean": 0.7056,
+      "ci": [
+       0.6583,
+       0.7501
+      ],
+      "n": 360
+     },
+     "b_excluded": {
+      "mean": 0.7056,
+      "ci": [
+       0.6583,
+       0.7501
+      ],
+      "n": 360
+     },
+     "b_wrong": {
+      "mean": 0.7056,
+      "ci": [
+       0.6583,
+       0.7501
+      ],
+      "n": 360
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.7065,
+      "ci": [
+       0.6639,
+       0.7481
+      ],
+      "n": 360
+     },
+     "latent": 0.6932
+    },
+    "r1/known": {
+     "a_stated": {
+      "mean": 0.91,
+      "ci": [
+       0.87,
+       0.95
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.91,
+      "ci": [
+       0.87,
+       0.95
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.91,
+      "ci": [
+       0.87,
+       0.95
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.9133,
+      "ci": [
+       0.8817,
+       0.9433
+      ],
+      "n": 200
+     }
+    },
+    "r1/unknown": {
+     "a_stated": {
+      "mean": 0.45,
+      "ci": [
+       0.375,
+       0.525
+      ],
+      "n": 160
+     },
+     "b_excluded": {
+      "mean": 0.45,
+      "ci": [
+       0.375,
+       0.525
+      ],
+      "n": 160
+     },
+     "b_wrong": {
+      "mean": 0.45,
+      "ci": [
+       0.375,
+       0.525
+      ],
+      "n": 160
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.4479,
+      "ci": [
+       0.3771,
+       0.5167
+      ],
+      "n": 160
+     }
+    },
+    "r2/all": {
+     "a_stated": {
+      "mean": 0.725,
+      "ci": [
+       0.6778,
+       0.7722
+      ],
+      "n": 360
+     },
+     "b_excluded": {
+      "mean": 0.725,
+      "ci": [
+       0.6778,
+       0.7722
+      ],
+      "n": 360
+     },
+     "b_wrong": {
+      "mean": 0.725,
+      "ci": [
+       0.6778,
+       0.7722
+      ],
+      "n": 360
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.7157,
+      "ci": [
+       0.6704,
+       0.7602
+      ],
+      "n": 360
+     },
+     "latent": 0.7017
+    },
+    "r2/known": {
+     "a_stated": {
+      "mean": 0.92,
+      "ci": [
+       0.88,
+       0.955
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.92,
+      "ci": [
+       0.88,
+       0.955
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.92,
+      "ci": [
+       0.88,
+       0.955
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.915,
+      "ci": [
+       0.8783,
+       0.95
+      ],
+      "n": 200
+     }
+    },
+    "r2/unknown": {
+     "a_stated": {
+      "mean": 0.4813,
+      "ci": [
+       0.4062,
+       0.5563
+      ],
+      "n": 160
+     },
+     "b_excluded": {
+      "mean": 0.4813,
+      "ci": [
+       0.4062,
+       0.5563
+      ],
+      "n": 160
+     },
+     "b_wrong": {
+      "mean": 0.4813,
+      "ci": [
+       0.4062,
+       0.5563
+      ],
+      "n": 160
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.4667,
+      "ci": [
+       0.3937,
+       0.5354
+      ],
+      "n": 160
+     }
+    },
+    "r3/all": {
+     "a_stated": {
+      "mean": 0.7278,
+      "ci": [
+       0.6833,
+       0.7722
+      ],
+      "n": 360
+     },
+     "b_excluded": {
+      "mean": 0.7278,
+      "ci": [
+       0.6833,
+       0.7722
+      ],
+      "n": 360
+     },
+     "b_wrong": {
+      "mean": 0.7278,
+      "ci": [
+       0.6833,
+       0.7722
+      ],
+      "n": 360
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.7231,
+      "ci": [
+       0.6787,
+       0.7667
+      ],
+      "n": 360
+     },
+     "latent": 0.7102
+    },
+    "r3/known": {
+     "a_stated": {
+      "mean": 0.925,
+      "ci": [
+       0.89,
+       0.96
+      ],
+      "n": 200
+     },
+     "b_excluded": {
+      "mean": 0.925,
+      "ci": [
+       0.89,
+       0.96
+      ],
+      "n": 200
+     },
+     "b_wrong": {
+      "mean": 0.925,
+      "ci": [
+       0.89,
+       0.96
+      ],
+      "n": 200
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.92,
+      "ci": [
+       0.885,
+       0.955
+      ],
+      "n": 200
+     }
+    },
+    "r3/unknown": {
+     "a_stated": {
+      "mean": 0.4813,
+      "ci": [
+       0.4061,
+       0.5563
+      ],
+      "n": 160
+     },
+     "b_excluded": {
+      "mean": 0.4813,
+      "ci": [
+       0.4061,
+       0.5563
+      ],
+      "n": 160
+     },
+     "b_wrong": {
+      "mean": 0.4813,
+      "ci": [
+       0.4061,
+       0.5563
+      ],
+      "n": 160
+     },
+     "b_no_valid_answer": 0,
+     "c_agents": {
+      "mean": 0.4771,
+      "ci": [
+       0.3979,
+       0.548
+      ],
+      "n": 160
+     }
+    }
+   },
+   "attribution": {
+    "max_degenerate_share_r2_r3": 0.0028,
+    "degenerate_ok": false,
+    "accuracy_ok": true,
+    "attributed": false
+   }
+  }
+ }
+}

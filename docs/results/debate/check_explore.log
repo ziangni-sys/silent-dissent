@@ -1,0 +1,81 @@
+
+===== qwen35_4b_entity (3828 records; EXPLORATORY, not pre-registered)
+-- registered
+   round 0: abstention share 0.077 | (b) 0.618 [0.564, 0.671] n=319 (no answer left: 0)
+   round 1: abstention share 0.000 | (b) 0.762 [0.715, 0.809] n=319 (no answer left: 0)
+   round 2: abstention share 0.000 | (b) 0.759 [0.715, 0.803] n=319 (no answer left: 0)
+   round 3: abstention share 0.007 | (b) 0.710 [0.656, 0.760] n=317 (no answer left: 2)
+   ATTRIBUTED TO THE PROTOCOL (registered, exploratory): no (max abstention share r2-r3 0.007, accuracy criterion met)
+-- agent_words
+   round 0: abstention share 0.077 | (b) 0.618 [0.564, 0.671] n=319 (no answer left: 0)
+   round 1: abstention share 0.000 | (b) 0.762 [0.715, 0.809] n=319 (no answer left: 0)
+   round 2: abstention share 0.000 | (b) 0.759 [0.715, 0.803] n=319 (no answer left: 0)
+   round 3: abstention share 0.010 | (b) 0.712 [0.661, 0.759] n=316 (no answer left: 3)
+   ATTRIBUTED TO THE PROTOCOL (agent_words, exploratory): no (max abstention share r2-r3 0.010, accuracy criterion met)
+-- candidates
+   round 0: abstention share 0.077 | (b) 0.618 [0.564, 0.671] n=319 (no answer left: 0)
+   round 1: abstention share 0.011 | (b) 0.767 [0.716, 0.811] n=317 (no answer left: 2)
+   round 2: abstention share 0.013 | (b) 0.766 [0.715, 0.810] n=316 (no answer left: 3)
+   round 3: abstention share 0.075 | (b) 0.757 [0.710, 0.803] n=300 (no answer left: 19)
+   ATTRIBUTED TO THE PROTOCOL (candidates, exploratory): no (max abstention share r2-r3 0.075, accuracy criterion met)
+
+===== qwen36_27b_entity (3348 records; EXPLORATORY, not pre-registered)
+-- registered
+   round 0: abstention share 0.026 | (b) 0.724 [0.670, 0.774] n=279 (no answer left: 0)
+   round 1: abstention share 0.000 | (b) 0.781 [0.735, 0.828] n=279 (no answer left: 0)
+   round 2: abstention share 0.082 | (b) 0.309 [0.254, 0.364] n=272 (no answer left: 7)
+   round 3: abstention share 0.050 | (b) 0.456 [0.397, 0.518] n=272 (no answer left: 7)
+   ATTRIBUTED TO THE PROTOCOL (registered, exploratory): no (max abstention share r2-r3 0.082, accuracy criterion not met)
+-- agent_words
+   round 0: abstention share 0.026 | (b) 0.724 [0.670, 0.774] n=279 (no answer left: 0)
+   round 1: abstention share 0.000 | (b) 0.781 [0.735, 0.828] n=279 (no answer left: 0)
+   round 2: abstention share 0.167 | (b) 0.348 [0.293, 0.406] n=256 (no answer left: 23)
+   round 3: abstention share 0.102 | (b) 0.485 [0.427, 0.546] n=260 (no answer left: 19)
+   ATTRIBUTED TO THE PROTOCOL (agent_words, exploratory): no (max abstention share r2-r3 0.167, accuracy criterion not met)
+-- candidates
+   round 0: abstention share 0.026 | (b) 0.724 [0.670, 0.774] n=279 (no answer left: 0)
+   round 1: abstention share 0.014 | (b) 0.790 [0.743, 0.837] n=276 (no answer left: 3)
+   round 2: abstention share 0.590 | (b) 0.686 [0.607, 0.764] n=140 (no answer left: 139)
+   round 3: abstention share 0.421 | (b) 0.716 [0.656, 0.776] n=183 (no answer left: 96)
+   ATTRIBUTED TO THE PROTOCOL (candidates, exploratory): yes (max abstention share r2-r3 0.590, accuracy criterion met)
+
+===== gemma4_e4b_it_entity (4428 records; EXPLORATORY, not pre-registered)
+-- registered
+   round 0: abstention share 0.000 | (b) 0.764 [0.721, 0.805] n=369 (no answer left: 0)
+   round 1: abstention share 0.000 | (b) 0.810 [0.770, 0.851] n=369 (no answer left: 0)
+   round 2: abstention share 0.000 | (b) 0.808 [0.767, 0.848] n=369 (no answer left: 0)
+   round 3: abstention share 0.000 | (b) 0.816 [0.775, 0.854] n=369 (no answer left: 0)
+   ATTRIBUTED TO THE PROTOCOL (registered, exploratory): no (max abstention share r2-r3 0.000, accuracy criterion met)
+-- agent_words
+   round 0: abstention share 0.000 | (b) 0.764 [0.721, 0.805] n=369 (no answer left: 0)
+   round 1: abstention share 0.000 | (b) 0.810 [0.770, 0.851] n=369 (no answer left: 0)
+   round 2: abstention share 0.000 | (b) 0.808 [0.767, 0.848] n=369 (no answer left: 0)
+   round 3: abstention share 0.000 | (b) 0.816 [0.775, 0.854] n=369 (no answer left: 0)
+   ATTRIBUTED TO THE PROTOCOL (agent_words, exploratory): no (max abstention share r2-r3 0.000, accuracy criterion met)
+-- candidates
+   round 0: abstention share 0.000 | (b) 0.764 [0.721, 0.805] n=369 (no answer left: 0)
+   round 1: abstention share 0.002 | (b) 0.810 [0.770, 0.851] n=369 (no answer left: 0)
+   round 2: abstention share 0.002 | (b) 0.808 [0.767, 0.848] n=369 (no answer left: 0)
+   round 3: abstention share 0.002 | (b) 0.816 [0.775, 0.854] n=369 (no answer left: 0)
+   ATTRIBUTED TO THE PROTOCOL (candidates, exploratory): no (max abstention share r2-r3 0.002, accuracy criterion met)
+
+===== llama31_8b_it_entity (4320 records; EXPLORATORY, not pre-registered)
+-- registered
+   round 0: abstention share 0.022 | (b) 0.717 [0.672, 0.758] n=360 (no answer left: 0)
+   round 1: abstention share 0.004 | (b) 0.706 [0.658, 0.750] n=360 (no answer left: 0)
+   round 2: abstention share 0.002 | (b) 0.725 [0.678, 0.772] n=360 (no answer left: 0)
+   round 3: abstention share 0.003 | (b) 0.728 [0.683, 0.772] n=360 (no answer left: 0)
+   ATTRIBUTED TO THE PROTOCOL (registered, exploratory): no (max abstention share r2-r3 0.003, accuracy criterion met)
+-- agent_words
+   round 0: abstention share 0.022 | (b) 0.717 [0.672, 0.758] n=360 (no answer left: 0)
+   round 1: abstention share 0.004 | (b) 0.706 [0.658, 0.750] n=360 (no answer left: 0)
+   round 2: abstention share 0.002 | (b) 0.725 [0.678, 0.772] n=360 (no answer left: 0)
+   round 3: abstention share 0.003 | (b) 0.728 [0.683, 0.772] n=360 (no answer left: 0)
+   ATTRIBUTED TO THE PROTOCOL (agent_words, exploratory): no (max abstention share r2-r3 0.003, accuracy criterion met)
+-- candidates
+   round 0: abstention share 0.022 | (b) 0.717 [0.672, 0.758] n=360 (no answer left: 0)
+   round 1: abstention share 0.050 | (b) 0.727 [0.679, 0.775] n=355 (no answer left: 5)
+   round 2: abstention share 0.050 | (b) 0.749 [0.704, 0.792] n=351 (no answer left: 9)
+   round 3: abstention share 0.048 | (b) 0.754 [0.708, 0.797] n=349 (no answer left: 11)
+   ATTRIBUTED TO THE PROTOCOL (candidates, exploratory): no (max abstention share r2-r3 0.050, accuracy criterion met)
+-> results/debate_check_explore/summary.json

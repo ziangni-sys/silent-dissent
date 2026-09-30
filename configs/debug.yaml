@@ -1,0 +1,63 @@
+# Offline pipeline check on a tiny random model (numbers are meaningless).
+#   python -m silent_dissent.debug results/debug_model
+#   then run each script with --config configs/debug.yaml
+model:
+  name: results/debug_model
+  dtype: float32
+  device_map: null
+
+lens:
+  name: jlens
+  kwargs: {path: results/debug/jlens.pt}   # scripts/fit_jlens.py --config configs/debug.yaml
+
+jlens:
+  corpus: tests/fixtures/corpus.txt
+  n_prompts: 6
+  max_seq_len: 64
+  dim_batch: 16
+  skip_first: 2
+
+data:
+  n_choices: 4
+  require_letter_format: false  # random model never emits letters
+  sources:
+    - {name: tests/fixtures/items.jsonl}
+  n_per_stratum: 6
+
+seed: 0
+batch_size: 4
+out_dir: results/debug
+prereg: results/debug/prereg.json
+
+layer_selection:
+  tau: 0.9
+  delta: 1.0
+
+pressure:
+  rounds: 2
+  grids:
+    main:
+      condition: [pressure]
+      n_peers: [1, 3]
+      peer_style: [answer_only, with_reason]
+      target_mode: [wrong, correct]
+    controls:
+      condition: [agree, split, mention_control, remove_original]
+      n_peers: [3]
+      peer_style: [answer_only]
+      target_mode: [wrong, correct]
+
+intervention:
+  layer: null
+  source: {condition: pressure, n_peers: 3, peer_style: answer_only}
+  rounds: [2]
+  alphas: [0.0, 0.2]
+  kinds: [original, majority, other, random]
+  contrastive: true
+  baseline_check: 6
+
+debate:
+  n_items: 6
+  n_agents: 3
+  rounds: 2
+  temperature: 1.0

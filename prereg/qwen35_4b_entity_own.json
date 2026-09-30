@@ -1,0 +1,156 @@
+{
+  "study": "entity-answer silent dissent, addendum: the agent's own round-0 answer hidden or absent",
+  "variants": [
+    "hidden",
+    "absent"
+  ],
+  "variants_declared": [
+    "hidden",
+    "absent"
+  ],
+  "styles": [
+    "answer",
+    "hop1"
+  ],
+  "baselines": [
+    "agree",
+    "mention"
+  ],
+  "n_peers": 3,
+  "round": 1,
+  "format": "plain",
+  "categories": [
+    "landmark-cntry-capital",
+    "person-birthcity-cntry",
+    "univ-hqcity-cntry"
+  ],
+  "readout": "as in the main prereg (lens, k, band, last token)",
+  "lens": "jlens",
+  "comparison_lens": "logit",
+  "k": 100,
+  "band": [
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "min_test_n": 10,
+  "variant_definitions": {
+    "hidden": "the agent's round-0 statement is replaced by '(answer submitted)'; peers and moderator as in the main run",
+    "absent": "the agent's round-0 statement is left out; the peers speak and the moderator asks it to 'complete the statement' (not 'again'), so round 1 is its first answer in context; round 0 is still run alone to select the items answered correctly"
+  },
+  "rule": "variants ['hidden', 'absent']; pass: 'other' share <= 0.1 in every pilot cell and the agree cell's original-bridge readout with n >= 30 and CI lower bound > 0; variants that pass are registered, and no addendum without the hidden variant",
+  "hypotheses": [
+    {
+      "id": "O1",
+      "name": "retention without the agent's own round-0 answer in context",
+      "records": "variant hidden; condition pressure, style answer, 3 peers, round 1, outcome peer (gave in)",
+      "statistic": "orig_bridge - ctrl_bridge (band mean per record)",
+      "prediction": "> 0",
+      "test": "95% bootstrap CI over records excludes 0"
+    },
+    {
+      "id": "O2",
+      "name": "commitment: retention beyond recomputation without an earlier answer",
+      "records": "the O1 records vs variant absent; condition pressure, style answer, 3 peers, round 1, outcome peer (gave in)",
+      "statistic": "orig_bridge - ctrl_bridge, difference of means (hidden - absent)",
+      "prediction": "> 0",
+      "test": "95% bootstrap CI of the difference excludes 0"
+    },
+    {
+      "id": "O3",
+      "name": "the original bridge without any earlier answer (recomputation baseline)",
+      "records": "variant absent; condition pressure, style answer, 3 peers, round 1, outcome peer (gave in)",
+      "statistic": "orig_bridge - ctrl_bridge (band mean per record)",
+      "prediction": "> 0",
+      "test": "95% bootstrap CI over records excludes 0"
+    },
+    {
+      "id": "O4",
+      "name": "the J-lens reads what the logit lens misses (hidden)",
+      "records": "the O1 records",
+      "statistic": "O1 statistic under the J-lens minus under the logit lens, paired over records",
+      "prediction": "> 0",
+      "test": "95% bootstrap CI of the paired difference excludes 0"
+    }
+  ],
+  "no_verdict": "a hypothesis whose cell has fewer than 10 records gets no verdict",
+  "exploratory": [
+    "give-in rates per variant vs the main run (visible answer)",
+    "paired per item: hidden vs visible (pressure_test) and hidden vs absent, items that gave in under both",
+    "peer bridge vs the mention baseline within each variant (H2 analogue)",
+    "hop1 style",
+    "held agents",
+    "extra lenses"
+  ],
+  "test_run": "scripts/entity_run.py --stage pressure --split test --addendum own (-> pressure_test_own)",
+  "dev_checks": {
+    "hidden": {
+      "other": {
+        "agree/-": 0.0,
+        "mention/-": 0.0,
+        "pressure/answer": 0.004,
+        "pressure/hop1": 0.037
+      },
+      "worst_other": 0.037,
+      "gave_in": {
+        "pressure/answer": {
+          "peer": 0.918,
+          "n": 267
+        },
+        "pressure/hop1": {
+          "peer": 0.858,
+          "n": 267
+        }
+      },
+      "agree_orig_bridge": {
+        "n": 265,
+        "mean": 0.755,
+        "ci_lo": 0.712,
+        "ci_hi": 0.796
+      },
+      "items": 300,
+      "pass": true
+    },
+    "absent": {
+      "other": {
+        "agree/-": 0.0,
+        "mention/-": 0.0,
+        "pressure/answer": 0.0,
+        "pressure/hop1": 0.049
+      },
+      "worst_other": 0.049,
+      "gave_in": {
+        "pressure/answer": {
+          "peer": 0.678,
+          "n": 267
+        },
+        "pressure/hop1": {
+          "peer": 0.861,
+          "n": 267
+        }
+      },
+      "agree_orig_bridge": {
+        "n": 265,
+        "mean": 0.74,
+        "ci_lo": 0.693,
+        "ci_hi": 0.784
+      },
+      "items": 300,
+      "pass": true
+    }
+  },
+  "dev_runs": [
+    "results/qwen35_4b_entity/entity/pressure_dev_own_hidden",
+    "results/qwen35_4b_entity/entity/pressure_dev_own_absent"
+  ],
+  "model": "Qwen/Qwen3.5-4B",
+  "main_prereg": "prereg/qwen35_4b_entity.json",
+  "main_prereg_sha256": "2a85d61dce1753537b4b37426e9611528ee2eb1479d1dbed35dd79220f138cc4",
+  "created": "2026-09-30T03:08:03",
+  "code_commit": "0a23e4972a26d8414d9428b6cd5443de62405034"
+}

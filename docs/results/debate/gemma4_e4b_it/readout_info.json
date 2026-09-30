@@ -1,0 +1,22 @@
+{
+ "source": "results/gemma4_e4b_it_entity/entity/debate_test/records.jsonl",
+ "lens": "jlens",
+ "band": [
+  32,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40
+ ],
+ "k": 100,
+ "format": "plain",
+ "n_facts": 369,
+ "n_agents": 3,
+ "rounds": 3,
+ "reconstruction_match": 1.0,
+ "reconstruction_identical": 1.0,
+ "config": "configs/gemma4_e4b_it_entity.yaml"
+}

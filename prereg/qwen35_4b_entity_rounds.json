@@ -1,0 +1,131 @@
+{
+  "study": "entity-answer silent dissent, addendum: later rounds",
+  "later": "summary",
+  "format": "plain",
+  "styles": [
+    "answer",
+    "hop1",
+    "hop2"
+  ],
+  "baselines": [
+    "agree",
+    "mention",
+    "mention_bridge"
+  ],
+  "n_peers": 3,
+  "round": 3,
+  "categories": [
+    "landmark-cntry-capital",
+    "person-birthcity-cntry",
+    "univ-hqcity-cntry"
+  ],
+  "readout": "as in the main prereg (lens, k, band, last token)",
+  "lens": "jlens",
+  "k": 100,
+  "band": [
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "rule": "candidates ['rephrase', 'summary'] (repeat = reference); pass: 'other' share <= 0.1 in every pressure / baseline cell at rounds 2-3 with 3 peers, and round-1 answers equal to the reference run's for >= 0.98 of agents; choose the lowest worst-cell share",
+  "hypotheses": [
+    {
+      "id": "R1",
+      "name": "latent premise retention persists",
+      "records": "pressure, style answer, 3 peers, round 3; agents that gave the peers' answer in every round 1-3",
+      "statistic": "orig_bridge - ctrl_bridge (band mean per record)",
+      "prediction": "> 0",
+      "test": "95% bootstrap CI over records excludes 0"
+    },
+    {
+      "id": "R2",
+      "name": "implied premise beyond mention persists",
+      "records": "the R1 records vs condition mention (3 peers, round 3), answer kept",
+      "statistic": "peer_bridge - ctrl_bridge, difference of means",
+      "prediction": "R1 records > mention",
+      "test": "95% bootstrap CI of the difference excludes 0"
+    }
+  ],
+  "exploratory": [
+    "change of the R1 statistic from round 1 to round 3 (same agents)",
+    "late flips (rounds 2-3)",
+    "held agents",
+    "hop1 / hop2 styles in later rounds"
+  ],
+  "test_run": "scripts/entity_run.py --stage pressure --split test --addendum rounds (-> pressure_test_rounds); round 1 there must reproduce pressure_test",
+  "dev_checks": {
+    "repeat": {
+      "worst_other": 0.577,
+      "other": {
+        "agree/-/round 2": 0.006,
+        "agree/-/round 3": 0.109,
+        "mention/-/round 2": 0.08,
+        "mention/-/round 3": 0.577,
+        "mention_bridge/-/round 2": 0.011,
+        "mention_bridge/-/round 3": 0.571,
+        "pressure/answer/round 2": 0.0,
+        "pressure/answer/round 3": 0.006,
+        "pressure/hop1/round 2": 0.0,
+        "pressure/hop1/round 3": 0.154,
+        "pressure/hop2/round 2": 0.006,
+        "pressure/hop2/round 3": 0.309
+      },
+      "reference": true
+    },
+    "rephrase": {
+      "worst_other": 0.777,
+      "round1_agreement": 1.0,
+      "n_agents": 1050,
+      "other": {
+        "agree/-/round 2": 0.137,
+        "agree/-/round 3": 0.646,
+        "mention/-/round 2": 0.309,
+        "mention/-/round 3": 0.52,
+        "mention_bridge/-/round 2": 0.777,
+        "mention_bridge/-/round 3": 0.743,
+        "pressure/answer/round 2": 0.0,
+        "pressure/answer/round 3": 0.097,
+        "pressure/hop1/round 2": 0.011,
+        "pressure/hop1/round 3": 0.16,
+        "pressure/hop2/round 2": 0.011,
+        "pressure/hop2/round 3": 0.377
+      },
+      "pass": false
+    },
+    "summary": {
+      "worst_other": 0.011,
+      "round1_agreement": 1.0,
+      "n_agents": 1050,
+      "other": {
+        "agree/-/round 2": 0.0,
+        "agree/-/round 3": 0.0,
+        "mention/-/round 2": 0.011,
+        "mention/-/round 3": 0.0,
+        "mention_bridge/-/round 2": 0.011,
+        "mention_bridge/-/round 3": 0.0,
+        "pressure/answer/round 2": 0.0,
+        "pressure/answer/round 3": 0.0,
+        "pressure/hop1/round 2": 0.0,
+        "pressure/hop1/round 3": 0.0,
+        "pressure/hop2/round 2": 0.0,
+        "pressure/hop2/round 3": 0.0
+      },
+      "pass": true
+    }
+  },
+  "dev_runs": [
+    "results/qwen35_4b_entity/entity/pressure_dev_rounds_repeat",
+    "results/qwen35_4b_entity/entity/pressure_dev_rounds_rephrase",
+    "results/qwen35_4b_entity/entity/pressure_dev_rounds_summary"
+  ],
+  "model": "Qwen/Qwen3.5-4B",
+  "main_prereg": "prereg/qwen35_4b_entity.json",
+  "main_prereg_sha256": "2a85d61dce1753537b4b37426e9611528ee2eb1479d1dbed35dd79220f138cc4",
+  "created": "2026-09-28T11:13:11",
+  "code_commit": "625a271a4ca6d347b1df1d34483f4130e694c7d1"
+}

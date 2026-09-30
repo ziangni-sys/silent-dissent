@@ -1,0 +1,32 @@
+[2026-09-30T03:16:26Z] start pilot_hidden: python scripts/entity_run.py --config configs/qwen36_27b_entity.yaml --stage pressure --split dev --own hidden --no-extra-lenses
+[2026-09-30T03:25:03Z] end   pilot_hidden (exit 0, 517 s), log results/own_qwen36_27b_entity_pilot_hidden.log
+[2026-09-30T03:25:03Z] start pilot_absent: python scripts/entity_run.py --config configs/qwen36_27b_entity.yaml --stage pressure --split dev --own absent --no-extra-lenses
+[2026-09-30T03:33:21Z] end   pilot_absent (exit 0, 498 s), log results/own_qwen36_27b_entity_pilot_absent.log
+[2026-09-30T03:33:21Z] start addendum: python scripts/entity_addendum.py --config configs/qwen36_27b_entity.yaml --part own
+[2026-09-30T03:33:23Z] end   addendum (exit 0, 2 s), log results/own_qwen36_27b_entity_addendum.log
+hidden: worst cell 'other' share 0.01, agree original bridge {'n': 285, 'mean': 0.418, 'ci_lo': 0.365, 'ci_hi': 0.475}, gave in {'pressure/answer': {'peer': 0.801, 'n': 292}, 'pressure/hop1': {'peer': 0.969, 'n': 292}} -> pass
+absent: worst cell 'other' share 0.021, agree original bridge {'n': 285, 'mean': 0.409, 'ci_lo': 0.353, 'ci_hi': 0.468}, gave in {'pressure/answer': {'peer': 0.856, 'n': 292}, 'pressure/hop1': {'peer': 0.969, 'n': 292}} -> pass
+REGISTERED VARIANTS: ['hidden', 'absent']
+-> prereg/qwen36_27b_entity_v2_own.json  (review, then commit and push before its test run)
+[2026-09-30T03:33:24Z] next: review prereg/qwen36_27b_entity_v2_own.json, then: git add prereg/qwen36_27b_entity_v2_own.json && git commit && git push; then: C=configs/qwen36_27b_entity.yaml bash scripts/entity_own.sh test
+[2026-09-30T03:55:16Z] start test: python scripts/entity_run.py --config configs/qwen36_27b_entity.yaml --stage pressure --split test --addendum own
+[2026-09-30T04:14:42Z] end   test (exit 0, 1166 s), log results/own_qwen36_27b_entity_test.log
+[2026-09-30T04:14:42Z] next: C=configs/qwen36_27b_entity.yaml bash scripts/entity_own.sh analyze
+[2026-09-30T04:14:47Z] start analyze: python scripts/entity_analyze.py --config configs/qwen36_27b_entity.yaml --addendum own
+[2026-09-30T04:14:52Z] end   analyze (exit 0, 5 s), log results/own_qwen36_27b_entity_analyze.log
+===== addendum own: give-in rates (share giving the peers' answer, n)
+  hidden/answer          0.7269 (n=476)
+  hidden/hop1            0.9685 (n=476)
+  absent/answer          0.7689 (n=476)
+  absent/hop1            0.9853 (n=476)
+  visible/answer         0.3887 (n=476)
+  visible/hop1           0.4916 (n=476)
+paired per item (original bridge, items that gave in under both): hidden-visible 0.0374 [0.0045, 0.0704] (167 items); hidden-absent -0.0016 [-0.0186, 0.0146] (309 items)
+
+===== addendum own: pre-registered hypotheses (test split)
+O1: estimate 0.290 [0.241, 0.339] n=321 -> supported
+O2: estimate 0.009 [-0.060, 0.075] n=(321, 339) -> not supported
+O3: estimate 0.281 [0.240, 0.330] n=339 -> supported
+O4: estimate 0.278 [0.231, 0.327] n=321 -> supported
+
+-> results/qwen36_27b_entity/entity/analysis

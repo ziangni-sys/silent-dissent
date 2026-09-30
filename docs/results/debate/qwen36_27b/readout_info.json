@@ -1,0 +1,18 @@
+{
+ "source": "results/qwen36_27b_entity/entity/debate_test/records.jsonl",
+ "lens": "jlens",
+ "band": [
+  52,
+  53,
+  54,
+  55
+ ],
+ "k": 100,
+ "format": "plain",
+ "n_facts": 279,
+ "n_agents": 3,
+ "rounds": 3,
+ "reconstruction_match": 1.0,
+ "reconstruction_identical": 1.0,
+ "config": "configs/qwen36_27b_entity.yaml"
+}

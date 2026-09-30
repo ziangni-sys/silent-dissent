@@ -1,0 +1,67 @@
+# Offline check of the entity pipeline on a tiny random model (numbers are meaningless):
+#   python -m silent_dissent.debug results/debug_entity_model --entity
+#   python scripts/fit_jlens.py --config configs/debug_entity.yaml
+#   then every scripts/entity_*.py step with --config configs/debug_entity.yaml
+# The random model knows no fact, so the debug-only switches below keep every item in play.
+model:
+  name: results/debug_entity_model
+  dtype: float32
+  device_map: null
+
+lens:
+  name: jlens
+  kwargs: {path: results/debug_entity/jlens.pt}
+
+jlens:
+  corpus: tests/fixtures/corpus.txt
+  n_prompts: 6
+  max_seq_len: 64
+  dim_batch: 16
+  skip_first: 2
+
+data: {n_choices: 4}
+seed: 0
+batch_size: 4
+out_dir: results/debug_entity
+entity_prereg: results/debug_entity/prereg_entity.json
+
+entity:
+  sources:
+    - {name: twohopfact, path: tests/fixtures/twohopfact_sample.csv}
+    - {name: handmade}
+  max_per_category: 12
+  dev_frac: 0.5
+  gen_tokens: 4
+  gen_batch_size: 8
+  formats: [plain, chat]
+  e0_n_peers: [2]
+  styles: [answer, hop1, hop2]
+  n_peers: [1, 2]
+  primary_n_peers: 2
+  rounds: 2
+  known_filter: false            # debug only
+  require_correct_round0: false  # debug only
+  select: {k: 10, band_threshold: -1.0, min_accuracy: 0.0, min_n: 0, retention_outcome: any}
+  timeline: {styles: [answer, hop2], n_peers: 2, layers: null, limit: 6}
+  intervention:
+    style: answer
+    n_peers: 2
+    layers: null
+    band_layers: 1
+    alphas: [0.0, 0.5]
+    kinds_flipped: [orig_bridge, random]
+    kinds_held: [peer_bridge]
+    limit: 6
+    debug_any_outcome: true      # debug only
+  debate: {n_items: 6, known_share: 0.5, n_agents: 3, rounds: 1, temperature: 1.0}
+  addenda:
+    rounds: {variants: [rephrase, summary], pilot_limit: 6, n_peers: 2, round: 2, max_other: 1.0,
+             min_round1_agreement: 0.0}
+    # country: the fixture's dev split has a single person bridge (Kafka), too few for partners
+    bridges: {bridge_types: [country], probe_modes: [words, last_word], positions: [last, mention, span],
+              band_threshold: -1.0, category_threshold: -1.0, min_category_n: 0, min_n: 0,
+              min_adoption_gap: null, min_persistence: null,   # debug only
+              styles: [answer], baselines: [mention], n_peers: [1, 2]}
+    own: {variants: [hidden, absent], styles: [answer], baselines: [agree, mention], n_peers: 2,
+          pilot_limit: 6, max_other: 1.0, min_agree_n: null, min_test_n: 0}   # debug only
+  extra_lenses: []

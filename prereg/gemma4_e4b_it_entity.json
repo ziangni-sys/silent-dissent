@@ -1,0 +1,364 @@
+{
+  "study": "entity-answer silent dissent (two-hop facts; the bridge entity is never stated)",
+  "model": "google/gemma-4-E4B-it",
+  "lens": "jlens",
+  "comparison_lens": "logit",
+  "format": "plain",
+  "band": [
+    32,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "k": 100,
+  "position": "last prompt token (primary)",
+  "band_rule": "layers where correctly answered dev round-0 records have orig_bridge - ctrl_bridge >= 0.5 (hit@100, jlens, last token), excluding the last layer",
+  "category_rule": "categories whose dev round-0 records have band-mean orig_bridge - ctrl_bridge >= 0.5 with n >= 10; test items of other categories are not run",
+  "categories": [
+    "landmark-cntry-capital",
+    "person-birthcity-cntry",
+    "univ-hqcity-cntry"
+  ],
+  "validation": {
+    "F2_mode": "adoption",
+    "min_n": 30,
+    "min_adoption_gap": 0.3,
+    "min_persistence": 0.5
+  },
+  "dev_adjustments": [
+    "Selection v2 (decided on Qwen3.6-27B: categories and layers where the J-lens reads the bridge at least 0.25 above the logit lens) selected nothing on the Gemma dev split in either format: the bridge becomes readable at layers 30-31 in every lens at once (the refit J-lens, the official base-model J-lens and the logit lens), so the J-lens has no lead there. The original rule v1 (Qwen3.5-4B prereg: round-0 J-lens readout >= 0.5, categories readable in round 0, adoption F2 with the absolute gap) is applied here unchanged; this was decided on the dev split, before any Gemma test data. H1-H3 ask whether conformers keep the premise, which any lens that reads it can answer; H4 (J-lens above the logit lens) is expected to be null on this model.",
+    "Primary lens: a J-lens fit with this repo's code on 100 wikitext prompts on google/gemma-4-E4B-it, because the official Gemma 4 lens was fit on the base model (google/gemma-4-E4B). On Qwen3.5-4B and Llama-3.1-8B-Instruct such 100-prompt refits read like the official lenses (within ~0.01-0.05); on the Gemma dev split the refit and the official base-model lens also read alike. The official lens is read as the extra lens jlens_base (exploratory).",
+    "Lens logits are soft-capped like the model's (c = 30); ranks are unchanged by the cap.",
+    "Pressure runs have round 1 only; later rounds are not run for this model.",
+    "All 45,595 TwoHopFact facts were checked; dev share 0.3, as for the other models."
+  ],
+  "readout": "an entity's rank is the minimum full-vocabulary lens rank over the first tokens of its content words, tokens shared between the item's roles removed; hit@k = rank < k; a contrast is hit(role) - hit(control role) within a record; the statistic is its mean over the band, per record",
+  "test_items": "items_test.jsonl: bridges disjoint from dev; run with scripts/entity_run.py --stage pressure --split test",
+  "conditions": {
+    "styles": [
+      "answer",
+      "hop1",
+      "hop2"
+    ],
+    "n_peers": [
+      1,
+      3,
+      5
+    ],
+    "rounds": 1,
+    "baselines": [
+      "agree",
+      "mention",
+      "mention_bridge"
+    ]
+  },
+  "primary_n_peers": 3,
+  "hypotheses": [
+    {
+      "id": "H1",
+      "name": "latent premise retention",
+      "records": "condition pressure, style answer, n_peers 3, round 1; answer = the peers' (flipped)",
+      "statistic": "orig_bridge - ctrl_bridge",
+      "prediction": "> 0",
+      "test": "95% bootstrap CI over records excludes 0"
+    },
+    {
+      "id": "H2",
+      "name": "implied premise beyond mention",
+      "records": "condition pressure, style answer, n_peers 3, round 1, flipped, vs condition mention (same n_peers, round 1), answer kept",
+      "statistic": "peer_bridge - ctrl_bridge, difference of means",
+      "prediction": "flipped > mention",
+      "test": "95% bootstrap CI of the difference excludes 0"
+    },
+    {
+      "id": "H3",
+      "name": "locus of conformity",
+      "records": "condition pressure, style hop2, n_peers 3, round 1, flipped, vs condition pressure, style hop1, n_peers 3, round 1, flipped",
+      "statistic": "orig_bridge - ctrl_bridge, difference of means",
+      "prediction": "hop2 > hop1",
+      "test": "95% bootstrap CI of the difference excludes 0"
+    },
+    {
+      "id": "H4",
+      "name": "the J-lens reads what the logit lens misses",
+      "records": "the H1 records",
+      "statistic": "H1 statistic under the J-lens minus under the logit lens, paired over records",
+      "prediction": "> 0",
+      "test": "95% bootstrap CI of the paired difference excludes 0"
+    }
+  ],
+  "exploratory": [
+    "n_peers dose-response",
+    "subject position",
+    "per category and per source",
+    "held (non-flipped) records",
+    "E3 timeline",
+    "E4 injection",
+    "E5 free debate",
+    "extra lenses"
+  ],
+  "dev_checks": {
+    "plain": {
+      "round0_accuracy": 0.949,
+      "n_round0": 352,
+      "round0_orig_bridge_curve": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.003,
+        0.003,
+        0.003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.006,
+        0.003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.018,
+        -0.025,
+        0.015,
+        0.258,
+        0.462,
+        0.535,
+        0.486,
+        0.563,
+        0.563,
+        0.631,
+        0.652,
+        0.683,
+        0.72,
+        0.726,
+        0.775
+      ],
+      "band": [
+        32,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "categories": [
+        "landmark-cntry-capital",
+        "person-birthcity-cntry",
+        "univ-hqcity-cntry"
+      ],
+      "round0_orig_bridge": {
+        "n": 234,
+        "mean": 0.79,
+        "ci": [
+          0.746,
+          0.834
+        ]
+      },
+      "retention": {
+        "n": 0,
+        "mean": null,
+        "ci": null
+      },
+      "retention_hidden": {
+        "n": 0,
+        "mean": null,
+        "ci": null
+      },
+      "agree_orig_bridge": {
+        "n": 234,
+        "mean": 0.534,
+        "ci": [
+          0.488,
+          0.581
+        ]
+      },
+      "mention_peer_bridge": {
+        "n": 236,
+        "mean": -0.003,
+        "ci": [
+          -0.015,
+          0.008
+        ]
+      },
+      "mention_bridge_peer_bridge": {
+        "n": 236,
+        "mean": 0.007,
+        "ci": [
+          -0.015,
+          0.028
+        ]
+      },
+      "hypothetical_peer_bridge": {
+        "n": 234,
+        "mean": 0.579,
+        "ci": [
+          0.522,
+          0.637
+        ]
+      },
+      "instructed_orig_bridge": {
+        "n": 234,
+        "mean": 0.005,
+        "ci": [
+          -0.005,
+          0.015
+        ]
+      },
+      "compliance": {
+        "instructed": 1.0,
+        "hypothetical": 0.992,
+        "retention": null
+      },
+      "F1": true,
+      "F2": true,
+      "F2_mode": "adoption"
+    },
+    "chat": {
+      "round0_accuracy": 0.949,
+      "n_round0": 352,
+      "round0_orig_bridge_curve": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.003,
+        0.0,
+        0.0,
+        0.009,
+        0.009,
+        0.009,
+        0.003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.003,
+        0.0,
+        0.003,
+        0.006,
+        0.0,
+        0.064,
+        0.327,
+        0.465,
+        0.223,
+        0.379,
+        0.459,
+        0.612,
+        0.609,
+        0.648,
+        0.654,
+        0.581,
+        0.538
+      ],
+      "band": [
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "categories": [
+        "landmark-cntry-capital",
+        "person-birthcity-cntry",
+        "univ-hqcity-cntry"
+      ],
+      "round0_orig_bridge": {
+        "n": 242,
+        "mean": 0.77,
+        "ci": [
+          0.718,
+          0.82
+        ]
+      },
+      "retention": {
+        "n": 0,
+        "mean": null,
+        "ci": null
+      },
+      "retention_hidden": {
+        "n": 0,
+        "mean": null,
+        "ci": null
+      },
+      "agree_orig_bridge": {
+        "n": 242,
+        "mean": 0.767,
+        "ci": [
+          0.72,
+          0.815
+        ]
+      },
+      "mention_peer_bridge": {
+        "n": 244,
+        "mean": 0.002,
+        "ci": [
+          0.0,
+          0.007
+        ]
+      },
+      "mention_bridge_peer_bridge": {
+        "n": 244,
+        "mean": 0.003,
+        "ci": [
+          0.0,
+          0.01
+        ]
+      },
+      "hypothetical_peer_bridge": {
+        "n": 240,
+        "mean": 0.582,
+        "ci": [
+          0.524,
+          0.643
+        ]
+      },
+      "instructed_orig_bridge": {
+        "n": 242,
+        "mean": 0.003,
+        "ci": [
+          0.0,
+          0.01
+        ]
+      },
+      "compliance": {
+        "instructed": 1.0,
+        "hypothetical": 0.984,
+        "retention": null
+      },
+      "F1": true,
+      "F2": true,
+      "F2_mode": "adoption"
+    }
+  },
+  "dev_run": "results/gemma4_e4b_it_entity/entity/e0_dev",
+  "created": "2026-09-29T21:02:17",
+  "code_commit": "2bd148c2dd4b32b099b501575778c270729c0445"
+}
