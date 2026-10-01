@@ -2,7 +2,8 @@
 
 **LLM agents that yield to the majority still represent their original premise.**
 
-Ziang Ni (Delft University of Technology) · preprint, October 2026 ·
+Ziang Ni\* (Delft University of Technology) · Peng Zou\* (Sun Yat-sen University) ·
+\* equal contribution · preprint, October 2026 ·
 [paper](paper/silent_dissent.pdf) · [supplement](paper/silent_dissent_supplement.pdf)
 
 When an LLM agent in a multi-agent debate abandons a correct answer to join a unanimous majority, has it
@@ -84,7 +85,7 @@ replications; `scripts/entity_addendum.py` writes follow-up registrations from d
 with the agent's earlier answer hidden or absent runs with `C=<config> bash scripts/entity_own.sh dev|test|analyze`;
 `scripts/entity_robust.py` computes the exploratory robustness analyses; `scripts/entity_debate_check.py` and
 `scripts/entity_debate_bridges.py` are the free-debate follow-ups. Raw per-record outputs (lens ranks,
-generations, logs) are not included because of their size; please contact the author.
+generations, logs) are not included because of their size; please contact the authors.
 
 ## Lenses and data
 
@@ -100,14 +101,14 @@ generations, logs) are not included because of their size; please contact the au
 ## Use of AI tools
 
 The code was written and run, design choices were discussed and the text was edited with the assistance of
-Claude Code (Anthropic); the author decided and checked every step. See the supplement, "Use of AI Tools".
+Claude Code (Anthropic); the authors decided and checked every step. See the supplement, "Use of AI Tools".
 
 ## Citation
 
 ```bibtex
 @misc{ni2026silentdissent,
   title  = {Silent Dissent: LLM Agents That Yield to the Majority Still Represent Their Original Premise},
-  author = {Ziang Ni},
+  author = {Ni, Ziang and Zou, Peng},
   year   = {2026},
   note   = {Preprint},
   url    = {https://github.com/ziangni-sys/silent-dissent}

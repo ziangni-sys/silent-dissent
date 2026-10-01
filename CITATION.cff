@@ -6,6 +6,10 @@ authors:
     given-names: Ziang
     affiliation: "Delft University of Technology"
     email: ziangni@tudelft.nl
+  - family-names: Zou
+    given-names: Peng
+    affiliation: "Sun Yat-sen University"
+    email: zoup7@mail2.sysu.edu.cn
 date-released: 2026-10-01
 url: "https://github.com/ziangni-sys/silent-dissent"
 license: MIT
